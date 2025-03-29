@@ -3,6 +3,36 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Hoofdkleuren uit het logo */
+  --primary: #2c5282; /* Diepere blauw */
+  --primary-hover: #1a365d;
+  --secondary: #5a9bd3; /* Levendigere secundaire kleur */
+  --secondary-hover: #4c84b5;
+  
+  /* Extra kleuren voor meer variatie */
+  --accent-purple: #7e3af2; /* Paarse tint uit logo */
+  --accent-teal: #16bdca; /* Teal accent uit logo */
+  --accent-amber: #ff9e2c; /* Warme oranje/amber uit logo */
+  --accent-red: #e02424; /* Rood accent uit logo */
+  
+  /* Functionele kleuren */
+  --accent: #e6f0f7;
+  --success: #3dad7e; /* Aangepaste groen tint */
+  --warning: #ff9e2c; /* Oranje voor waarschuwingen */
+  --error: #e02424; /* Rood voor fouten */
+  --info: #4299e1; /* Lichtblauw voor info */
+  
+  /* Achtergronden */
+  --highlight: #f0f9ff; /* Lichte highlight achtergrond */
+  --card-bg: #f9fafb; /* Lichtere achtergrond voor kaarten */
+  
+  /* Gradients */
+  --gradient-blue: linear-gradient(to right, #3182ce, #5a9bd3); /* Blauwe gradient */
+  --gradient-purple: linear-gradient(to right, #5a67d8, #7e3af2); /* Paarse gradient */
+  --gradient-mixed: linear-gradient(to right, #3182ce, #7e3af2); /* Blauw naar paars */
+  --gradient-warm: linear-gradient(to right, #ff9e2c, #e02424); /* Oranje naar rood */
+  --gradient-teal: linear-gradient(to right, #0d9488, #16bdca); /* Teal gradient */
 }
 
 @theme inline {
@@ -12,15 +42,97 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Disabled dark mode
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+*/
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animaties voor de stippen in hero section */
+@keyframes float-around {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(15px, -10px); }
+  50% { transform: translate(-5px, 15px); }
+  75% { transform: translate(-20px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes ping-gentle {
+  0% { transform: scale(1); opacity: var(--tw-bg-opacity, 0.2); }
+  50% { transform: scale(1.8); opacity: calc(var(--tw-bg-opacity, 0.2) - 0.05); }
+  100% { transform: scale(1); opacity: var(--tw-bg-opacity, 0.2); }
+}
+
+.animate-float-1 {
+  animation: float-around 9s ease-in-out infinite, ping-gentle 5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-float-2 {
+  animation: float-around 8s ease-in-out infinite reverse, ping-gentle 6s ease-in-out infinite;
+  animation-delay: 2.1s;
+}
+
+.animate-float-3 {
+  animation: float-around 12s ease-in-out infinite, ping-gentle 7s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.animate-float-4 {
+  animation: float-around 10s ease-in-out infinite reverse, ping-gentle 8s ease-in-out infinite;
+  animation-delay: 3.5s;
+}
+
+.animate-float-5 {
+  animation: float-around 11s ease-in-out infinite, ping-gentle 6.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.animate-float-6 {
+  animation: float-around 9.5s ease-in-out infinite reverse, ping-gentle 7.5s ease-in-out infinite;
+  animation-delay: 4.2s;
+}
+
+.animate-float-7 {
+  animation: float-around 10.5s ease-in-out infinite, ping-gentle 6s ease-in-out infinite;
+  animation-delay: 2.7s;
+}
+
+.animate-float-8 {
+  animation: float-around 8.5s ease-in-out infinite reverse, ping-gentle 5.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.animate-float-9 {
+  animation: float-around 13s ease-in-out infinite, ping-gentle 8s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+.animate-float-10 {
+  animation: float-around 14s ease-in-out infinite reverse, ping-gentle 7s ease-in-out infinite;
+  animation-delay: 3.1s;
+}
+
+.animate-float-11 {
+  animation: float-around 10s ease-in-out infinite, ping-gentle 6s ease-in-out infinite;
+  animation-delay: 4.5s;
+}
+
+.animate-float-12 {
+  animation: float-around 9s ease-in-out infinite reverse, ping-gentle 7s ease-in-out infinite;
+  animation-delay: 3.8s;
+}
+
+.animate-float-13 {
+  animation: float-around 11s ease-in-out infinite, ping-gentle 6.5s ease-in-out infinite;
+  animation-delay: 2.3s;
 }
