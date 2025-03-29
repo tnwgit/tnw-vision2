@@ -2,13 +2,15 @@
 const nextConfig = {
   /* config options here */
   eslint: {
-    // Staat de build toe om door te gaan ondanks ESLint errors
+    // Laat de build doorgaan ondanks ESLint fouten
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Staat de build toe om door te gaan ondanks TypeScript errors
+    // Laat de build doorgaan ondanks TypeScript fouten
     ignoreBuildErrors: true,
   },
+  // Optimaliseer voor deployment op Vercel
+  output: 'standalone',
 };
 
 module.exports = nextConfig; 
