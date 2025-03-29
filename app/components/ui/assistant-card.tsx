@@ -43,7 +43,7 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
   const { borderColor, gradient } = getCardStyle(id);
   
   return (
-    <Card className={cn(`overflow-hidden hover:shadow-lg transition-all border-t-4 ${borderColor}`, className)}>
+    <Card className={cn(`overflow-hidden hover:shadow-lg transition-all border-t-4 ${borderColor} border-gray-100 shadow-sm`, className)}>
       <div className={`h-48 ${gradient} relative`}>
         {/* Placeholder for image - in a real app you'd use Next Image component */}
         <div 
@@ -58,7 +58,7 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
       <CardContent className="pt-6 bg-[#f9fafb]">
         <p className="text-gray-600 mb-6">{description}</p>
         
-        <h4 className="font-medium text-[#2c5282] mb-3">Key Benefits:</h4>
+        <h4 className="font-medium text-[#2c5282] mb-3">Key benefits:</h4>
         <ul className="space-y-2">
           {benefits.slice(0, 3).map((benefit, index) => (
             <li key={index} className="flex items-start gap-2">
@@ -81,7 +81,7 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
           className="flex-1 border-[#5a9bd3] text-[#2c5282] hover:bg-[#f0f9ff]"
         >
           <Link href={`/organization/${organizationTypeId}/assistant/${id}`} className="w-full h-full flex items-center justify-center">
-            Learn More
+            Learn more
           </Link>
         </Button>
         <Button 
@@ -91,8 +91,8 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
                   id.includes('municipality') ? 'gradient-teal' : 'gradient-mixed'}
           className="flex-1"
         >
-          <Link href={`/organization/${organizationTypeId}/assistant/${id}/configure`} className="w-full h-full flex items-center justify-center">
-            Configure
+          <Link href={`/organization/${organizationTypeId}/assistant/${id}/wizard`} className="w-full h-full flex items-center justify-center">
+            Customize
           </Link>
         </Button>
       </CardFooter>

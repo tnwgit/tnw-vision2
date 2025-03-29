@@ -230,7 +230,7 @@ export function ModuleConfig({ module, initialConfig, onSave, onCancel }: Module
       <div className="p-6 border-b">
         <div className="flex items-center justify-between mb-6">
           <Label htmlFor={`enable-${module.id}`} className="font-medium">
-            {module.isRequired ? "This module is required" : "Enable this module"}
+            {module.isRequired ? "This feature will be included" : "Would you like this feature?"}
           </Label>
           <Switch
             id={`enable-${module.id}`}
@@ -249,12 +249,12 @@ export function ModuleConfig({ module, initialConfig, onSave, onCancel }: Module
         </div>
       </div>
 
-      <div className="p-4 bg-gray-50 border-t border-gray-200 flex justify-end gap-3">
+      <div className="p-4 flex justify-end gap-3">
         <Button variant="outline" onClick={onCancel}>
           Cancel
         </Button>
-        <Button variant="gradient" onClick={handleSave}>
-          Save Configuration
+        <Button variant="primary" onClick={handleSave} className="bg-blue-600 hover:bg-blue-700 text-white">
+          Save Preferences
         </Button>
       </div>
     </div>

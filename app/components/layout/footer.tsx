@@ -13,7 +13,7 @@ export function Footer() {
             <Link href="/" className="flex items-center">
               <Image 
                 src="/images/logos/logoTNW.svg" 
-                alt="The Next Wilson Logo" 
+                alt="The next wilson logo" 
                 width={180} 
                 height={40} 
                 className="h-10 w-auto" 
@@ -81,12 +81,12 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href="/solutions/legal" className="text-gray-600 hover:text-[#ff9e2c]">
-                    Law Firms
+                    Law firms
                   </Link>
                 </li>
                 <li>
                   <Link href="/solutions/custom" className="text-gray-600 hover:text-[#7e3af2]">
-                    Custom AI Solutions
+                    Custom AI solutions
                   </Link>
                 </li>
               </ul>
@@ -98,7 +98,7 @@ export function Footer() {
               <ul className="mt-4 space-y-3">
                 <li>
                   <Link href="/about" className="text-gray-600 hover:text-[#3182ce]">
-                    About Us
+                    About us
                   </Link>
                 </li>
                 <li>
@@ -125,17 +125,17 @@ export function Footer() {
               <ul className="mt-4 space-y-3">
                 <li>
                   <Link href="/privacy" className="text-gray-600 hover:text-[#3182ce]">
-                    Privacy Policy
+                    Privacy policy
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms" className="text-gray-600 hover:text-[#7e3af2]">
-                    Terms of Service
+                    Terms of service
                   </Link>
                 </li>
                 <li>
                   <Link href="/cookie-policy" className="text-gray-600 hover:text-[#16bdca]">
-                    Cookie Policy
+                    Cookie policy
                   </Link>
                 </li>
               </ul>
@@ -144,7 +144,7 @@ export function Footer() {
         </div>
         <div className="border-t border-gray-200 pt-8 mt-12">
           <p className="text-gray-500 text-sm text-center">
-            &copy; {new Date().getFullYear()} The Next Wilson. All rights reserved.
+            &copy; {new Date().getFullYear()} The next wilson. All rights reserved.
           </p>
         </div>
       </div>

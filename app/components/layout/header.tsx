@@ -24,7 +24,7 @@ export function Header() {
             >
               <Image 
                 src="/images/logos/logoTNW.svg" 
-                alt="The Next Wilson Logo" 
+                alt="The next wilson logo" 
                 width={180} 
                 height={40} 
                 className="h-10 w-auto" 
@@ -39,7 +39,7 @@ export function Header() {
               href="/about" 
               className="text-sm font-medium text-gray-700 hover:text-[#3182ce] transition-colors"
             >
-              About Us
+              About us
             </Link>
             <Link 
               href="/solutions" 
@@ -60,7 +60,7 @@ export function Header() {
               Contact
             </Link>
             <Button asChild variant="gradient-mixed" className="ml-4">
-              <Link href="/demo" className="w-full h-full flex items-center justify-center">Try Demo</Link>
+              <Link href="/demo" className="w-full h-full flex items-center justify-center">Try demo</Link>
             </Button>
           </nav>
 
@@ -70,7 +70,7 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={toggleMenu}
-              aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -87,7 +87,7 @@ export function Header() {
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3182ce] hover:bg-gray-50 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              About Us
+              About us
             </Link>
             <Link
               href="/solutions"
@@ -113,7 +113,7 @@ export function Header() {
             <div className="pt-2">
               <Button asChild variant="gradient-mixed" className="w-full">
                 <Link href="/demo" onClick={() => setIsMenuOpen(false)} className="w-full h-full flex items-center justify-center">
-                  Try Demo
+                  Try demo
                 </Link>
               </Button>
             </div>

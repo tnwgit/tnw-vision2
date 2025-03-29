@@ -55,7 +55,7 @@ export default function OrganizationPage({ params }: OrganizationPageProps) {
       <Section className="bg-white">
         <div className="max-w-4xl">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            About Our {name} AI Assistants
+            About our {name} AI assistants
           </h2>
           <p className="text-xl text-gray-600 mb-8">
             {description}
@@ -69,7 +69,7 @@ export default function OrganizationPage({ params }: OrganizationPageProps) {
       </Section>
 
       <Section
-        title="Available Assistants"
+        title="Available assistants"
         description={`Choose from ${assistants.length} specialized AI assistants designed specifically for ${name.toLowerCase()} organizations.`}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -80,7 +80,7 @@ export default function OrganizationPage({ params }: OrganizationPageProps) {
       </Section>
 
       <Section 
-        title="Common Use Cases" 
+        title="Common use cases" 
         description={`Discover how our AI assistants can transform operations in ${name.toLowerCase()} organizations.`}
         tinted
       >
@@ -111,7 +111,7 @@ function getUseCases(type: string) {
     case 'hotel':
       return [
         {
-          title: "24/7 Guest Support",
+          title: "24/7 guest support",
           description: "Provide instant responses to guest inquiries and requests at any time of day.",
           benefits: [
             "Reduce front desk workload by up to 40%",
@@ -120,7 +120,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Streamlined Booking Process",
+          title: "Streamlined booking process",
           description: "Simplify the reservation flow and maximize occupancy rates.",
           benefits: [
             "Increase direct bookings by up to 25%",
@@ -129,7 +129,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Revenue Enhancement",
+          title: "Revenue enhancement",
           description: "Intelligently upsell services and experiences to guests.",
           benefits: [
             "Increase average guest spend by 15-30%",
@@ -138,7 +138,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Operational Efficiency",
+          title: "Operational efficiency",
           description: "Streamline internal processes and staff communication.",
           benefits: [
             "Reduce response time to maintenance requests",
@@ -150,7 +150,7 @@ function getUseCases(type: string) {
     case 'municipality':
       return [
         {
-          title: "Citizen Information Services",
+          title: "Citizen information services",
           description: "Provide accurate information about municipal services, procedures, and events.",
           benefits: [
             "Reduce call center volume by up to 45%",
@@ -159,7 +159,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Application & Permit Processing",
+          title: "Application & permit processing",
           description: "Guide citizens through permit applications and administrative procedures.",
           benefits: [
             "Reduce application errors by up to 60%",
@@ -168,7 +168,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Complaint Management",
+          title: "Complaint management",
           description: "Efficiently handle and route citizen complaints to appropriate departments.",
           benefits: [
             "Faster response to critical issues",
@@ -177,7 +177,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Community Engagement",
+          title: "Community engagement",
           description: "Increase citizen participation in local governance and community events.",
           benefits: [
             "Higher awareness of community initiatives",
@@ -189,7 +189,7 @@ function getUseCases(type: string) {
     case 'legal':
       return [
         {
-          title: "Client Intake & Screening",
+          title: "Client intake & screening",
           description: "Streamline the client onboarding process and initial case evaluation.",
           benefits: [
             "Reduce administrative workload by up to 35%",
@@ -198,7 +198,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Legal Research Assistance",
+          title: "Legal research assistance",
           description: "Support attorneys with preliminary research and case preparation.",
           benefits: [
             "Save 5-10 hours per case on initial research",
@@ -207,7 +207,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Document Generation",
+          title: "Document generation",
           description: "Create standardized legal documents and forms based on client information.",
           benefits: [
             "Reduce document preparation time by up to 70%",
@@ -216,7 +216,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Client Communication",
+          title: "Client communication",
           description: "Maintain regular updates and answer common client questions.",
           benefits: [
             "Improved client satisfaction through regular updates",
@@ -228,7 +228,7 @@ function getUseCases(type: string) {
     default:
       return [
         {
-          title: "Operational Efficiency",
+          title: "Operational efficiency",
           description: "Streamline processes and reduce manual workload across your organization.",
           benefits: [
             "Reduce administrative tasks by up to 40%",
@@ -237,7 +237,7 @@ function getUseCases(type: string) {
           ]
         },
         {
-          title: "Enhanced Customer Experience",
+          title: "Enhanced customer experience",
           description: "Provide 24/7 support and personalized service to your customers.",
           benefits: [
             "Increase customer satisfaction scores",

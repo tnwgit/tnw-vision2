@@ -17,7 +17,7 @@ export const commonModules: Module[] = [
     configOptions: [
       {
         id: 'auth-provider',
-        name: 'Authentication Provider',
+        name: 'Authentication provider',
         description: 'Choose the authentication provider to use',
         type: ConfigOptionType.Select,
         required: true,
@@ -26,7 +26,7 @@ export const commonModules: Module[] = [
       },
       {
         id: 'multi-factor',
-        name: 'Multi-Factor Authentication',
+        name: 'Multi-factor authentication',
         description: 'Enable multi-factor authentication',
         type: ConfigOptionType.Toggle,
         required: false,
@@ -38,14 +38,14 @@ export const commonModules: Module[] = [
   },
   {
     id: 'anon-layer',
-    name: 'Anonymization Layer',
+    name: 'Anonymization layer',
     description: 'Ensures user data privacy and compliance',
     icon: 'eye-slash',
     category: ModuleCategory.Security,
     configOptions: [
       {
         id: 'anon-level',
-        name: 'Anonymization Level',
+        name: 'Anonymization level',
         description: 'Set the level of data anonymization',
         type: ConfigOptionType.Select,
         required: true,
@@ -58,14 +58,14 @@ export const commonModules: Module[] = [
   },
   {
     id: 'llm-selection',
-    name: 'LLM Selection',
+    name: 'LLM selection',
     description: 'Choose and configure the LLM to power your assistant',
     icon: 'cpu',
     category: ModuleCategory.Integration,
     configOptions: [
       {
         id: 'llm-provider',
-        name: 'LLM Provider',
+        name: 'LLM provider',
         description: 'Select the LLM provider',
         type: ConfigOptionType.Select,
         required: true,
@@ -74,7 +74,7 @@ export const commonModules: Module[] = [
       },
       {
         id: 'model-version',
-        name: 'Model Version',
+        name: 'Model version',
         description: 'Select the model version',
         type: ConfigOptionType.Select,
         required: true,
@@ -87,7 +87,7 @@ export const commonModules: Module[] = [
   },
   {
     id: 'hosting-location',
-    name: 'Hosting Location',
+    name: 'Hosting location',
     description: 'Configure where your solution will be hosted',
     icon: 'server',
     category: ModuleCategory.Security,
@@ -103,7 +103,7 @@ export const commonModules: Module[] = [
       },
       {
         id: 'provider',
-        name: 'Cloud Provider',
+        name: 'Cloud provider',
         description: 'Select the cloud provider',
         type: ConfigOptionType.Select,
         required: true,
@@ -116,14 +116,14 @@ export const commonModules: Module[] = [
   },
   {
     id: 'chat-widget',
-    name: 'Chat Widget',
+    name: 'Chat widget',
     description: 'Customizable chat interface for your users',
     icon: 'message-circle',
     category: ModuleCategory.Communication,
     configOptions: [
       {
         id: 'widget-style',
-        name: 'Widget Style',
+        name: 'Widget style',
         description: 'Select the chat widget style',
         type: ConfigOptionType.Select,
         required: false,
@@ -132,7 +132,7 @@ export const commonModules: Module[] = [
       },
       {
         id: 'widget-position',
-        name: 'Widget Position',
+        name: 'Widget position',
         description: 'Select the widget position on screen',
         type: ConfigOptionType.Select,
         required: false,
@@ -141,7 +141,7 @@ export const commonModules: Module[] = [
       },
       {
         id: 'brand-color',
-        name: 'Brand Color',
+        name: 'Brand color',
         description: 'Set the primary brand color (hex)',
         type: ConfigOptionType.Text,
         required: false,
@@ -153,14 +153,14 @@ export const commonModules: Module[] = [
   },
   {
     id: 'knowledge-base',
-    name: 'Knowledge Base (RAG)',
+    name: 'Knowledge base (RAG)',
     description: 'Import and manage your knowledge sources',
     icon: 'database',
     category: ModuleCategory.Knowledge,
     configOptions: [
       {
         id: 'knowledge-sources',
-        name: 'Knowledge Sources',
+        name: 'Knowledge sources',
         description: 'Select knowledge source types',
         type: ConfigOptionType.MultiSelect,
         required: false,
@@ -169,7 +169,7 @@ export const commonModules: Module[] = [
       },
       {
         id: 'vector-store',
-        name: 'Vector Database',
+        name: 'Vector database',
         description: 'Select vector database for embeddings',
         type: ConfigOptionType.Select,
         required: true,
@@ -182,14 +182,14 @@ export const commonModules: Module[] = [
   },
   {
     id: 'reporting-dashboard',
-    name: 'Reporting Dashboard',
+    name: 'Reporting dashboard',
     description: 'Analytics and insights about your assistant usage',
     icon: 'bar-chart',
     category: ModuleCategory.Reporting,
     configOptions: [
       {
         id: 'dashboard-type',
-        name: 'Dashboard Types',
+        name: 'Dashboard types',
         description: 'Select which dashboards to enable',
         type: ConfigOptionType.MultiSelect,
         required: false,
@@ -198,7 +198,7 @@ export const commonModules: Module[] = [
       },
       {
         id: 'update-frequency',
-        name: 'Data Update Frequency',
+        name: 'Data update frequency',
         description: 'How often should dashboard data update',
         type: ConfigOptionType.Select,
         required: false,
@@ -216,14 +216,14 @@ const hotelModules: Module[] = [
   ...commonModules,
   {
     id: 'booking-integration',
-    name: 'Booking System Integration',
+    name: 'Booking system integration',
     description: 'Connect to your hotel booking system',
     icon: 'calendar',
     category: ModuleCategory.Integration,
     configOptions: [
       {
         id: 'booking-provider',
-        name: 'Booking System Provider',
+        name: 'Booking system provider',
         description: 'Select your booking system',
         type: ConfigOptionType.Select,
         required: true,
@@ -232,7 +232,7 @@ const hotelModules: Module[] = [
       },
       {
         id: 'sync-frequency',
-        name: 'Sync Frequency',
+        name: 'Sync frequency',
         description: 'How often to sync with booking system',
         type: ConfigOptionType.Select,
         required: false,
@@ -245,7 +245,7 @@ const hotelModules: Module[] = [
   },
   {
     id: 'guest-services',
-    name: 'Guest Services Module',
+    name: 'Guest services module',
     description: 'Handle guest service requests and room service',
     icon: 'bell',
     category: ModuleCategory.Communication,
@@ -297,7 +297,7 @@ const municipalityModules: Module[] = [
     configOptions: [
       {
         id: 'languages',
-        name: 'Supported Languages',
+        name: 'Supported languages',
         description: 'Select supported languages',
         type: ConfigOptionType.MultiSelect,
         required: true,
@@ -315,12 +315,12 @@ export const organizationTypes: OrganizationType[] = [
   {
     id: 'hotel',
     name: 'Hotel',
-    description: 'Digital assistants for the hospitality industry',
-    icon: 'hotel-icon',
+    description: 'AI solutions for hotels and hospitality businesses to enhance guest experience and streamline operations.',
+    icon: 'Building',
     assistants: [
       {
         id: 'hotel-concierge',
-        name: 'Digital Concierge Assistant',
+        name: 'Digital concierge assistant',
         description: 'A 24/7 digital concierge to answer guest questions, handle requests, and improve guest satisfaction',
         image: '/images/hotel-concierge.jpg',
         benefits: [
@@ -335,7 +335,7 @@ export const organizationTypes: OrganizationType[] = [
       },
       {
         id: 'hotel-booking',
-        name: 'Booking Assistant',
+        name: 'Booking assistant',
         description: 'Streamline the booking process, upsell rooms and services, and optimize occupancy rates',
         image: '/images/hotel-booking.jpg',
         benefits: [
@@ -350,7 +350,7 @@ export const organizationTypes: OrganizationType[] = [
       },
       {
         id: 'hotel-upsell',
-        name: 'Upsell Assistant',
+        name: 'Upsell assistant',
         description: 'Intelligently recommend additional services and experiences to guests before and during their stay',
         image: '/images/hotel-upsell.jpg',
         benefits: [
@@ -368,12 +368,12 @@ export const organizationTypes: OrganizationType[] = [
   {
     id: 'municipality',
     name: 'Municipality',
-    description: 'Digital assistants for local government services',
-    icon: 'municipality-icon',
+    description: 'AI solutions for local governments to improve citizen services and streamline administrative processes.',
+    icon: 'Landmark',
     assistants: [
       {
         id: 'citizen-assistant',
-        name: 'Citizen Support Assistant',
+        name: 'Citizen support assistant',
         description: 'Help citizens navigate municipal services, answer questions, and guide through procedures',
         image: '/images/citizen-assistant.jpg',
         benefits: [
@@ -388,7 +388,7 @@ export const organizationTypes: OrganizationType[] = [
       },
       {
         id: 'permit-assistant',
-        name: 'Permit Application Assistant',
+        name: 'Permit application assistant',
         description: 'Guide citizens through permit applications, reducing errors and processing time',
         image: '/images/permit-assistant.jpg',
         benefits: [
@@ -405,13 +405,13 @@ export const organizationTypes: OrganizationType[] = [
   },
   {
     id: 'legal',
-    name: 'Law Firm',
-    description: 'Digital assistants for legal practices',
-    icon: 'legal-icon',
+    name: 'Legal',
+    description: 'AI assistants for law firms and legal departments to automate document processing and enhance client service.',
+    icon: 'Scale',
     assistants: [
       {
         id: 'legal-intake',
-        name: 'Client Intake Assistant',
+        name: 'Client intake assistant',
         description: 'Streamline the client intake process, gather relevant information, and schedule appointments',
         image: '/images/legal-intake.jpg',
         benefits: [
@@ -425,6 +425,108 @@ export const organizationTypes: OrganizationType[] = [
         modules: commonModules
       }
     ]
+  },
+  {
+    id: 'healthcare',
+    name: 'Healthcare',
+    description: 'AI assistants for healthcare providers to enhance patient care and optimize administrative workflows.',
+    icon: 'Stethoscope',
+    assistants: [
+      {
+        id: 'clinical-support',
+        name: 'Clinical support assistant',
+        description: 'Assists healthcare providers with clinical decision support, medical reference, and documentation.',
+        image: '/images/healthcare-clinical.jpg',
+        organizationTypeId: 'healthcare',
+        benefits: [
+          'Access to evidence-based clinical guidelines',
+          'Streamlined documentation and note-taking',
+          'Quick medical reference and drug information',
+          'Patient care plan suggestions',
+          'Integration with electronic health records'
+        ],
+        modules: [
+          // Clinical Knowledge modules
+          {
+            id: 'medical-knowledge-base',
+            name: 'Medical knowledge base',
+            description: 'Comprehensive medical reference system with up-to-date clinical guidelines',
+            icon: 'Database',
+            category: 'Knowledge',
+            isRequired: true,
+            defaultEnabled: true,
+            configOptions: []
+          },
+          {
+            id: 'ehr-integration',
+            name: 'EHR integration',
+            description: 'Connect to your electronic health record system',
+            icon: 'FileText',
+            category: 'Integration',
+            isRequired: false,
+            defaultEnabled: true,
+            configOptions: []
+          },
+          {
+            id: 'voice-transcription',
+            name: 'Voice transcription',
+            description: 'Transcribe clinical notes and patient encounters',
+            icon: 'Mic',
+            category: 'Communication',
+            isRequired: false,
+            defaultEnabled: true,
+            configOptions: []
+          }
+        ]
+      },
+      {
+        id: 'patient-engagement',
+        name: 'Patient engagement assistant',
+        description: 'Enhances patient communication, education, and follow-up to improve care outcomes.',
+        image: '/images/healthcare-patient.jpg',
+        organizationTypeId: 'healthcare',
+        benefits: [
+          'Automated appointment reminders',
+          'Personalized patient education materials',
+          'Medication adherence monitoring',
+          'Post-discharge follow-up',
+          'Patient satisfaction surveys'
+        ],
+        modules: [
+          // Patient Communication modules
+          {
+            id: 'appointment-reminders',
+            name: 'Appointment management',
+            description: 'Send automated reminders and manage scheduling',
+            icon: 'Calendar',
+            category: 'Communication',
+            isRequired: true,
+            defaultEnabled: true,
+            configOptions: []
+          },
+          {
+            id: 'patient-education',
+            name: 'Patient education',
+            description: 'Deliver personalized health information to patients',
+            icon: 'BookOpen',
+            category: 'Knowledge',
+            isRequired: false,
+            defaultEnabled: true,
+            configOptions: []
+          },
+          {
+            id: 'satisfaction-surveys',
+            name: 'Patient feedback',
+            description: 'Collect and analyze patient experience data',
+            icon: 'BarChart',
+            category: 'Reporting',
+            isRequired: false,
+            defaultEnabled: true,
+            configOptions: []
+          }
+        ]
+      }
+    ]
   }
 ];
 
@@ -432,26 +534,26 @@ export const organizationTypes: OrganizationType[] = [
 export const dashboardData = {
   [DashboardType.Customer]: {
     metrics: [
-      { id: 'total-interactions', name: 'Total Interactions', value: 12453, unit: '', change: 8.5, trend: 'up' },
-      { id: 'avg-satisfaction', name: 'Avg. Satisfaction', value: 4.7, unit: '/5', change: 0.3, trend: 'up' },
-      { id: 'resolution-rate', name: 'Resolution Rate', value: 92, unit: '%', change: 3, trend: 'up' },
-      { id: 'avg-response-time', name: 'Avg. Response Time', value: 8, unit: 'sec', change: -2, trend: 'down' }
+      { id: 'total-interactions', name: 'Total interactions', value: 12453, unit: '', change: 8.5, trend: 'up' },
+      { id: 'avg-satisfaction', name: 'Avg. satisfaction', value: 4.7, unit: '/5', change: 0.3, trend: 'up' },
+      { id: 'resolution-rate', name: 'Resolution rate', value: 92, unit: '%', change: 3, trend: 'up' },
+      { id: 'avg-response-time', name: 'Avg. response time', value: 8, unit: 'sec', change: -2, trend: 'down' }
     ]
   },
   [DashboardType.Management]: {
     metrics: [
-      { id: 'cost-savings', name: 'Est. Cost Savings', value: 125000, unit: '€', change: 15, trend: 'up' },
-      { id: 'labor-hours-saved', name: 'Labor Hours Saved', value: 1250, unit: 'hrs', change: 10, trend: 'up' },
-      { id: 'conversion-rate', name: 'Conversion Rate', value: 23, unit: '%', change: 4, trend: 'up' },
+      { id: 'cost-savings', name: 'Est. cost savings', value: 125000, unit: '€', change: 15, trend: 'up' },
+      { id: 'labor-hours-saved', name: 'Labor hours saved', value: 1250, unit: 'hrs', change: 10, trend: 'up' },
+      { id: 'conversion-rate', name: 'Conversion rate', value: 23, unit: '%', change: 4, trend: 'up' },
       { id: 'roi', name: 'ROI', value: 310, unit: '%', change: 25, trend: 'up' }
     ]
   },
   [DashboardType.Technical]: {
     metrics: [
       { id: 'uptime', name: 'Uptime', value: 99.98, unit: '%', change: 0.01, trend: 'up' },
-      { id: 'avg-latency', name: 'Avg. Latency', value: 120, unit: 'ms', change: -15, trend: 'down' },
-      { id: 'error-rate', name: 'Error Rate', value: 0.05, unit: '%', change: -0.02, trend: 'down' },
-      { id: 'token-usage', name: 'Token Usage', value: 24.5, unit: 'M', change: 2.3, trend: 'up' }
+      { id: 'avg-latency', name: 'Avg. latency', value: 120, unit: 'ms', change: -15, trend: 'down' },
+      { id: 'error-rate', name: 'Error rate', value: 0.05, unit: '%', change: -0.02, trend: 'down' },
+      { id: 'token-usage', name: 'Token usage', value: 24.5, unit: 'M', change: 2.3, trend: 'up' }
     ]
   }
 }; 

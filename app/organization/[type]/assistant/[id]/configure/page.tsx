@@ -128,9 +128,9 @@ export default function ConfigurePage() {
           <div className="lg:w-1/4">
             <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
               <div className="p-4 border-b border-gray-200">
-                <h2 className="font-bold text-lg">Configuration Modules</h2>
+                <h2 className="font-bold text-lg">Configuration Wizard</h2>
                 <p className="text-sm text-gray-500 mt-1">
-                  Select modules to configure your assistant
+                  Tell us your preferences and we'll handle the technical configuration for you
                 </p>
               </div>
               
@@ -192,12 +192,12 @@ export default function ConfigurePage() {
               <div className="flex items-start">
                 <Info className="h-5 w-5 text-blue-600 mt-0.5 mr-2" />
                 <div>
-                  <h3 className="font-medium text-blue-900">Configuration Tips</h3>
+                  <h3 className="font-medium text-blue-900">How We Support You</h3>
                   <ul className="mt-2 text-sm text-blue-800 space-y-2">
-                    <li>Required modules cannot be disabled</li>
-                    <li>Click on a module to configure its settings</li>
-                    <li>Export your configuration when finished</li>
-                    <li>You can revisit and update your configuration later</li>
+                    <li>Our experts will handle the technical configuration</li>
+                    <li>Share your preferences through this wizard</li>
+                    <li>We'll optimize settings based on your organization's needs</li>
+                    <li>You can request changes anytime after implementation</li>
                   </ul>
                 </div>
               </div>
@@ -223,10 +223,10 @@ export default function ConfigurePage() {
                   <Info className="h-10 w-10 text-blue-600" />
                 </div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                  Select a module to configure
+                  Select a module to share your preferences
                 </h2>
                 <p className="text-gray-600 mb-8 max-w-md">
-                  Choose from the modules list on the left to customize your assistant configuration.
+                  Tell us how you'd like your assistant to work. Our experts will handle the technical implementation based on your preferences.
                 </p>
                 <div className="flex gap-4">
                   <Button
@@ -245,15 +245,15 @@ export default function ConfigurePage() {
               <div className="mt-8 flex justify-between items-center">
                 <div>
                   <h2 className="text-lg font-semibold text-gray-900 mb-2">
-                    Configuration Summary
+                    Preference Summary
                   </h2>
                   <p className="text-gray-600">
-                    {config.modules.filter(m => m.enabled).length} of {modules.length} modules enabled
+                    {config.modules.filter(m => m.enabled).length} of {modules.length} modules selected
                   </p>
                 </div>
                 <div className="space-x-4">
                   <Button variant="outline" onClick={handleExportConfig}>
-                    Export Config
+                    Submit Preferences
                   </Button>
                   <Button asChild variant="gradient">
                     <Link href={`/organization/${typeId}/assistant/${assistantId}/dashboard`} className="flex items-center">
@@ -264,6 +264,14 @@ export default function ConfigurePage() {
                 </div>
               </div>
             )}
+            
+            <div className="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-100">
+              <h3 className="font-bold text-gray-900 mb-3">Let us handle the technical details</h3>
+              <p className="text-gray-700 mb-4">
+                After collecting your preferences, our technical team will configure the assistant
+                according to your organization's needs and requirements. No technical expertise required from your side.
+              </p>
+            </div>
           </div>
         </div>
       </Section>
