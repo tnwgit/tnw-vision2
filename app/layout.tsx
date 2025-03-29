@@ -25,9 +25,9 @@ export default function RootLayout({
   // Voorkom hydratatie waarschuwingen voor externe attributen
   // Zoals 'cz-shortcut-listen' die door browser extensies worden toegevoegd
   if (typeof window !== 'undefined') {
-    // @ts-expect-error
+    // @ts-expect-error - Console error override voor onderdrukken van hydratiefouten
     const originalError = console.error;
-    // @ts-expect-error
+    // @ts-expect-error - Aangepaste console error handler
     console.error = (...args) => {
       if (args[0]?.includes?.('Hydration failed because the initial UI does not match what was rendered on the server') ||
           args[0]?.includes?.('There was an error while hydrating') ||
