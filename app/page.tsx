@@ -6,7 +6,6 @@ import { organizationTypes } from "@/app/data/mockData";
 import { ArrowRight, ArrowLeft, CheckCircle, Zap, Shield, UserPlus, Info, Settings, Database, Code, Layers, Check } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
-import Image from "next/image";
 
 export default function Home() {
   return (

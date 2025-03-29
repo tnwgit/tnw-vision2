@@ -3,6 +3,7 @@
 import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 interface HeroSectionProps {
   title: string;
@@ -185,31 +186,39 @@ export function HeroSection({
           </p>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             <div className="col-span-1 flex justify-center md:col-span-1">
-              <img 
+              <Image 
                 className="h-12 opacity-70 hover:opacity-100 transition-opacity" 
                 src="/images/logos/placeholder-logo-1.svg" 
-                alt="Client logo" 
+                alt="Client logo"
+                width={120}
+                height={48}
               />
             </div>
             <div className="col-span-1 flex justify-center md:col-span-1">
-              <img 
+              <Image 
                 className="h-12 opacity-70 hover:opacity-100 transition-opacity" 
                 src="/images/logos/placeholder-logo-2.svg" 
-                alt="Client logo" 
+                alt="Client logo"
+                width={120}
+                height={48}
               />
             </div>
             <div className="col-span-1 flex justify-center md:col-span-1">
-              <img 
+              <Image 
                 className="h-12 opacity-70 hover:opacity-100 transition-opacity" 
                 src="/images/logos/placeholder-logo-3.svg" 
-                alt="Client logo" 
+                alt="Client logo"
+                width={120}
+                height={48}
               />
             </div>
             <div className="col-span-1 flex justify-center md:col-span-1">
-              <img 
+              <Image 
                 className="h-12 opacity-70 hover:opacity-100 transition-opacity" 
                 src="/images/logos/placeholder-logo-4.svg" 
-                alt="Client logo" 
+                alt="Client logo"
+                width={120}
+                height={48}
               />
             </div>
           </div>

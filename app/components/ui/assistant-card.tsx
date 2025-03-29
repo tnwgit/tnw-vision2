@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/app/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/app/components/ui/card";
 import { Button } from "@/app/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { cn } from "@/app/lib/utils";

@@ -20,13 +20,13 @@ interface ModuleConfigProps {
 
 export function ModuleConfig({ module, initialConfig, onSave, onCancel }: ModuleConfigProps) {
   const [enabled, setEnabled] = useState(initialConfig?.enabled ?? module.defaultEnabled);
-  const [settings, setSettings] = useState<Record<string, any>>(
+  const [settings, setSettings] = useState<Record<string, string | boolean | number | string[]>>(
     initialConfig?.settings || {}
   );
 
   // Initialize with default values if not already set
   useEffect(() => {
-    const defaults: Record<string, any> = {};
+    const defaults: Record<string, string | boolean | number | string[]> = {};
     let hasChanges = false;
 
     module.configOptions.forEach((option) => {
@@ -52,7 +52,7 @@ export function ModuleConfig({ module, initialConfig, onSave, onCancel }: Module
     });
   };
 
-  const updateSetting = (optionId: string, value: any) => {
+  const updateSetting = (optionId: string, value: string | boolean | number | string[]) => {
     setSettings((prev) => ({
       ...prev,
       [optionId]: value

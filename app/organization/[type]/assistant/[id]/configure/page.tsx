@@ -7,7 +7,7 @@ import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { organizationTypes } from "@/app/data/mockData";
-import { ArrowLeft, ArrowRight, Info, X, ChevronDown, ChevronUp, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, Info, ChevronDown, ChevronUp, Check } from "lucide-react";
 import { ModuleConfig } from "@/app/components/configurator/module-config";
 import { getIcon } from "@/app/lib/utils";
 import { AssistantConfig, Module, ModuleConfig as ModuleConfigType } from "@/app/types";

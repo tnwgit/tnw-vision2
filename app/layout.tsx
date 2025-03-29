@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +25,9 @@ export default function RootLayout({
   // Voorkom hydratatie waarschuwingen voor externe attributen
   // Zoals 'cz-shortcut-listen' die door browser extensies worden toegevoegd
   if (typeof window !== 'undefined') {
-    // @ts-ignore
+    // @ts-expect-error
     const originalError = console.error;
-    // @ts-ignore
+    // @ts-expect-error
     console.error = (...args) => {
       if (args[0]?.includes?.('Hydration failed because the initial UI does not match what was rendered on the server') ||
           args[0]?.includes?.('There was an error while hydrating') ||

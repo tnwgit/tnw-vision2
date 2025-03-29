@@ -62,7 +62,7 @@ export function OrganizationCard({ organization, className }: OrganizationCardPr
         </p>
       </CardContent>
       <CardFooter className="bg-white">
-        <Button asChild variant={buttonVariant as any} className="w-full">
+        <Button asChild variant={buttonVariant as "gradient" | "gradient-warm" | "gradient-teal" | "gradient-purple" | "gradient-mixed"} className="w-full">
           <Link href={`/organization/${id}`} className="w-full h-full flex items-center justify-center">
             View Assistants
           </Link>

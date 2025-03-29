@@ -1,9 +1,7 @@
 import { 
   OrganizationType, 
-  Assistant, 
   Module,
   ModuleCategory,
-  ConfigOption,
   ConfigOptionType,
   DashboardType
 } from '../types';

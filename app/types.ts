@@ -96,5 +96,5 @@ export interface Metric {
   unit: string;
   change?: number;
   trend?: "up" | "down" | "neutral";
-  chart?: any; // Zou een complexere structuur kunnen zijn voor chartdata
+  chart?: Record<string, unknown>; // Complexere structuur voor chartdata
 } 
