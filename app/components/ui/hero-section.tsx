@@ -161,18 +161,18 @@ export function HeroSection({
               {subtitle}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="gradient-mixed" className="sm:px-8 font-medium">
-                <Link href={ctaLink} className="w-full h-full flex items-center justify-center">
+              <Link href={ctaLink} className="w-full sm:w-auto">
+                <Button size="lg" variant="gradient-mixed" className="sm:px-8 font-medium w-full">
                   {ctaText}
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              {secondaryText && secondaryLink && (
-                <Button asChild size="lg" variant="outline" className="sm:px-8 font-medium border-[#7e3af2] text-[#7e3af2]">
-                  <Link href={secondaryLink} className="w-full h-full flex items-center justify-center">
-                    {secondaryText}
-                  </Link>
                 </Button>
+              </Link>
+              {secondaryText && secondaryLink && (
+                <Link href={secondaryLink} className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="sm:px-8 font-medium border-[#7e3af2] text-[#7e3af2] w-full">
+                    {secondaryText}
+                  </Button>
+                </Link>
               )}
             </div>
           </div>

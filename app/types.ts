@@ -39,7 +39,7 @@ export enum ModuleCategory {
   Integration = "Integration",
   Communication = "Communication",
   Knowledge = "Knowledge",
-  Reporting = "Reporting"
+  Reporting = "Reporting",
 }
 
 // Configuratie optie
@@ -97,4 +97,19 @@ export interface Metric {
   change?: number;
   trend?: "up" | "down" | "neutral";
   chart?: Record<string, unknown>; // Complexere structuur voor chartdata
+}
+
+// Type voor beschrijving van een document bron
+export interface DocumentSource {
+  name: string;
+  type: string;
+  size?: string;
+  lastUpdated?: string;
+  documentCount?: number;
+}
+
+// Type voor chat bericht tussen gebruiker en systeem
+export interface ChatMessage {
+  role: "user" | "system";
+  content: string;
 } 

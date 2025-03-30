@@ -1,0 +1,139 @@
+{
+  "hero": {
+    "title": "Build tailored AI assistants for your organization",
+    "subtitle": "The Next Wilson platform creates custom AI assistants based on your needs. Our experts handle the technical configuration while you focus on your business.",
+    "ctaText": "Get started",
+    "secondaryText": "Learn more"
+  },
+  "metadata": {
+    "title": "The Next Wilson - AI Assistants",
+    "description": "Bringing AI assistants to all organizations with a human touch"
+  },
+  "navigation": {
+    "about": "About us",
+    "solutions": "Solutions",
+    "benefits": "Benefits",
+    "contact": "Contact",
+    "tryDemo": "Try demo",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "getStarted": "Get started"
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page not found",
+    "description": "The page you are trying to access does not exist or has been moved.",
+    "backHome": "Back to home"
+  },
+  "sections": {
+    "organizations": {
+      "title": "Choose your organization type",
+      "description": "We offer specialized AI assistants for various organization types. Select yours to see relevant options and templates."
+    },
+    "features": {
+      "title": "Why choose The Next Wilson?",
+      "description": "Our platform offers unique benefits that set us apart from generic AI solutions.", 
+      "items": {
+        "deployment": {
+          "title": "Rapid deployment",
+          "description": "Get up and running quickly with pre-built templates tailored to your organization type."
+        },
+        "security": {
+          "title": "Privacy & security",
+          "description": "Your data stays yours with our robust privacy controls and secure hosting options."
+        },
+        "design": {
+          "title": "Human-centered design",
+          "description": "AI assistants that feel approachable and helpful, creating positive user experiences."
+        }
+      }
+    },
+    "tailored": {
+      "title": "Tailored solutions without the technical hassle",
+      "description": "Tell us your preferences through our simple wizard, and our team will handle all the technical implementation for you.",
+      "benefits": {
+        "process": "Simple preference selection process",
+        "experts": "Expert-configured AI solutions based on your needs",
+        "integration": "Seamless integration with your existing systems",
+        "analytics": "Comprehensive analytics and reporting dashboards",
+        "support": "Ongoing support and optimizations from our team"
+      },
+      "cta": "Start your customization"
+    },
+    "testimonials": {
+      "title": "What our customers say",
+      "description": "Read testimonials from organizations that have already implemented our AI assistants.",
+      "items": [
+        {
+          "quote": "The Next Wilson transformed how we interact with customers. The AI assistant handles routine inquiries 24/7, freeing our staff to focus on complex issues.",
+          "author": "Sarah Johnson",
+          "role": "Customer Service Director"
+        },
+        {
+          "quote": "Implementation was seamless and quick. Within days, we had a fully functional assistant that understood our business processes.",
+          "author": "Michael Chen",
+          "role": "CTO"
+        },
+        {
+          "quote": "The customization options are impressive. Our assistant feels like a natural extension of our brand and company culture.",
+          "author": "Emily Rodriguez",
+          "role": "Brand Manager"
+        }
+      ],
+      "video": {
+        "title": "See our AI assistants in action",
+        "description": "Watch how our AI assistants are helping organizations improve their customer service and operations.",
+        "cta": "Watch video"
+      }
+    },
+    "intake": {
+      "title": "How our intake process works",
+      "description": "Starting with The Next Wilson is simple and streamlined.",
+      "steps": [
+        {
+          "title": "Select your organization type",
+          "description": "Choose from our specialized templates designed for different industries and use cases."
+        },
+        {
+          "title": "Share your preferences",
+          "description": "Tell us about your specific needs through our user-friendly wizard."
+        },
+        {
+          "title": "Our team configures your assistant",
+          "description": "Our experts handle all technical aspects based on your requirements."
+        },
+        {
+          "title": "Deploy and refine",
+          "description": "Launch your assistant and continuously improve it with our ongoing support."
+        }
+      ]
+    }
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "nl": "Dutch"
+  },
+  "organizationTypes": {
+    "hotel": {
+      "name": "Hotel & Hospitality",
+      "description": "AI assistants for hotels and hospitality businesses to enhance guest experience and streamline operations.",
+      "assistantsAvailable": "assistants available"
+    },
+    "municipality": {
+      "name": "Municipality",
+      "description": "AI solutions for local governments to improve citizen services and streamline administrative processes.",
+      "assistantsAvailable": "assistants available"
+    },
+    "legal": {
+      "name": "Legal",
+      "description": "AI assistants for law firms and legal departments to automate document processing and enhance client service.",
+      "assistantsAvailable": "assistants available"
+    },
+    "healthcare": {
+      "name": "Healthcare",
+      "description": "AI assistants for healthcare providers to enhance patient care and optimize administrative workflows.",
+      "assistantsAvailable": "assistants available"
+    }
+  }
+} 

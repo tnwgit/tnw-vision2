@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Card, CardContent, CardFooter } from "@/app/components/ui/card";
 import { Button } from "@/app/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 import { Assistant } from "@/app/types";
+import { useParams } from "next/navigation";
 
 interface AssistantCardProps {
   assistant: Assistant;
@@ -41,6 +44,8 @@ function getCardStyle(id: string) {
 export function AssistantCard({ assistant, className }: AssistantCardProps) {
   const { id, name, description, image, benefits, organizationTypeId } = assistant;
   const { borderColor, gradient } = getCardStyle(id);
+  const params = useParams();
+  const locale = params.locale as string;
   
   return (
     <Card className={cn(`overflow-hidden hover:shadow-lg transition-all border-t-4 ${borderColor} border-gray-100 shadow-sm`, className)}>
@@ -58,7 +63,7 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
       <CardContent className="pt-6 bg-[#f9fafb]">
         <p className="text-gray-600 mb-6">{description}</p>
         
-        <h4 className="font-medium text-[#2c5282] mb-3">Key benefits:</h4>
+        <h4 className="font-medium text-[#2c5282] mb-3">{locale === 'nl' ? 'Belangrijkste voordelen:' : 'Key benefits:'}</h4>
         <ul className="space-y-2">
           {benefits.slice(0, 3).map((benefit, index) => (
             <li key={index} className="flex items-start gap-2">
@@ -68,7 +73,7 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
           ))}
           {benefits.length > 3 && (
             <li className="text-sm text-[#3182ce] font-medium pl-7">
-              +{benefits.length - 3} more benefits
+              +{benefits.length - 3} {locale === 'nl' ? 'meer voordelen' : 'more benefits'}
             </li>
           )}
         </ul>
@@ -80,8 +85,8 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
           variant="outline" 
           className="flex-1 border-[#5a9bd3] text-[#2c5282] hover:bg-[#f0f9ff]"
         >
-          <Link href={`/organization/${organizationTypeId}/assistant/${id}`} className="w-full h-full flex items-center justify-center">
-            Learn more
+          <Link href={`/${locale}/organization/${organizationTypeId}/assistant/${id}`} className="w-full h-full flex items-center justify-center">
+            {locale === 'nl' ? 'Meer informatie' : 'Learn more'}
           </Link>
         </Button>
         <Button 
@@ -91,8 +96,8 @@ export function AssistantCard({ assistant, className }: AssistantCardProps) {
                   id.includes('municipality') ? 'gradient-teal' : 'gradient-mixed'}
           className="flex-1"
         >
-          <Link href={`/organization/${organizationTypeId}/assistant/${id}/wizard`} className="w-full h-full flex items-center justify-center">
-            Customize
+          <Link href={`/${locale}/organization/${organizationTypeId}/assistant/${id}/wizard`} className="w-full h-full flex items-center justify-center">
+            {locale === 'nl' ? 'Aanpassen' : 'Customize'}
           </Link>
         </Button>
       </CardFooter>

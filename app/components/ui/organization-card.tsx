@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Button } from "@/app/components/ui/button";
 import { cn, getIcon } from "@/app/lib/utils";
 import { OrganizationType } from "@/app/types";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface OrganizationCardProps {
   organization: OrganizationType;
@@ -46,6 +50,9 @@ export function OrganizationCard({ organization, className }: OrganizationCardPr
   const { id, name, description, icon, assistants } = organization;
   const IconComponent = getIcon(icon.replace("-icon", ""));
   const { borderColor, gradient, buttonVariant } = getOrganizationStyle(id);
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations("organizationTypes");
   
   return (
     <Card className={cn(`hover:shadow-md transition-all border-t-4 ${borderColor} border-gray-100 shadow-sm`, className)}>
@@ -53,20 +60,20 @@ export function OrganizationCard({ organization, className }: OrganizationCardPr
         <div className={`w-12 h-12 rounded-lg ${gradient} flex items-center justify-center mb-2 shadow-sm`}>
           <IconComponent className="h-6 w-6 text-white" />
         </div>
-        <CardTitle className="text-xl text-[#2c5282]">{name}</CardTitle>
+        <CardTitle className="text-xl text-[#2c5282]">{t(`${id}.name`)}</CardTitle>
       </CardHeader>
       <CardContent className="bg-[#f9fafb]">
         <div className="h-24 overflow-hidden mb-2">
-          <p className="text-gray-600">{description}</p>
+          <p className="text-gray-600">{t(`${id}.description`)}</p>
         </div>
         <p className="text-sm text-[#4299e1] font-medium">
-          {assistants.length} {assistants.length === 1 ? 'assistant' : 'assistants'} available
+          {assistants.length} {t(`${id}.assistantsAvailable`)}
         </p>
       </CardContent>
       <CardFooter className="bg-white">
         <Button asChild variant={buttonVariant as "gradient" | "gradient-warm" | "gradient-teal" | "gradient-purple" | "gradient-mixed"} className="w-full">
-          <Link href={`/organization/${id}`} className="w-full h-full flex items-center justify-center">
-            View assistants
+          <Link href={`/${locale}/organization/${id}`} className="w-full h-full flex items-center justify-center">
+            {locale === 'nl' ? 'Bekijk assistenten' : 'View assistants'}
           </Link>
         </Button>
       </CardFooter>

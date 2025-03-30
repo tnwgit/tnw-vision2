@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { defaultLocale } from "./config";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "The Next Wilson - AI Assistants",
-  description: "Bringing AI assistants to all organizations with a human touch",
+  title: "The Next Wilson",
+  description: "AI assistants voor verschillende sectoren",
 };
 
 export default function RootLayout({
@@ -22,8 +15,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Voorkom hydratatie waarschuwingen voor externe attributen
-  // Zoals 'cz-shortcut-listen' die door browser extensies worden toegevoegd
+  // Onderdruk hydratatie waarschuwingen in productie
   if (typeof window !== 'undefined') {
     // @ts-expect-error - Console error override voor onderdrukken van hydratiefouten
     const originalError = console.error;
@@ -39,13 +31,8 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning={true}
-      >
-        {children}
-      </body>
+    <html lang={defaultLocale} suppressHydrationWarning={true}>
+      <body className={inter.className} suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }

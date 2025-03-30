@@ -1,0 +1,139 @@
+{
+  "hero": {
+    "title": "Bouw op maat gemaakte AI-assistenten voor uw organisatie",
+    "subtitle": "Het Next Wilson platform creëert aangepaste AI-assistenten op basis van uw behoeften. Onze experts zorgen voor de technische configuratie terwijl u zich kunt richten op uw bedrijf.",
+    "ctaText": "Aan de slag",
+    "secondaryText": "Meer informatie"
+  },
+  "metadata": {
+    "title": "The Next Wilson - AI-Assistenten",
+    "description": "AI-assistenten voor alle organisaties met een menselijke benadering"
+  },
+  "navigation": {
+    "about": "Over ons",
+    "solutions": "Oplossingen",
+    "benefits": "Voordelen",
+    "contact": "Contact",
+    "tryDemo": "Demo proberen",
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "getStarted": "Aan de slag"
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Pagina niet gevonden",
+    "description": "De pagina die u probeert te bezoeken bestaat niet of is verplaatst.",
+    "backHome": "Terug naar home"
+  },
+  "sections": {
+    "organizations": {
+      "title": "Kies uw organisatietype",
+      "description": "We bieden gespecialiseerde AI-assistenten voor verschillende soorten organisaties. Selecteer de uwe om relevante opties en templates te zien."
+    },
+    "features": {
+      "title": "Waarom kiezen voor The Next Wilson?",
+      "description": "Ons platform biedt unieke voordelen die ons onderscheiden van generieke AI-oplossingen.",
+      "items": {
+        "deployment": {
+          "title": "Snelle implementatie",
+          "description": "Ga snel van start met vooraf gebouwde templates op maat voor uw organisatietype."
+        },
+        "security": {
+          "title": "Privacy & beveiliging",
+          "description": "Uw gegevens blijven van u met onze robuuste privacycontroles en beveiligde hostingopties."
+        },
+        "design": {
+          "title": "Mens-gecentreerd ontwerp",
+          "description": "AI-assistenten die toegankelijk en behulpzaam aanvoelen, voor een positieve gebruikerservaring."
+        }
+      }
+    },
+    "tailored": {
+      "title": "Op maat gemaakte oplossingen zonder technische rompslomp",
+      "description": "Vertel ons uw voorkeuren via onze eenvoudige wizard, en ons team regelt alle technische implementatie voor u.",
+      "benefits": {
+        "process": "Eenvoudig proces voor het selecteren van voorkeuren",
+        "experts": "Door experts geconfigureerde AI-oplossingen op basis van uw behoeften",
+        "integration": "Naadloze integratie met uw bestaande systemen",
+        "analytics": "Uitgebreide analyse- en rapportagedashboards",
+        "support": "Doorlopende ondersteuning en optimalisaties van ons team"
+      },
+      "cta": "Start uw aanpassing"
+    },
+    "testimonials": {
+      "title": "Wat onze klanten zeggen",
+      "description": "Lees getuigenissen van organisaties die al onze AI-assistenten hebben geïmplementeerd.",
+      "items": [
+        {
+          "quote": "The Next Wilson heeft veranderd hoe we met klanten omgaan. De AI-assistent handelt routinevragen 24/7 af, waardoor ons personeel zich kan concentreren op complexe kwesties.",
+          "author": "Sarah Johnson",
+          "role": "Directeur Klantenservice"
+        },
+        {
+          "quote": "De implementatie verliep naadloos en snel. Binnen enkele dagen hadden we een volledig functionele assistent die onze bedrijfsprocessen begreep.",
+          "author": "Michael Chen",
+          "role": "CTO"
+        },
+        {
+          "quote": "De aanpassingsmogelijkheden zijn indrukwekkend. Onze assistent voelt als een natuurlijke uitbreiding van ons merk en onze bedrijfscultuur.",
+          "author": "Emily Rodriguez",
+          "role": "Brand Manager"
+        }
+      ],
+      "video": {
+        "title": "Zie onze AI-assistenten in actie",
+        "description": "Bekijk hoe onze AI-assistenten organisaties helpen hun klantenservice en operationele processen te verbeteren.",
+        "cta": "Bekijk video"
+      }
+    },
+    "intake": {
+      "title": "Hoe ons intakeproces werkt",
+      "description": "Beginnen met The Next Wilson is eenvoudig en gestroomlijnd.",
+      "steps": [
+        {
+          "title": "Selecteer uw organisatietype",
+          "description": "Kies uit onze gespecialiseerde templates ontworpen voor verschillende industrieën en gebruikssituaties."
+        },
+        {
+          "title": "Deel uw voorkeuren",
+          "description": "Vertel ons over uw specifieke behoeften via onze gebruiksvriendelijke wizard."
+        },
+        {
+          "title": "Ons team configureert uw assistent",
+          "description": "Onze experts regelen alle technische aspecten op basis van uw vereisten."
+        },
+        {
+          "title": "Implementeren en verfijnen",
+          "description": "Lanceer uw assistent en verbeter deze continu met onze doorlopende ondersteuning."
+        }
+      ]
+    }
+  },
+  "language": {
+    "label": "Taal",
+    "en": "Engels",
+    "nl": "Nederlands"
+  },
+  "organizationTypes": {
+    "hotel": {
+      "name": "Hotel & Horeca",
+      "description": "AI-assistenten voor hotels en horecabedrijven om de gastervaring te verbeteren en operaties te stroomlijnen.",
+      "assistantsAvailable": "assistenten beschikbaar"
+    },
+    "municipality": {
+      "name": "Gemeente",
+      "description": "AI-oplossingen voor lokale overheden om burgerservices te verbeteren en administratieve processen te stroomlijnen.",
+      "assistantsAvailable": "assistenten beschikbaar"
+    },
+    "legal": {
+      "name": "Juridisch",
+      "description": "AI-assistenten voor advocatenkantoren en juridische afdelingen om documentverwerking te automatiseren en klantenservice te verbeteren.",
+      "assistantsAvailable": "assistenten beschikbaar"
+    },
+    "healthcare": {
+      "name": "Gezondheidszorg",
+      "description": "AI-assistenten voor zorgverleners om patiëntenzorg te verbeteren en administratieve workflows te optimaliseren.",
+      "assistantsAvailable": "assistenten beschikbaar"
+    }
+  }
+} 

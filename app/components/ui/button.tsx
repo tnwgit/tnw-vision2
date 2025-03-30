@@ -1,23 +1,29 @@
 "use client";
 
 import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/app/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-[#2c5282] text-white hover:bg-[#1a365d]",
-        destructive: "bg-[#e02424] text-white hover:bg-[#b91c1c]",
-        outline: "border border-input hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-[#5a9bd3] text-white hover:bg-[#4c84b5]",
+        default:
+          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "underline-offset-4 hover:underline text-[#2c5282]",
+        link: "text-primary underline-offset-4 hover:underline",
+        gradient:
+          "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow hover:from-blue-700 hover:to-indigo-700",
         
         // Gradient varianten
-        gradient: "bg-gradient-to-r from-[#3182ce] to-[#5a9bd3] text-white hover:opacity-90",
         "gradient-purple": "bg-gradient-to-r from-[#5a67d8] to-[#7e3af2] text-white hover:opacity-90",
         "gradient-mixed": "bg-gradient-to-r from-[#3182ce] to-[#7e3af2] text-white hover:opacity-90",
         "gradient-warm": "bg-gradient-to-r from-[#ff9e2c] to-[#e02424] text-white hover:opacity-90",
@@ -34,11 +40,10 @@ const buttonVariants = cva(
         info: "bg-[#4299e1] text-white hover:bg-[#3182ce]",
       },
       size: {
-        default: "h-10 py-2 px-4",
-        sm: "h-9 px-3 rounded-md",
-        lg: "h-11 px-8 rounded-md",
-        xl: "h-12 px-10 rounded-md text-base",
-        icon: "h-10 w-10",
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
       },
     },
     defaultVariants: {
@@ -55,16 +60,18 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
     return (
-      <button
-        className={cn(buttonVariants({ variant, size }), className)}
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
     );
   }
 );
+
 Button.displayName = "Button";
 
 export { Button, buttonVariants }; 
