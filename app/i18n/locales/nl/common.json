@@ -19,6 +19,20 @@
     "closeMenu": "Menu sluiten",
     "getStarted": "Aan de slag"
   },
+  "footer": {
+    "about": "Gespecialiseerde AI-assistenten voor verschillende sectoren, gebouwd met een menselijke touch.",
+    "quickLinks": "Snelle Links",
+    "services": "Diensten",
+    "configWizard": "Configuratiewizard",
+    "healthcare": "Gezondheidszorg",
+    "education": "Onderwijs",
+    "government": "Overheid",
+    "contactInfo": "Contact Informatie",
+    "allRightsReserved": "Alle rechten voorbehouden.",
+    "privacyPolicy": "Privacybeleid",
+    "termsOfService": "Gebruiksvoorwaarden",
+    "cookiePolicy": "Cookiebeleid"
+  },
   "notFound": {
     "title": "404",
     "subtitle": "Pagina niet gevonden",
@@ -116,24 +130,234 @@
   },
   "organizationTypes": {
     "hotel": {
-      "name": "Hotel & Horeca",
-      "description": "AI-assistenten voor hotels en horecabedrijven om de gastervaring te verbeteren en operaties te stroomlijnen.",
+      "name": "Hotel",
+      "description": "AI-assistenten voor hotels om de gastervaring te verbeteren en dagelijkse operaties te stroomlijnen.",
       "assistantsAvailable": "assistenten beschikbaar"
     },
     "municipality": {
       "name": "Gemeente",
-      "description": "AI-oplossingen voor lokale overheden om burgerservices te verbeteren en administratieve processen te stroomlijnen.",
+      "description": "AI-oplossingen voor gemeenten om burgerservices te verbeteren en administratieve processen te stroomlijnen.",
       "assistantsAvailable": "assistenten beschikbaar"
     },
     "legal": {
-      "name": "Juridisch",
-      "description": "AI-assistenten voor advocatenkantoren en juridische afdelingen om documentverwerking te automatiseren en klantenservice te verbeteren.",
+      "name": "Juridisch Kantoor",
+      "description": "AI-assistenten voor advocatenkantoren om documentverwerking te automatiseren en klantenservice te verbeteren.",
       "assistantsAvailable": "assistenten beschikbaar"
     },
     "healthcare": {
-      "name": "Gezondheidszorg",
-      "description": "AI-assistenten voor zorgverleners om patiëntenzorg te verbeteren en administratieve workflows te optimaliseren.",
+      "name": "Huisartsenpraktijk",
+      "description": "AI-assistenten voor huisartsen om patiëntenzorg te verbeteren en administratieve werkzaamheden te optimaliseren.",
       "assistantsAvailable": "assistenten beschikbaar"
     }
+  },
+  "assistants": {
+    "hotel": {
+      "hotel-concierge": {
+        "name": "Receptie Assistent",
+        "description": "Een 24/7 beschikbare receptie-assistent die vragen van gasten beantwoordt, verzoeken afhandelt en de gasttevredenheid verbetert",
+        "benefits": [
+          "24/7 beschikbaar voor vragen van gasten",
+          "Integreert met uw boekingssysteem",
+          "Handelt veelvoorkomende verzoeken automatisch af",
+          "Geeft gepersonaliseerde aanbevelingen",
+          "Vermindert werklast bij de receptie tot 40%"
+        ]
+      },
+      "hotel-booking": {
+        "name": "Reserverings Assistent",
+        "description": "Stroomlijnt het boekingsproces, verkoopt kamers en diensten, en optimaliseert de bezettingsgraad",
+        "benefits": [
+          "Integreert met uw bestaande boekingssysteem",
+          "Handelt boekingsverzoeken en wijzigingen af",
+          "Promoot slim kamers en arrangementen",
+          "Geeft direct boekingsbevestigingen",
+          "Verhoogt directe boekingen tot 25%"
+        ]
+      },
+      "hotel-upsell": {
+        "name": "Hotel Sales Assistent",
+        "description": "Beveelt op slimme wijze aanvullende diensten en ervaringen aan voor gasten vóór en tijdens hun verblijf",
+        "benefits": [
+          "Personaliseert aanbevelingen op basis van gastprofielen",
+          "Verhoogt omzet per gast",
+          "Promoot interne diensten en lokale ervaringen",
+          "Integreert met uw POS- en boekingssystemen",
+          "Verhoogt aanvullende inkomsten tot 35%"
+        ]
+      }
+    },
+    "municipality": {
+      "citizen-assistant": {
+        "name": "Burger Informatie Assistent",
+        "description": "Helpt burgers bij het navigeren door gemeentelijke diensten, beantwoordt vragen en begeleidt door procedures",
+        "benefits": [
+          "24/7 beschikbaar voor vragen van burgers",
+          "Begeleidt burgers door veelvoorkomende procedures",
+          "Vermindert telefonische belasting van het callcenter tot 45%",
+          "Ondersteunt meerdere talen",
+          "Verhoogt tevredenheidsscores van burgers"
+        ]
+      },
+      "permit-assistant": {
+        "name": "Vergunningen Assistent",
+        "description": "Begeleidt burgers bij vergunningsaanvragen, vermindert fouten en verwerkingstijd",
+        "benefits": [
+          "Stroomlijnt het vergunningsaanvraagproces",
+          "Vermindert aanvraagfouten tot 60%",
+          "Verkort verwerkingstijden",
+          "Geeft automatisch statusupdates",
+          "Verbetert transparantie en naleving"
+        ]
+      }
+    },
+    "legal": {
+      "legal-intake": {
+        "name": "Juridische Intake Assistent",
+        "description": "Stroomlijnt het klantintakeproces, verzamelt relevante informatie en plant afspraken",
+        "benefits": [
+          "24/7 beschikbaar voor eerste klantvragen",
+          "Verzamelt veilig relevante zaakgegevens",
+          "Plant afspraken met geschikte advocaten",
+          "Vermindert administratieve werklast tot 35%",
+          "Verbetert klantervaring vanaf eerste contact"
+        ]
+      }
+    },
+    "healthcare": {
+      "clinical-support": {
+        "name": "Medische Ondersteuning Assistent",
+        "description": "Ondersteunt zorgverleners met klinische besluitvorming, medische referentie en documentatie",
+        "benefits": [
+          "Toegang tot evidence-based klinische richtlijnen",
+          "Gestroomlijnde documentatie en notities",
+          "Snelle medische referentie en medicatiegegevens",
+          "Suggesties voor patiëntenzorgplannen",
+          "Integratie met elektronische patiëntendossiers"
+        ]
+      },
+      "patient-engagement": {
+        "name": "Patiëntcommunicatie Assistent",
+        "description": "Verbetert patiëntcommunicatie, voorlichting en follow-up om zorgresultaten te verbeteren",
+        "benefits": [
+          "Geautomatiseerde afspraakherinneringen",
+          "Gepersonaliseerde patiëntvoorlichtingsmaterialen",
+          "Monitoring van medicatietrouw",
+          "Follow-up na ontslag",
+          "Patiënttevredenheidsonderzoeken"
+        ]
+      }
+    }
+  },
+  "intakeProcess": {
+    "welcomeTitle": "Welkom bij het intake proces",
+    "welcomeDescription": "Beantwoord enkele vragen om ons te helpen uw behoeften te begrijpen en uw ideale AI-assistent te configureren.",
+    "goalsTitle": "Doelen & Verwachtingen",
+    "goalsDescription": "Vertel ons wat u wilt bereiken met uw AI-assistent",
+    "userContextTitle": "Gebruikerscontext",
+    "userContextDescription": "Vertel ons wie de assistent gaat gebruiken",
+    "integrationsTitle": "Integraties & Systemen",
+    "integrationsDescription": "Vertel ons welke systemen u wilt integreren",
+    "confirmationTitle": "Bevestiging",
+    "confirmationDescription": "Controleer en bevestig uw gegevens",
+    "howItWorks": "Hoe werkt het?",
+    "workStep1": "U beantwoordt enkele eenvoudige vragen over uw behoeften",
+    "workStep2": "Ons team configureert de assistent op basis van uw antwoorden",
+    "workStep3": "U krijgt een perfecte assistent die klaar is voor gebruik",
+    "workStep4": "Wij bieden ondersteuning bij de implementatie",
+    "goalsQuestion": "Wat zijn uw doelen?",
+    "goalsHelp": "Beschrijf de belangrijkste doelstellingen die u wilt bereiken met deze AI-assistent",
+    "goalsPlaceholder": "Bijv. we willen 24/7 klantenservice bieden, administratieve taken automatiseren...",
+    "usersQuestion": "Wie gaat de assistent gebruiken?",
+    "usersHelp": "Beschrijf de gebruikers die met de assistent zullen werken",
+    "usersPlaceholder": "Bijv. klantenservicemedewerkers, managers, klanten...",
+    "integrationsQuestion": "Welke systemen gebruikt u?",
+    "integrationsHelp": "Noem de systemen die u wilt verbinden met de assistent",
+    "integrationsPlaceholder": "Bijv. CRM-systeem, kennisinformatie, interne databases...",
+    "confirmInfoTitle": "Bevestig uw informatie",
+    "confirmInfoHelp": "Controleer onderstaande informatie en zorg ervoor dat alles correct is",
+    "notProvided": "(Niet ingevuld)",
+    "requiredLabel": "Vereist",
+    "enableOption": "Ja, inschakelen",
+    "disableOption": "Nee, niet nodig",
+    "backToAssistant": "Terug naar assistent details",
+    "stepLabel": "Stap",
+    "previousButton": "Vorige",
+    "nextButton": "Volgende",
+    "submitButton": "Verzenden"
+  },
+  "thankYou": {
+    "title": "Bedankt!",
+    "description": "Uw aanvraag is ontvangen. Ons team gaat aan de slag met uw op maat gemaakte AI-assistent configuratie.",
+    "whatNextTitle": "Wat gebeurt er nu?",
+    "techConfig": "Technische configuratie:",
+    "techConfigDesc": "Onze engineers zullen de assistent configureren op basis van uw eisen en het systeem voorbereiden voor integratie.",
+    "setupInteg": "Installatie & integratie:",
+    "setupIntegDesc": "We werken samen met u om de assistent te integreren met uw bestaande systemen en zorgen voor een soepele gegevensstroom.",
+    "reviewApproval": "Beoordeling & goedkeuring:",
+    "reviewApprovalDesc": "U krijgt de kans om de assistent te beoordelen en te testen voordat deze live gaat, zodat deze aan uw verwachtingen voldoet.",
+    "deployTrain": "Implementatie & training:",
+    "deployTrainDesc": "Na goedkeuring implementeren we de assistent en bieden we training aan uw team om succesvol gebruik te garanderen.",
+    "contactInfo": "We nemen binnenkort contact met u op voor meer details. Als u in de tussentijd vragen heeft, stuur dan een e-mail naar support@thenextwilson.com",
+    "backToHome": "Terug naar de startpagina",
+    "viewOtherAssistants": "Bekijk andere assistenten"
+  },
+  "assistantDetail": {
+    "backToAssistants": "Terug naar assistenten",
+    "benefits": "Voordelen",
+    "availableModules": "Beschikbare modules",
+    "included": "Inbegrepen",
+    "optional": "Optioneel",
+    "interestedQuestion": "Geïnteresseerd in deze assistent?",
+    "interestedDesc": "Neem contact met ons op voor meer informatie of een demonstratie van deze AI-assistent.",
+    "contactUs": "Neem contact op",
+    "viewDemo": "Bekijk demo",
+    "exploreOptions": "Meer opties verkennen",
+    "customizeAssistant": "Pas deze assistent aan",
+    "viewAllAssistants": "Bekijk alle assistenten"
+  },
+  "wizard": {
+    "startCustomization": "Start je customizatie",
+    "startWizardDesc": "Laat ons u helpen de juiste AI-assistent te vinden voor uw behoeften. Start het proces in slechts een paar klikken.",
+    "step1Title": "Stap 1: Kies je organisatietype",
+    "noAssistantsAvailable": "Nog geen assistenten beschikbaar voor dit organisatietype. Kom later terug of neem contact met ons op voor een op maat gemaakte oplossing.",
+    "step2Title": "Stap 2: Kies je assistent",
+    "continueToConfig": "Doorgaan naar configuratie"
+  },
+  "assistantCard": {
+    "keyBenefits": "Belangrijkste voordelen:",
+    "moreBenefits": "meer voordelen",
+    "learnMore": "Meer informatie",
+    "customize": "Aanpassen"
+  },
+  "chat": {
+    "welcome": "Hallo, ik ben Wilson, uw AI-assistent. Hoe kan ik u vandaag helpen?",
+    "typingIndicator": "Wilson is aan het typen...",
+    "chatWithWilson": "Chat met Wilson",
+    "askQuestion": "Stel je vraag direct"
+  },
+  "organization": {
+    "overview": "Overzicht",
+    "keyAdvantages": "Belangrijkste voordelen",
+    "timeSavings": "Tijdsbesparing",
+    "timeSavingsDesc": "Reduceer repetitieve taken en focus op strategische activiteiten die echt waarde toevoegen.",
+    "secureCompliant": "Veilig & Compliant",
+    "secureCompliantDesc": "Ontworpen met privacy en veiligheid als prioriteit, voldoet aan alle relevante regelgeving.",
+    "easyIntegration": "Eenvoudige Integratie",
+    "easyIntegrationDesc": "Naadloze integratie met bestaande systemen zonder grote infrastructurele veranderingen.",
+    "enhancedEfficiency": "Verbeterde Efficiëntie",
+    "enhancedEfficiencyDesc": "Automatiseer processen en verkort reactietijden voor betere service en hogere productiviteit.",
+    "getStarted": "Aan de slag",
+    "getStartedDesc": "Klaar om uw organisatie te transformeren met AI? Ontdek onze assistenten of neem contact op voor een gepersonaliseerde demo.",
+    "exploreWizard": "Ontdek de wizard",
+    "useCasesTitle": "Toepassingen",
+    "useCasesDesc": "Ontdek hoe AI-assistenten uw organisatie kunnen transformeren",
+    "benefitsTitle": "Voordelen",
+    "availableAssistantsTitle": "Beschikbare assistenten",
+    "availableAssistantsDesc": "Ontdek onze AI-assistenten speciaal ontworpen voor uw organisatie",
+    "viewDetails": "Meer details",
+    "readyTransform": "Klaar om uw organisatie te transformeren met AI?",
+    "contactDesc": "Neem vandaag nog contact met ons op voor een gepersonaliseerde demo of doorloop onze configuratiewizard om uw eigen AI-assistent samen te stellen.",
+    "contactUs": "Neem contact op",
+    "startConfig": "Start de configuratie"
   }
 } 

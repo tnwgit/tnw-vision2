@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LanguageSelector } from "../ui/language-selector";
 import { Button } from "../ui/button";
 import Image from "next/image";
@@ -13,6 +13,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const locale = useLocale();
+  const t = useTranslations('navigation');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -59,42 +60,41 @@ export function Header() {
               href={`/${locale}/about`}
               className="text-sm font-medium text-gray-700 hover:text-[#3182ce] transition-colors whitespace-nowrap"
             >
-              About us
+              {t('about')}
             </Link>
             <Link 
               href={`/${locale}/solutions`}
               className="text-sm font-medium text-gray-700 hover:text-[#7e3af2] transition-colors"
             >
-              Solutions
+              {t('solutions')}
             </Link>
             <Link 
               href={`/${locale}/benefits`}
               className="text-sm font-medium text-gray-700 hover:text-[#16bdca] transition-colors"
             >
-              Benefits
+              {t('benefits')}
             </Link>
             <Link 
               href={`/${locale}/contact`}
               className="text-sm font-medium text-gray-700 hover:text-[#ff9e2c] transition-colors"
             >
-              Contact
+              {t('contact')}
             </Link>
             
             <LanguageSelector />
             
             <Button asChild variant="gradient-mixed" className="ml-4">
-              <Link href={`/${locale}/demo`} className="w-full h-full flex items-center justify-center">Try demo</Link>
+              <Link href={`/${locale}/demo`} className="w-full h-full flex items-center justify-center">{t('tryDemo')}</Link>
             </Button>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <LanguageSelector />
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleMenu}
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMenuOpen ? t('closeMenu') : t('openMenu')}
               className="ml-2"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -105,40 +105,48 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden border-t border-gray-100">
+        <div className="md:hidden border-t border-gray-100 bg-white">
           <div className="container mx-auto px-4 pt-2 pb-4 space-y-1">
             <Link
               href={`/${locale}/about`}
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3182ce] hover:bg-gray-50 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              About us
+              {t('about')}
             </Link>
             <Link
               href={`/${locale}/solutions`}
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#7e3af2] hover:bg-gray-50 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              Solutions
+              {t('solutions')}
             </Link>
             <Link
               href={`/${locale}/benefits`}
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#16bdca] hover:bg-gray-50 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              Benefits
+              {t('benefits')}
             </Link>
             <Link
               href={`/${locale}/contact`}
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#ff9e2c] hover:bg-gray-50 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              {t('contact')}
             </Link>
+            
+            {/* Language selector in mobiel menu */}
+            <div className="py-1">
+              <div className="px-3 py-2">
+                <LanguageSelector isMobile={true} />
+              </div>
+            </div>
+            
             <div className="pt-2">
               <Button asChild variant="gradient-mixed" className="w-full">
                 <Link href={`/${locale}/demo`} onClick={() => setIsMenuOpen(false)} className="w-full h-full flex items-center justify-center">
-                  Try demo
+                  {t('tryDemo')}
                 </Link>
               </Button>
             </div>

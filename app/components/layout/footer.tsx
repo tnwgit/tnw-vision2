@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export function Footer() {
   const locale = useLocale();
+  const t = useTranslations();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,9 +20,7 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-gray-400 mb-6">
-              {locale === "nl" 
-                ? "Gespecialiseerde AI-assistenten voor verschillende sectoren, gebouwd met een menselijke touch."
-                : "Specialized AI assistants for various sectors, built with a human touch."}
+              {t('footer.about')}
             </p>
             <div className="flex space-x-4">
               <a
@@ -52,27 +51,27 @@ export function Footer() {
           {/* Second Column - Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">
-              {locale === "nl" ? "Snelle Links" : "Quick Links"}
+              {t('footer.quickLinks')}
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link href={`/${locale}/about`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Over ons" : "About us"}
+                  {t('navigation.about')}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/benefits`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Voordelen" : "Benefits"}
+                  {t('navigation.benefits')}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/solutions`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Oplossingen" : "Solutions"}
+                  {t('navigation.solutions')}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/contact`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Contact" : "Contact"}
+                  {t('navigation.contact')}
                 </Link>
               </li>
             </ul>
@@ -81,27 +80,27 @@ export function Footer() {
           {/* Third Column - Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4">
-              {locale === "nl" ? "Diensten" : "Services"}
+              {t('footer.services')}
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link href={`/${locale}/wizard`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Configuratiewizard" : "Configuration Wizard"}
+                  {t('footer.configWizard')}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/organization/healthcare`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Gezondheidszorg" : "Healthcare"}
+                  {t('footer.healthcare')}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/organization/education`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Onderwijs" : "Education"}
+                  {t('footer.education')}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/organization/government`} className="text-gray-400 hover:text-white transition-colors">
-                  {locale === "nl" ? "Overheid" : "Government"}
+                  {t('footer.government')}
                 </Link>
               </li>
             </ul>
@@ -110,7 +109,7 @@ export function Footer() {
           {/* Fourth Column - Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">
-              {locale === "nl" ? "Contact Informatie" : "Contact Information"}
+              {t('footer.contactInfo')}
             </h3>
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start">
@@ -138,17 +137,17 @@ export function Footer() {
 
         <div className="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © {currentYear} The Next Wilson. {locale === "nl" ? "Alle rechten voorbehouden." : "All rights reserved."}
+            © {currentYear} The Next Wilson. {t('footer.allRightsReserved')}
           </p>
           <div className="flex space-x-6">
             <Link href={`/${locale}/privacy`} className="text-gray-500 hover:text-white text-sm transition-colors">
-              {locale === "nl" ? "Privacybeleid" : "Privacy Policy"}
+              {t('footer.privacyPolicy')}
             </Link>
             <Link href={`/${locale}/terms`} className="text-gray-500 hover:text-white text-sm transition-colors">
-              {locale === "nl" ? "Gebruiksvoorwaarden" : "Terms of Service"}
+              {t('footer.termsOfService')}
             </Link>
             <Link href={`/${locale}/cookies`} className="text-gray-500 hover:text-white text-sm transition-colors">
-              {locale === "nl" ? "Cookiebeleid" : "Cookie Policy"}
+              {t('footer.cookiePolicy')}
             </Link>
           </div>
         </div>

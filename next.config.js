@@ -12,8 +12,17 @@ const nextConfig = withNextIntl('./app/i18n/request.ts')({
     // Laat de build doorgaan ondanks TypeScript fouten
     ignoreBuildErrors: true,
   },
-  // Optimaliseer voor deployment op Vercel
-  output: 'standalone',
+  // Geen standalone output voor betere compatibiliteit
+  // output: 'standalone',
+  // Zorg dat images correct worden bediend
+  async rewrites() {
+    return [
+      {
+        source: '/images/:path*',
+        destination: '/images/:path*',
+      },
+    ];
+  },
 });
 
 module.exports = nextConfig; 

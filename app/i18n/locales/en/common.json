@@ -19,6 +19,20 @@
     "closeMenu": "Close menu",
     "getStarted": "Get started"
   },
+  "footer": {
+    "about": "Specialized AI assistants for various sectors, built with a human touch.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "configWizard": "Configuration Wizard",
+    "healthcare": "Healthcare",
+    "education": "Education",
+    "government": "Government",
+    "contactInfo": "Contact Information",
+    "allRightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy"
+  },
   "notFound": {
     "title": "404",
     "subtitle": "Page not found",
@@ -116,24 +130,234 @@
   },
   "organizationTypes": {
     "hotel": {
-      "name": "Hotel & Hospitality",
-      "description": "AI assistants for hotels and hospitality businesses to enhance guest experience and streamline operations.",
+      "name": "Hotel",
+      "description": "AI assistants for hotels to enhance guest experience and streamline daily operations.",
       "assistantsAvailable": "assistants available"
     },
     "municipality": {
       "name": "Municipality",
-      "description": "AI solutions for local governments to improve citizen services and streamline administrative processes.",
+      "description": "AI solutions for municipalities to improve citizen services and streamline administrative processes.",
       "assistantsAvailable": "assistants available"
     },
     "legal": {
-      "name": "Legal",
-      "description": "AI assistants for law firms and legal departments to automate document processing and enhance client service.",
+      "name": "Law Firm",
+      "description": "AI assistants for law firms to automate document processing and enhance client service.",
       "assistantsAvailable": "assistants available"
     },
     "healthcare": {
-      "name": "Healthcare",
-      "description": "AI assistants for healthcare providers to enhance patient care and optimize administrative workflows.",
+      "name": "General Practice",
+      "description": "AI assistants for general practitioners to enhance patient care and optimize administrative workflows.",
       "assistantsAvailable": "assistants available"
     }
+  },
+  "assistants": {
+    "hotel": {
+      "hotel-concierge": {
+        "name": "Reception Assistant",
+        "description": "A 24/7 reception assistant that answers guest questions, handles requests, and improves guest satisfaction",
+        "benefits": [
+          "Available 24/7 to answer guest questions",
+          "Integrates with your booking system",
+          "Handles common requests automatically",
+          "Provides personalized recommendations",
+          "Reduces front desk workload by up to 40%"
+        ]
+      },
+      "hotel-booking": {
+        "name": "Reservation Assistant",
+        "description": "Streamline the booking process, upsell rooms and services, and optimize occupancy rates",
+        "benefits": [
+          "Integrates with your existing booking system",
+          "Handles booking inquiries and modifications",
+          "Intelligently upsells rooms and packages",
+          "Provides instant booking confirmations",
+          "Increases direct bookings by up to 25%"
+        ]
+      },
+      "hotel-upsell": {
+        "name": "Hotel Sales Assistant",
+        "description": "Intelligently recommend additional services and experiences to guests before and during their stay",
+        "benefits": [
+          "Personalizes recommendations based on guest profiles",
+          "Increases revenue per guest",
+          "Promotes in-house services and local experiences",
+          "Integrates with your POS and booking systems",
+          "Boosts ancillary revenue by up to 35%"
+        ]
+      }
+    },
+    "municipality": {
+      "citizen-assistant": {
+        "name": "Citizen Information Assistant",
+        "description": "Help citizens navigate municipal services, answer questions, and guide through procedures",
+        "benefits": [
+          "Available 24/7 to answer citizen questions",
+          "Guides citizens through common procedures",
+          "Reduces call center volume by up to 45%",
+          "Supports multiple languages",
+          "Increases citizen satisfaction scores"
+        ]
+      },
+      "permit-assistant": {
+        "name": "Permit Processing Assistant",
+        "description": "Guide citizens through permit applications, reducing errors and processing time",
+        "benefits": [
+          "Streamlines the permit application process",
+          "Reduces application errors by up to 60%",
+          "Shortens processing times",
+          "Provides status updates automatically",
+          "Improves transparency and compliance"
+        ]
+      }
+    },
+    "legal": {
+      "legal-intake": {
+        "name": "Legal Intake Assistant",
+        "description": "Streamline the client intake process, gather relevant information, and schedule appointments",
+        "benefits": [
+          "Available 24/7 for initial client inquiries",
+          "Gathers relevant case information securely",
+          "Schedules appointments with appropriate attorneys",
+          "Reduces administrative workload by up to 35%",
+          "Improves client experience from first contact"
+        ]
+      }
+    },
+    "healthcare": {
+      "clinical-support": {
+        "name": "Medical Support Assistant",
+        "description": "Assists healthcare providers with clinical decision support, medical reference, and documentation",
+        "benefits": [
+          "Access to evidence-based clinical guidelines",
+          "Streamlined documentation and note-taking",
+          "Quick medical reference and drug information",
+          "Patient care plan suggestions",
+          "Integration with electronic health records"
+        ]
+      },
+      "patient-engagement": {
+        "name": "Patient Communication Assistant",
+        "description": "Enhances patient communication, education, and follow-up to improve care outcomes",
+        "benefits": [
+          "Automated appointment reminders",
+          "Personalized patient education materials",
+          "Medication adherence monitoring",
+          "Post-discharge follow-up",
+          "Patient satisfaction surveys"
+        ]
+      }
+    }
+  },
+  "intakeProcess": {
+    "welcomeTitle": "Welcome to the intake process",
+    "welcomeDescription": "Answer a few questions to help us understand your needs and configure your ideal AI assistant.",
+    "goalsTitle": "Goals & Expectations",
+    "goalsDescription": "Tell us what you want to achieve with your AI assistant",
+    "userContextTitle": "User Context",
+    "userContextDescription": "Tell us who will be using the assistant",
+    "integrationsTitle": "Integrations & Systems",
+    "integrationsDescription": "Tell us which systems you want to integrate with",
+    "confirmationTitle": "Confirmation",
+    "confirmationDescription": "Review and confirm your information",
+    "howItWorks": "How does it work?",
+    "workStep1": "You answer a few simple questions about your needs",
+    "workStep2": "Our team configures the assistant based on your answers",
+    "workStep3": "You get a perfect assistant ready to use",
+    "workStep4": "We provide support with implementation",
+    "goalsQuestion": "What are your goals?",
+    "goalsHelp": "Describe the main objectives you want to achieve with this AI assistant",
+    "goalsPlaceholder": "E.g. we want to provide 24/7 customer service, automate administrative tasks...",
+    "usersQuestion": "Who will use the assistant?",
+    "usersHelp": "Describe the users who will interact with the assistant",
+    "usersPlaceholder": "E.g. customer service agents, managers, customers...",
+    "integrationsQuestion": "Which systems do you use?",
+    "integrationsHelp": "List the systems you want to connect to the assistant",
+    "integrationsPlaceholder": "E.g. CRM system, knowledge information, internal databases...",
+    "confirmInfoTitle": "Confirm your information",
+    "confirmInfoHelp": "Please review the information below and make sure everything is correct",
+    "notProvided": "(Not provided)",
+    "requiredLabel": "Required",
+    "enableOption": "Yes, enable",
+    "disableOption": "No, not needed",
+    "backToAssistant": "Back to assistant details",
+    "stepLabel": "Step",
+    "previousButton": "Previous",
+    "nextButton": "Next",
+    "submitButton": "Submit"
+  },
+  "thankYou": {
+    "title": "Thank you!",
+    "description": "Your request has been received. Our team will start working on your custom AI assistant configuration.",
+    "whatNextTitle": "What happens next?",
+    "techConfig": "Technical configuration:",
+    "techConfigDesc": "Our engineers will configure the assistant based on your requirements and prepare the system for integration.",
+    "setupInteg": "Setup & integration:",
+    "setupIntegDesc": "We'll work with you to integrate the assistant with your existing systems and ensure smooth data flow.",
+    "reviewApproval": "Review & approval:",
+    "reviewApprovalDesc": "You'll get a chance to review and test the assistant before it goes live, ensuring it meets your expectations.",
+    "deployTrain": "Deployment & training:",
+    "deployTrainDesc": "Once approved, we'll deploy the assistant and provide training for your team to ensure successful adoption.",
+    "contactInfo": "We'll contact you soon with more details. If you have any questions in the meantime, please email us at support@thenextwilson.com",
+    "backToHome": "Back to homepage",
+    "viewOtherAssistants": "View other assistants"
+  },
+  "assistantDetail": {
+    "backToAssistants": "Back to assistants",
+    "benefits": "Benefits",
+    "availableModules": "Available modules",
+    "included": "Included",
+    "optional": "Optional",
+    "interestedQuestion": "Interested in this assistant?",
+    "interestedDesc": "Contact us for more information or a demonstration of this AI assistant.",
+    "contactUs": "Contact us",
+    "viewDemo": "View demo",
+    "exploreOptions": "Explore more options",
+    "customizeAssistant": "Customize this assistant",
+    "viewAllAssistants": "View all assistants"
+  },
+  "wizard": {
+    "startCustomization": "Start your customization",
+    "startWizardDesc": "Let us help you find the right AI assistant for your needs. Start the process in just a few clicks.",
+    "step1Title": "Step 1: Choose your organization type",
+    "noAssistantsAvailable": "No assistants available yet for this organization type. Please check back later or contact us for a custom solution.",
+    "step2Title": "Step 2: Choose your assistant",
+    "continueToConfig": "Continue to configuration"
+  },
+  "assistantCard": {
+    "keyBenefits": "Key benefits:",
+    "moreBenefits": "more benefits",
+    "learnMore": "Learn more",
+    "customize": "Customize"
+  },
+  "chat": {
+    "welcome": "Hello, I'm Wilson, your AI assistant. How can I help you today?",
+    "typingIndicator": "Wilson is typing...",
+    "chatWithWilson": "Chat with Wilson",
+    "askQuestion": "Ask your question directly"
+  },
+  "organization": {
+    "overview": "Overview",
+    "keyAdvantages": "Key advantages",
+    "timeSavings": "Time Savings",
+    "timeSavingsDesc": "Reduce repetitive tasks and focus on strategic activities that truly add value.",
+    "secureCompliant": "Secure & Compliant",
+    "secureCompliantDesc": "Designed with privacy and security as a priority, complies with all relevant regulations.",
+    "easyIntegration": "Easy Integration",
+    "easyIntegrationDesc": "Seamless integration with existing systems without major infrastructural changes.",
+    "enhancedEfficiency": "Enhanced Efficiency",
+    "enhancedEfficiencyDesc": "Automate processes and reduce response times for better service and higher productivity.",
+    "getStarted": "Get started",
+    "getStartedDesc": "Ready to transform your organization with AI? Explore our assistants or contact us for a personalized demo.",
+    "exploreWizard": "Explore the wizard",
+    "useCasesTitle": "Use Cases",
+    "useCasesDesc": "Discover how AI assistants can transform your organization",
+    "benefitsTitle": "Benefits",
+    "availableAssistantsTitle": "Available assistants",
+    "availableAssistantsDesc": "Discover our AI assistants specially designed for your organization",
+    "viewDetails": "View details",
+    "readyTransform": "Ready to transform your organization with AI?",
+    "contactDesc": "Contact us today for a personalized demo or go through our configuration wizard to build your own AI assistant.",
+    "contactUs": "Contact us",
+    "startConfig": "Start configuration"
   }
 } 

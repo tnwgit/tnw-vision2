@@ -315,13 +315,15 @@ export const organizationTypes: OrganizationType[] = [
   {
     id: 'hotel',
     name: 'Hotel',
-    description: 'AI solutions for hotels and hospitality businesses to enhance guest experience and streamline operations.',
+    description: 'AI solutions for hotels to enhance guest experience and streamline daily operations.',
     icon: 'Building',
     assistants: [
       {
         id: 'hotel-concierge',
-        name: 'Digital concierge assistant',
-        description: 'A 24/7 digital concierge to answer guest questions, handle requests, and improve guest satisfaction',
+        name: 'Reception Assistant',
+        nameNL: 'Receptie Assistent',
+        description: 'A 24/7 reception assistant that answers guest questions, handles requests, and improves guest satisfaction',
+        descriptionNL: 'Een 24/7 receptie-assistent die vragen van gasten beantwoordt, verzoeken afhandelt en de gasttevredenheid verbetert',
         image: '/images/hotel-concierge.jpg',
         benefits: [
           'Available 24/7 to answer guest questions',
@@ -330,13 +332,22 @@ export const organizationTypes: OrganizationType[] = [
           'Provides personalized recommendations',
           'Reduces front desk workload by up to 40%'
         ],
+        benefitsNL: [
+          '24/7 beschikbaar om vragen van gasten te beantwoorden',
+          'Integreert met uw boekingssysteem',
+          'Handelt veelvoorkomende verzoeken automatisch af',
+          'Biedt gepersonaliseerde aanbevelingen',
+          'Vermindert werkdruk aan de receptie met tot 40%'
+        ],
         organizationTypeId: 'hotel',
         modules: hotelModules
       },
       {
         id: 'hotel-booking',
-        name: 'Booking assistant',
+        name: 'Reservation Assistant',
+        nameNL: 'Reservering Assistent',
         description: 'Streamline the booking process, upsell rooms and services, and optimize occupancy rates',
+        descriptionNL: 'Stroomlijn het boekingsproces, verkoop kamers en diensten, en optimaliseer bezettingsgraden',
         image: '/images/hotel-booking.jpg',
         benefits: [
           'Integrates with your existing booking system',
@@ -345,13 +356,22 @@ export const organizationTypes: OrganizationType[] = [
           'Provides instant booking confirmations',
           'Increases direct bookings by up to 25%'
         ],
+        benefitsNL: [
+          'Integreert met uw bestaande boekingssysteem',
+          'Verwerkt boekingsaanvragen en wijzigingen',
+          'Verkoopt op intelligente wijze kamers en pakketten',
+          'Biedt directe boekingsbevestigingen',
+          'Verhoogt directe boekingen met tot 25%'
+        ],
         organizationTypeId: 'hotel',
         modules: hotelModules
       },
       {
         id: 'hotel-upsell',
-        name: 'Upsell assistant',
+        name: 'Hotel Sales Assistant',
+        nameNL: 'Hotel Verkoop Assistent',
         description: 'Intelligently recommend additional services and experiences to guests before and during their stay',
+        descriptionNL: 'Beveel op slimme wijze aanvullende diensten en ervaringen aan gasten aan voor en tijdens hun verblijf',
         image: '/images/hotel-upsell.jpg',
         benefits: [
           'Personalizes recommendations based on guest profiles',
@@ -359,6 +379,13 @@ export const organizationTypes: OrganizationType[] = [
           'Promotes in-house services and local experiences',
           'Integrates with your POS and booking systems',
           'Boosts ancillary revenue by up to 35%'
+        ],
+        benefitsNL: [
+          'Personaliseert aanbevelingen op basis van gastprofielen',
+          'Verhoogt de omzet per gast',
+          'Promoot interne diensten en lokale ervaringen',
+          'Integreert met uw kassa- en boekingssystemen',
+          'Verhoogt aanvullende inkomsten met tot 35%'
         ],
         organizationTypeId: 'hotel',
         modules: hotelModules
@@ -368,13 +395,15 @@ export const organizationTypes: OrganizationType[] = [
   {
     id: 'municipality',
     name: 'Municipality',
-    description: 'AI solutions for local governments to improve citizen services and streamline administrative processes.',
+    description: 'AI solutions for municipalities to improve citizen services and streamline administrative processes.',
     icon: 'Landmark',
     assistants: [
       {
         id: 'citizen-assistant',
-        name: 'Citizen support assistant',
+        name: 'Citizen Information Assistant',
+        nameNL: 'Burger Informatie Assistent',
         description: 'Help citizens navigate municipal services, answer questions, and guide through procedures',
+        descriptionNL: 'Help burgers bij het navigeren door gemeentelijke diensten, beantwoord vragen en begeleid door procedures',
         image: '/images/citizen-assistant.jpg',
         benefits: [
           'Available 24/7 to answer citizen questions',
@@ -383,13 +412,22 @@ export const organizationTypes: OrganizationType[] = [
           'Supports multiple languages',
           'Increases citizen satisfaction scores'
         ],
+        benefitsNL: [
+          '24/7 beschikbaar om vragen van burgers te beantwoorden',
+          'Begeleidt burgers door veelvoorkomende procedures',
+          'Vermindert callcentervolume met tot 45%',
+          'Ondersteunt meerdere talen',
+          'Verhoogt tevredenheidsscores van burgers'
+        ],
         organizationTypeId: 'municipality',
         modules: municipalityModules
       },
       {
         id: 'permit-assistant',
-        name: 'Permit application assistant',
+        name: 'Permit Processing Assistant',
+        nameNL: 'Vergunning Verwerkings Assistent',
         description: 'Guide citizens through permit applications, reducing errors and processing time',
+        descriptionNL: 'Begeleid burgers bij vergunningsaanvragen, verminder fouten en verwerkingstijd',
         image: '/images/permit-assistant.jpg',
         benefits: [
           'Streamlines the permit application process',
@@ -398,6 +436,13 @@ export const organizationTypes: OrganizationType[] = [
           'Provides status updates automatically',
           'Improves transparency and compliance'
         ],
+        benefitsNL: [
+          'Stroomlijnt het vergunningsaanvraagproces',
+          'Vermindert aanvraagfouten met tot 60%',
+          'Verkort verwerkingstijden',
+          'Biedt automatisch statusupdates',
+          'Verbetert transparantie en naleving'
+        ],
         organizationTypeId: 'municipality',
         modules: municipalityModules
       }
@@ -405,14 +450,16 @@ export const organizationTypes: OrganizationType[] = [
   },
   {
     id: 'legal',
-    name: 'Legal',
-    description: 'AI assistants for law firms and legal departments to automate document processing and enhance client service.',
+    name: 'Law Firm',
+    description: 'AI assistants for law firms to automate document processing and enhance client service.',
     icon: 'Scale',
     assistants: [
       {
         id: 'legal-intake',
-        name: 'Client intake assistant',
+        name: 'Legal Intake Assistant',
+        nameNL: 'Juridische Intake Assistent',
         description: 'Streamline the client intake process, gather relevant information, and schedule appointments',
+        descriptionNL: 'Stroomlijn het klantintakeproces, verzamel relevante informatie en plan afspraken',
         image: '/images/legal-intake.jpg',
         benefits: [
           'Available 24/7 for initial client inquiries',
@@ -421,6 +468,13 @@ export const organizationTypes: OrganizationType[] = [
           'Reduces administrative workload by up to 35%',
           'Improves client experience from first contact'
         ],
+        benefitsNL: [
+          '24/7 beschikbaar voor eerste klantvragen',
+          'Verzamelt relevante zaakgegevens op veilige wijze',
+          'Plant afspraken met geschikte advocaten',
+          'Vermindert administratieve werklast met tot 35%',
+          'Verbetert klantervaring vanaf het eerste contact'
+        ],
         organizationTypeId: 'legal',
         modules: commonModules
       }
@@ -428,14 +482,16 @@ export const organizationTypes: OrganizationType[] = [
   },
   {
     id: 'healthcare',
-    name: 'Healthcare',
-    description: 'AI assistants for healthcare providers to enhance patient care and optimize administrative workflows.',
+    name: 'General Practice',
+    description: 'AI assistants for general practitioners to enhance patient care and optimize administrative workflows.',
     icon: 'Stethoscope',
     assistants: [
       {
         id: 'clinical-support',
-        name: 'Clinical support assistant',
-        description: 'Assists healthcare providers with clinical decision support, medical reference, and documentation.',
+        name: 'Medical Support Assistant',
+        nameNL: 'Medische Ondersteunings Assistent',
+        description: 'Assists healthcare providers with clinical decision support, medical reference, and documentation',
+        descriptionNL: 'Ondersteunt zorgverleners met klinische besluitvorming, medische referentie en documentatie',
         image: '/images/healthcare-clinical.jpg',
         organizationTypeId: 'healthcare',
         benefits: [
@@ -444,6 +500,13 @@ export const organizationTypes: OrganizationType[] = [
           'Quick medical reference and drug information',
           'Patient care plan suggestions',
           'Integration with electronic health records'
+        ],
+        benefitsNL: [
+          'Toegang tot evidence-based klinische richtlijnen',
+          'Gestroomlijnde documentatie en notities',
+          'Snelle medische referentie en medicatie-informatie',
+          'Suggesties voor patiëntenzorgplannen',
+          'Integratie met elektronische patiëntendossiers'
         ],
         modules: [
           // Clinical Knowledge modules
@@ -481,8 +544,10 @@ export const organizationTypes: OrganizationType[] = [
       },
       {
         id: 'patient-engagement',
-        name: 'Patient engagement assistant',
-        description: 'Enhances patient communication, education, and follow-up to improve care outcomes.',
+        name: 'Patient Communication Assistant',
+        nameNL: 'Patiënt Communicatie Assistent',
+        description: 'Enhances patient communication, education, and follow-up to improve care outcomes',
+        descriptionNL: 'Verbetert patiëntcommunicatie, voorlichting en follow-up om zorgresultaten te verbeteren',
         image: '/images/healthcare-patient.jpg',
         organizationTypeId: 'healthcare',
         benefits: [
@@ -491,6 +556,13 @@ export const organizationTypes: OrganizationType[] = [
           'Medication adherence monitoring',
           'Post-discharge follow-up',
           'Patient satisfaction surveys'
+        ],
+        benefitsNL: [
+          'Geautomatiseerde afspraakherinneringen',
+          'Gepersonaliseerde patiëntvoorlichtingsmaterialen',
+          'Monitoring van medicatietrouw',
+          'Follow-up na ontslag',
+          'Patiënttevredenheidsonderzoeken'
         ],
         modules: [
           // Patient Communication modules
