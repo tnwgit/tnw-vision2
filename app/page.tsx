@@ -12,7 +12,7 @@ export default function Home() {
     <MainLayout>
       <HeroSection
         title="Build tailored AI assistants for your organization"
-        subtitle="The next wilson platform creates custom AI assistants based on your needs. Our experts handle the technical configuration while you focus on your business."
+        subtitle="The Next Wilson platform creates custom AI assistants based on your needs. Our experts handle the technical configuration while you focus on your business."
         ctaText="Get started"
         ctaLink="/demo"
         secondaryText="Learn more"
@@ -32,7 +32,7 @@ export default function Home() {
       </Section>
 
       <Section
-        title="Why choose the next wilson?"
+        title="Why choose The Next Wilson?"
         description="Our platform offers unique benefits that set us apart from generic AI solutions."
         centered
         tinted

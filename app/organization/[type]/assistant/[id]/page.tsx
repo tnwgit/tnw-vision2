@@ -229,7 +229,7 @@ export default function AssistantDetailPage({ params }: AssistantDetailPageProps
             </div>
             
             <p className="text-gray-600 mb-4">
-              "{name} heeft onze klantenservice volledig getransformeerd. We kunnen nu 24/7 vragen beantwoorden zonder extra personeel in te zetten. De configuratie was eenvoudig dankzij het team van the next wilson."
+              "{name} heeft onze klantenservice volledig getransformeerd. We kunnen nu 24/7 vragen beantwoorden zonder extra personeel in te zetten. De configuratie was eenvoudig dankzij het team van The Next Wilson."
             </p>
             
             <div className="flex items-center">

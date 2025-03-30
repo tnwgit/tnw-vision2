@@ -42,7 +42,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 </div>
                 <div>
                   <h3 className="font-bold">Wilson</h3>
-                  <p className="text-xs text-blue-100">The next wilson AI assistant</p>
+                  <p className="text-xs text-blue-100">The Next Wilson AI assistant</p>
                 </div>
               </div>
               <button 
@@ -62,7 +62,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   </div>
                   <div className="bg-white p-3 rounded-lg shadow-sm max-w-[80%]">
                     <p className="text-sm text-gray-800">
-                      Hello! I'm Wilson, your AI assistant from the next wilson. How can I help you today?
+                      Hello! I'm Wilson, your AI assistant from The Next Wilson. How can I help you today?
                     </p>
                   </div>
                 </div>

@@ -24,7 +24,7 @@ export function Header() {
             >
               <Image 
                 src="/images/logos/logoTNW.svg" 
-                alt="The next wilson logo" 
+                alt="The Next Wilson Logo" 
                 width={180} 
                 height={40} 
                 className="h-10 w-auto" 

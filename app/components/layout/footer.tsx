@@ -13,7 +13,7 @@ export function Footer() {
             <Link href="/" className="flex items-center">
               <Image 
                 src="/images/logos/logoTNW.svg" 
-                alt="The next wilson logo" 
+                alt="The Next Wilson Logo" 
                 width={180} 
                 height={40} 
                 className="h-10 w-auto" 
@@ -144,7 +144,7 @@ export function Footer() {
         </div>
         <div className="border-t border-gray-200 pt-8 mt-12">
           <p className="text-gray-500 text-sm text-center">
-            &copy; {new Date().getFullYear()} The next wilson. All rights reserved.
+            &copy; {new Date().getFullYear()} The Next Wilson. All rights reserved.
           </p>
         </div>
       </div>
