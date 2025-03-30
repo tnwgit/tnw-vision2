@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { notFound } from "next/navigation";
 import { locales } from "../config";
+import { I18nProvider } from "../i18n/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,5 +29,18 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  return <>{children}</>;
+  // Laad de berichten voor de geselecteerde taal
+  let messages;
+  try {
+    messages = (await import(`../i18n/locales/${locale}/common.json`)).default;
+  } catch (error) {
+    console.error(`Failed to load messages for locale: ${locale}`, error);
+    notFound();
+  }
+
+  return (
+    <I18nProvider locale={locale} messages={messages}>
+      {children}
+    </I18nProvider>
+  );
 } 

@@ -1,158 +1,160 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
-import { LanguageSelector } from "../ui/language-selector";
-import { Button } from "../ui/button";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { useLocale } from "next-intl";
+import { LanguageSelector } from '../ui/language-selector';
+import { AuthStatus } from '../auth/auth-status';
 
-export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+// Definieer letterlijke vertalingen voor navigatie-items
+// Dit is een eenvoudigere aanpak dan het gebruik van useTranslations voor deze specifieke items
+const translations = {
+  en: {
+    about: "About us",
+    solutions: "Solutions",
+    benefits: "Benefits",
+    contact: "Contact"
+  },
+  nl: {
+    about: "Over ons",
+    solutions: "Oplossingen",
+    benefits: "Voordelen",
+    contact: "Contact"
+  }
+};
+
+export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const locale = useLocale();
-  const t = useTranslations('navigation');
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  
+  // Selecteer de juiste vertalingen op basis van de huidige taal
+  const t = translations[locale as 'en' | 'nl'];
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
+      if (window.scrollY > 10) {
+        setScrolled(true);
       } else {
-        setIsScrolled(false);
+        setScrolled(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Sluit het menu als er een navigatie plaatsvindt
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  const navigationItems = [
+    { text: t.about, href: `/${locale}/about` },
+    { text: t.solutions, href: `/${locale}/#solutions` },
+    { text: t.benefits, href: `/${locale}/#benefits` },
+    { text: t.contact, href: `/${locale}/#contact` },
+  ];
+
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
-        isScrolled ? "bg-white shadow-md py-3" : "bg-transparent py-6"
+      className={`fixed w-full z-30 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center">
-            <Image 
-              src="/images/logos/logoTNW.svg"
-              alt="The Next Wilson logo"
-              width={150}
-              height={40}
-              className="h-12 w-auto"
-            />
-          </Link>
+          <div className="flex-shrink-0">
+            <Link href={`/${locale}`} className="flex items-center">
+              <Image 
+                src="/images/logos/logoTNW.svg" 
+                alt="The Next Wilson" 
+                width={120} 
+                height={40} 
+                className="h-10 w-auto"
+                priority
+              />
+            </Link>
+          </div>
 
-          {/* Navigation items - Desktop */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link 
-              href={`/${locale}/about`}
-              className="text-sm font-medium text-gray-700 hover:text-[#3182ce] transition-colors whitespace-nowrap"
-            >
-              {t('about')}
-            </Link>
-            <Link 
-              href={`/${locale}/solutions`}
-              className="text-sm font-medium text-gray-700 hover:text-[#7e3af2] transition-colors"
-            >
-              {t('solutions')}
-            </Link>
-            <Link 
-              href={`/${locale}/benefits`}
-              className="text-sm font-medium text-gray-700 hover:text-[#16bdca] transition-colors"
-            >
-              {t('benefits')}
-            </Link>
-            <Link 
-              href={`/${locale}/contact`}
-              className="text-sm font-medium text-gray-700 hover:text-[#ff9e2c] transition-colors"
-            >
-              {t('contact')}
-            </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center">
+            <div className="flex space-x-6 mr-8">
+              {navigationItems.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm"
+                >
+                  {item.text}
+                </Link>
+              ))}
+            </div>
             
+            {/* Taal selector */}
             <LanguageSelector />
             
-            <Button asChild variant="gradient-mixed" className="ml-4">
-              <Link href={`/${locale}/demo`} className="w-full h-full flex items-center justify-center">{t('tryDemo')}</Link>
-            </Button>
+            {/* Auth status en login/uitlog knoppen - helemaal rechts */}
+            <div className="ml-6">
+              <AuthStatus />
+            </div>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <Button
-              variant="ghost"
-              size="icon"
+          {/* Mobile menu button */}
+          <div className="flex items-center space-x-4 md:hidden">
+            <LanguageSelector />
+            
+            <button
+              type="button"
+              className="text-gray-700 hover:text-blue-600"
               onClick={toggleMenu}
-              aria-label={isMenuOpen ? t('closeMenu') : t('openMenu')}
-              className="ml-2"
+              aria-expanded={isOpen}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
+              <span className="sr-only">
+                {isOpen ? "Close menu" : "Open menu"}
+              </span>
+              {isOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
-          <div className="container mx-auto px-4 pt-2 pb-4 space-y-1">
-            <Link
-              href={`/${locale}/about`}
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#3182ce] hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('about')}
-            </Link>
-            <Link
-              href={`/${locale}/solutions`}
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#7e3af2] hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('solutions')}
-            </Link>
-            <Link
-              href={`/${locale}/benefits`}
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#16bdca] hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('benefits')}
-            </Link>
-            <Link
-              href={`/${locale}/contact`}
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#ff9e2c] hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('contact')}
-            </Link>
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-xl">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navigationItems.map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                className="block px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 rounded-md font-medium"
+              >
+                {item.text}
+              </Link>
+            ))}
             
-            {/* Language selector in mobiel menu */}
-            <div className="py-1">
-              <div className="px-3 py-2">
-                <LanguageSelector isMobile={true} />
-              </div>
-            </div>
-            
-            <div className="pt-2">
-              <Button asChild variant="gradient-mixed" className="w-full">
-                <Link href={`/${locale}/demo`} onClick={() => setIsMenuOpen(false)} className="w-full h-full flex items-center justify-center">
-                  {t('tryDemo')}
-                </Link>
-              </Button>
+            {/* Mobiele Auth Status */}
+            <div className="px-3 py-2">
+              <AuthStatus />
             </div>
           </div>
         </div>
       )}
     </header>
   );
-} 
+}; 

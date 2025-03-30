@@ -149,7 +149,7 @@ export function HeroSection({
         />
       </div>
       
-      <div className="relative z-10 pt-24 pb-20 md:pt-28 md:pb-28">
+      <div className="relative z-10 pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">

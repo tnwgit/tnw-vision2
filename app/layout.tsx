@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { defaultLocale } from "./config";
+import { SessionProvider } from "./lib/auth/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,9 +13,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   // Onderdruk hydratatie waarschuwingen in productie
   if (typeof window !== 'undefined') {
     // @ts-expect-error - Console error override voor onderdrukken van hydratiefouten
@@ -32,7 +33,11 @@ export default function RootLayout({
 
   return (
     <html lang={defaultLocale} suppressHydrationWarning={true}>
-      <body className={inter.className} suppressHydrationWarning={true}>{children}</body>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <SessionProvider>
+          {children}
+        </SessionProvider>
+      </body>
     </html>
   );
 }

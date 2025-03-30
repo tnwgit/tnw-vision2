@@ -12,8 +12,6 @@ const nextConfig = withNextIntl('./app/i18n/request.ts')({
     // Laat de build doorgaan ondanks TypeScript fouten
     ignoreBuildErrors: true,
   },
-  // Geen standalone output voor betere compatibiliteit
-  // output: 'standalone',
   // Zorg dat images correct worden bediend
   async rewrites() {
     return [

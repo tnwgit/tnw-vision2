@@ -1,8 +1,11 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import React from "react";
 import * as LucideIcons from "lucide-react";
 
-// Combine class names with tailwind-merge
+/**
+ * Combines multiple class names into a single string, merging Tailwind classes properly
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -12,10 +15,13 @@ export function formatNumber(number: number, locale = 'en-US'): string {
   return new Intl.NumberFormat(locale).format(number);
 }
 
-// Get icon component from name
+/**
+ * Gets the icon component from string name
+ */
 export function getIcon(iconName: string) {
-  const IconComponent = LucideIcons[iconName as keyof typeof LucideIcons] || LucideIcons.HelpCircle;
-  return IconComponent;
+  // Try to get icon from Lucide icons
+  const Icon = (LucideIcons as any)[iconName] || LucideIcons.HelpCircle;
+  return Icon;
 }
 
 // Format currency
@@ -61,11 +67,13 @@ export function slugify(text: string): string {
     .replace(/-+$/, '');
 }
 
-// Format date 
-export function formatDate(date: Date, locale = 'en-US'): string {
+/**
+ * Formats a date to a readable string based on the current locale
+ */
+export function formatDate(date: Date, locale: string = 'nl'): string {
   return new Intl.DateTimeFormat(locale, {
-    year: 'numeric',
+    day: 'numeric',
     month: 'long',
-    day: 'numeric'
+    year: 'numeric',
   }).format(date);
 } 
