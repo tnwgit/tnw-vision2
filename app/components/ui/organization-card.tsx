@@ -15,6 +15,7 @@ interface OrganizationCardProps {
 }
 
 // Functie om verschillende kleurstijlen toe te wijzen aan organisatietypes
+// Update: Vercel trigger en verbeterde styling voor knoppen
 function getOrganizationStyle(id: string) {
   const styleMap: Record<string, { borderColor: string, gradient: string, buttonVariant: string, bgColor: string, ctaVariant: string }> = {
     'hotel': { 
