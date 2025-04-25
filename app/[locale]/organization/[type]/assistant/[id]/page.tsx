@@ -195,7 +195,24 @@ export default async function AssistantDetailPage({ params }: AssistantDetailPag
                 <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-900">
                   {locale === 'nl' ? 'Voordelen' : 'Benefits'}
                 </h2>
-                <ul className="space-y-3 my-4">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                  <p className="text-gray-600 italic max-w-md">
+                    {locale === 'nl' ? 'De belangrijkste voordelen van deze assistent voor uw organisatie:' : 'Key benefits of this assistant for your organization:'}
+                  </p>
+                  
+                  <Link 
+                    href={`/${locale}/organization/${type}/assistant/${id}/intake`}
+                    className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-base font-semibold rounded-lg shadow-md hover:shadow-lg border-2 border-white/20 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] min-w-[240px]"
+                    style={{ letterSpacing: "0.025em", textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
+                  >
+                    <span>{locale === 'nl' ? 'Assistent aanpassen' : 'Customize assistant'}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </Link>
+                </div>
+                <ul className="space-y-3 my-4 border-l-4 border-green-100 pl-4">
                   {displayBenefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="mt-1 h-5 w-5 flex items-center justify-center rounded-full bg-green-100">
@@ -256,32 +273,33 @@ export default async function AssistantDetailPage({ params }: AssistantDetailPag
                     'Start configuring your own assistant or contact us for more information.'}
                 </p>
                 
-                <Button asChild variant="gradient" size="lg" className="w-full mb-4">
-                  <Link href={`/${locale}/contact?assistant=${id}&organization=${type}`}>
-                    {locale === 'nl' ? 'Neem contact op' : 'Contact us'}
-                  </Link>
-                </Button>
+                <Link 
+                  href={`/${locale}/contact?assistant=${id}&organization=${type}`}
+                  className="mb-4 w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-base font-semibold rounded-lg shadow-md hover:shadow-lg border-2 border-white/20 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                  style={{ letterSpacing: "0.025em", textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
+                >
+                  <span>{locale === 'nl' ? 'Neem contact op' : 'Contact us'}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                  </svg>
+                </Link>
                 
-                <Button asChild variant="outline" size="lg" className="w-full">
-                  <Link href={`/${locale}/demo?assistant=${id}`}>
-                    {locale === 'nl' ? 'Bekijk demo' : 'View demo'}
-                  </Link>
-                </Button>
+                <Link 
+                  href={`/${locale}/demo?assistant=${id}`}
+                  className="w-full inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 text-base font-medium rounded-lg transition-colors"
+                >
+                  <span>{locale === 'nl' ? 'Bekijk demo' : 'View demo'}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                </Link>
                 
                 <div className="mt-6 pt-6 border-t border-blue-200">
                   <h4 className="font-medium text-gray-900 mb-2">
                     {locale === 'nl' ? 'Verken opties' : 'Explore options'}
                   </h4>
                   <ul className="space-y-3">
-                    <li>
-                      <Link
-                        href={`/${locale}/organization/${type}/assistant/${id}/intake`}
-                        className="text-blue-600 hover:text-blue-800 inline-flex items-center"
-                      >
-                        {locale === 'nl' ? 'Assistent aanpassen' : 'Customize assistant'}
-                        <ArrowRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    </li>
                     <li>
                       <Link
                         href={`/${locale}/organization/${type}`}

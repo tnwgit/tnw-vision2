@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang={defaultLocale} suppressHydrationWarning={true}>
       <body className={inter.className} suppressHydrationWarning={true}>
         <SessionProvider>
-          {children}
+        {children}
         </SessionProvider>
       </body>
     </html>

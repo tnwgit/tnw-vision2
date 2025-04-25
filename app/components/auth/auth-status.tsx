@@ -7,6 +7,7 @@ import { LogIn, LogOut, User } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
+import { useTranslations } from 'next-intl';
 
 export function AuthStatus() {
   const { data: session, status } = useSession();
@@ -15,6 +16,7 @@ export function AuthStatus() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
   const router = useRouter();
+  const t = useTranslations('header');
 
   // Sluit dropdown wanneer er ergens anders wordt geklikt
   useEffect(() => {
@@ -81,7 +83,7 @@ export function AuthStatus() {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Profiel
+                {t('profile')}
               </Link>
               
               {session.user.role === "admin" && (
@@ -100,7 +102,7 @@ export function AuthStatus() {
               >
                 <span className="flex items-center">
                   <LogOut className="h-4 w-4 mr-2" />
-                  Uitloggen
+                  {t('logout')}
                 </span>
               </button>
             </div>
@@ -119,7 +121,7 @@ export function AuthStatus() {
           className="text-gray-600 hover:text-blue-600 hover:bg-transparent border-none shadow-none"
         >
           <LogIn className="h-4 w-4 mr-1.5" />
-          <span className="text-sm">Inloggen</span>
+          <span className="text-sm">{t('login')}</span>
         </Button>
       </Link>
     </div>

@@ -1,10 +1,12 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { WizardContent } from '@/app/components/wizard-content';
-import { searchParams } from 'next/navigation';
 
-export default async function WizardPage({ params, searchParams }: { 
+export default async function WizardPage({ 
+  params,
+  searchParams
+}: { 
   params: { locale: string },
-  searchParams?: { 
+  searchParams: { 
     assistant?: string,
     organization?: string 
   }

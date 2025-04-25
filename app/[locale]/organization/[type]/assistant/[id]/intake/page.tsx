@@ -76,8 +76,22 @@ export default function IntakePage({ params }: IntakePageProps) {
     return acc;
   }, {} as Record<ModuleCategory, Module[]>);
   
+  // Verander om de assistent-specifieke modules toe te voegen aan de algemene modules
+  const assistantSpecificModules = addAssistantSpecificModules(id);
+  
+  // Combineer de algemene modules met de assistent-specifieke modules
+  const enhancedModulesByCategory: Record<string, Module[]> = { ...modulesByCategory };
+  
+  // Voeg assistent-specifieke modules toe aan de juiste categorieën
+  assistantSpecificModules.forEach(module => {
+    if (!enhancedModulesByCategory[module.category]) {
+      enhancedModulesByCategory[module.category] = [];
+    }
+    enhancedModulesByCategory[module.category].push(module);
+  });
+  
   // Dynamisch stappen genereren op basis van aanwezige modulecategorieën
-  const moduleSteps = Object.keys(modulesByCategory).map(category => ({
+  const moduleSteps = Object.keys(enhancedModulesByCategory).map(category => ({
     title: locale === 'nl' ? `${category} Instellingen` : `${category} Settings`,
     description: locale === 'nl'
       ? `Geef aan hoe u de ${category.toLowerCase()} functionaliteit wilt gebruiken`
@@ -92,12 +106,8 @@ export default function IntakePage({ params }: IntakePageProps) {
         ? `We gaan ${assistant.name} aanpassen aan uw behoeften. Dit is het klantgerichte deel waarin we uw wensen inventariseren.`
         : `We're going to customize ${assistant.name} to meet your needs. This is the customer-focused part where we identify your requirements.`
     },
-    {
-      title: locale === 'nl' ? 'Doelen & Verwachtingen' : 'Goals & Expectations',
-      description: locale === 'nl'
-        ? 'Wat wilt u bereiken met deze AI-assistent? Waar gaat u hem voor gebruiken?'
-        : 'What do you want to achieve with this AI assistant? What will you use it for?'
-    },
+    // Aangepaste doelen stap op basis van assistent type
+    getAssistantSpecificGoalsStep(id, locale),
     {
       title: locale === 'nl' ? 'Gebruikerscontext' : 'User Context',
       description: locale === 'nl'
@@ -124,8 +134,8 @@ export default function IntakePage({ params }: IntakePageProps) {
     goals: '',
     users: '',
     integrations: '',
-    modules: Object.keys(modulesByCategory).reduce((acc, category) => {
-      modulesByCategory[category as ModuleCategory].forEach(module => {
+    modules: Object.keys(enhancedModulesByCategory).reduce((acc, category) => {
+      enhancedModulesByCategory[category as ModuleCategory].forEach(module => {
         acc[module.id] = {
           enabled: module.isRequired || module.defaultEnabled,
           preferences: ''
@@ -201,6 +211,296 @@ export default function IntakePage({ params }: IntakePageProps) {
     }
   };
   
+  // Hulpfunctie om assistent-specifieke doel vragen te genereren
+  function getAssistantSpecificGoalsStep(assistantId: string, locale: string): any {
+    // Standaard stap (fallback)
+    const defaultStep = {
+      title: locale === 'nl' ? 'Doelen & Verwachtingen' : 'Goals & Expectations',
+      description: locale === 'nl'
+        ? 'Wat wilt u bereiken met deze AI-assistent? Waar gaat u hem voor gebruiken?'
+        : 'What do you want to achieve with this AI assistant? What will you use it for?'
+    };
+    
+    // Assistent-specifieke stappen
+    const assistantSteps: Record<string, any> = {
+      // Accountant assistenten - nieuwe
+      'financial-admin': {
+        title: locale === 'nl' ? 'Financiële Administratie Doelen' : 'Financial Administration Goals',
+        description: locale === 'nl'
+          ? 'Welke financiële administratieve taken wilt u automatiseren? Welke documentverwerkingsprocessen wilt u stroomlijnen?'
+          : 'Which financial administrative tasks do you want to automate? Which document processing workflows do you want to streamline?'
+      },
+      'tax-advisor': {
+        title: locale === 'nl' ? 'Belastingadvies Doelen' : 'Tax Advisory Goals',
+        description: locale === 'nl'
+          ? 'Welk type belastingadvies wilt u bieden? Voor welke specifieke belastingvraagstukken zoekt u ondersteuning?'
+          : 'What type of tax advice do you want to provide? For which specific tax issues are you seeking support?'
+      },
+      'financial-analyst': {
+        title: locale === 'nl' ? 'Financiële Analyse Doelen' : 'Financial Analysis Goals',
+        description: locale === 'nl'
+          ? 'Welke financiële analyses wilt u automatiseren? Welke inzichten wilt u voor uw klanten genereren?'
+          : 'Which financial analyses do you want to automate? What insights do you want to generate for your clients?'
+      },
+      
+      // Bestaande assistenten behouden
+      'hotel-concierge': {
+        title: locale === 'nl' ? 'Receptie Doelen' : 'Reception Goals',
+        description: locale === 'nl'
+          ? 'Welke receptietaken wilt u automatiseren? Wat zijn uw belangrijkste uitdagingen bij de receptie?'
+          : 'Which reception tasks do you want to automate? What are your main challenges at the reception?'
+      },
+      'hotel-booking': {
+        title: locale === 'nl' ? 'Reserveringsdoelen' : 'Reservation Goals',
+        description: locale === 'nl'
+          ? 'Hoe ziet uw huidige boekingsproces eruit? Welke verbeteringen wenst u in het reserveringsproces?'
+          : 'What does your current booking process look like? What improvements do you want in the reservation process?'
+      },
+      'hotel-upsell': {
+        title: locale === 'nl' ? 'Verkoopdoelen' : 'Sales Goals',
+        description: locale === 'nl'
+          ? 'Welke extra diensten wilt u promoten? Wanneer in de customer journey wilt u upselling toepassen?'
+          : 'Which additional services do you want to promote? At what point in the customer journey do you want to apply upselling?'
+      },
+      
+      // Municipality assistenten
+      'citizen-assistant': {
+        title: locale === 'nl' ? 'Burgerdienstverlening' : 'Citizen Service Goals',
+        description: locale === 'nl'
+          ? 'Welke gemeentelijke diensten wilt u automatiseren? Wat zijn de meest voorkomende vragen van burgers?'
+          : 'Which municipal services do you want to automate? What are the most common questions from citizens?'
+      },
+      'permit-assistant': {
+        title: locale === 'nl' ? 'Vergunningsdoelen' : 'Permit Process Goals',
+        description: locale === 'nl'
+          ? 'Welke vergunningsprocessen wilt u stroomlijnen? Wat zijn knelpunten in het huidige proces?'
+          : 'Which permit processes do you want to streamline? What are bottlenecks in the current process?'
+      },
+      
+      // Legal assistenten
+      'legal-intake': {
+        title: locale === 'nl' ? 'Juridische Intake Doelen' : 'Legal Intake Goals',
+        description: locale === 'nl'
+          ? 'Hoe ziet uw huidige client intake proces eruit? Welke juridische informatie wilt u verzamelen?'
+          : 'What does your current client intake process look like? What legal information do you want to collect?'
+      },
+      
+      // Healthcare assistenten
+      'clinical-support': {
+        title: locale === 'nl' ? 'Klinische Ondersteuning' : 'Clinical Support Goals',
+        description: locale === 'nl'
+          ? 'Welke klinische taken wilt u ondersteunen? Welke medische richtlijnen moeten worden geïmplementeerd?'
+          : 'Which clinical tasks do you want to support? Which medical guidelines need to be implemented?'
+      },
+      'patient-engagement': {
+        title: locale === 'nl' ? 'Patiëntcommunicatie' : 'Patient Communication Goals',
+        description: locale === 'nl'
+          ? 'Welke patiëntcommunicatie wilt u verbeteren? Wat zijn uw doelen voor patiëntbetrokkenheid?'
+          : 'Which patient communications do you want to improve? What are your goals for patient engagement?'
+      },
+      
+      // Accountant assistenten
+      'tax-assistant': {
+        title: locale === 'nl' ? 'Belastingaangifte Doelen' : 'Tax Filing Goals',
+        description: locale === 'nl'
+          ? 'Welke belastingaangiftes wilt u automatiseren? Welke specifieke belastingwetgeving is relevant?'
+          : 'Which tax filings do you want to automate? Which specific tax legislation is relevant?'
+      },
+      'bookkeeping-assistant': {
+        title: locale === 'nl' ? 'Boekhoudkundige Doelen' : 'Bookkeeping Goals',
+        description: locale === 'nl'
+          ? 'Welke boekhoudkundige processen wilt u stroomlijnen? Welk boekhoudpakket gebruikt u momenteel?'
+          : 'Which accounting processes do you want to streamline? Which accounting package are you currently using?'
+      },
+      'client-advisor': {
+        title: locale === 'nl' ? 'Financiële Advies Doelen' : 'Financial Advisory Goals',
+        description: locale === 'nl'
+          ? 'Welk type financieel advies wilt u automatiseren? Voor welke clienten is dit bedoeld?'
+          : 'What type of financial advice do you want to automate? For which clients is this intended?'
+      },
+      'financial-admin': {
+        title: locale === 'nl' ? 'Financiële Administratie Doelen' : 'Financial Administration Goals',
+        description: locale === 'nl'
+          ? 'Welke financiële administratieve taken wilt u automatiseren? Welke documentverwerkingsprocessen wilt u stroomlijnen?'
+          : 'Which financial administrative tasks do you want to automate? Which document processing workflows do you want to streamline?'
+      },
+      'tax-advisor': {
+        title: locale === 'nl' ? 'Belastingadvies Doelen' : 'Tax Advisory Goals',
+        description: locale === 'nl'
+          ? 'Welk type belastingadvies wilt u bieden? Voor welke specifieke belastingvraagstukken zoekt u ondersteuning?'
+          : 'What type of tax advice do you want to provide? For which specific tax issues are you seeking support?'
+      },
+      'financial-analyst': {
+        title: locale === 'nl' ? 'Financiële Analyse Doelen' : 'Financial Analysis Goals',
+        description: locale === 'nl'
+          ? 'Welke financiële analyses wilt u automatiseren? Welke inzichten wilt u voor uw klanten genereren?'
+          : 'Which financial analyses do you want to automate? What insights do you want to generate for your clients?'
+      }
+    };
+    
+    return assistantSteps[assistantId] || defaultStep;
+  }
+  
+  // Helper functie voor het toevoegen van assistent-specifieke modules
+  function addAssistantSpecificModules(assistantId: string): Module[] {
+    let assistantModules: Module[] = [];
+
+    // Financial Administration Assistant modules
+    if (assistantId === 'financial-admin') {
+      assistantModules = [
+        {
+          id: 'accounting-software-integration',
+          name: 'Accounting Software Integration',
+          description: 'Connect to your accounting software (Exact, Twinfield, etc.) to automate financial administration',
+          category: 'Integration',
+          isRequired: true,
+          nameDutch: 'Boekhoudpakket Integratie',
+          descriptionDutch: 'Koppeling met je boekhoudpakket (Exact, Twinfield, etc.) om financiële administratie te automatiseren'
+        },
+        {
+          id: 'document-processing',
+          name: 'Document Processing',
+          description: 'Automatically process and categorize financial documents',
+          category: 'Integration',
+          isRequired: false,
+          nameDutch: 'Documentverwerking',
+          descriptionDutch: 'Automatisch verwerken en categoriseren van financiële documenten'
+        },
+        {
+          id: 'compliance-reporting',
+          name: 'Compliance Reporting',
+          description: 'Generate automatic compliance reports and alerts',
+          category: 'Reporting',
+          isRequired: false,
+          nameDutch: 'Compliance Rapportage',
+          descriptionDutch: 'Genereer automatische compliance rapporten en waarschuwingen'
+        }
+      ];
+    }
+    
+    // Tax Advisory Assistant modules
+    else if (assistantId === 'tax-advisor') {
+      assistantModules = [
+        {
+          id: 'tax-software-integration',
+          name: 'Tax Software Integration',
+          description: 'Connect to your tax software to access client tax data',
+          category: 'Integration',
+          isRequired: true,
+          nameDutch: 'Belastingprogramma Integratie',
+          descriptionDutch: 'Koppeling met je belastingprogramma om belastinggegevens van klanten te benaderen'
+        },
+        {
+          id: 'tax-regulations-database',
+          name: 'Tax Regulations Database',
+          description: 'Access to up-to-date tax legislation and regulations',
+          category: 'Knowledge',
+          isRequired: true,
+          nameDutch: 'Belastingwetgeving Database',
+          descriptionDutch: 'Toegang tot actuele belastingwetgeving en -voorschriften'
+        },
+        {
+          id: 'tax-optimization-engine',
+          name: 'Tax Optimization Engine',
+          description: 'AI-driven tax optimization strategy suggestions',
+          category: 'Knowledge',
+          isRequired: false,
+          nameDutch: 'Belastingoptimalisatie Engine',
+          descriptionDutch: 'AI-gestuurde suggesties voor belastingoptimalisatie strategieën'
+        },
+        {
+          id: 'regulatory-alerts',
+          name: 'Regulatory Change Alerts',
+          description: 'Receive notifications about relevant tax regulation changes',
+          category: 'Reporting',
+          isRequired: false,
+          nameDutch: 'Wetswijziging Alerts',
+          descriptionDutch: 'Ontvang meldingen over relevante wijzigingen in belastingwetgeving'
+        }
+      ];
+    }
+    
+    // Financial Analysis Assistant modules
+    else if (assistantId === 'financial-analyst') {
+      assistantModules = [
+        {
+          id: 'financial-data-integration',
+          name: 'Financial Data Integration',
+          description: 'Import client financial data from various sources',
+          category: 'Integration',
+          isRequired: true,
+          nameDutch: 'Financiële Data Integratie',
+          descriptionDutch: 'Importeer financiële gegevens van klanten uit verschillende bronnen'
+        },
+        {
+          id: 'analytics-engine',
+          name: 'Advanced Analytics Engine',
+          description: 'Perform complex financial analyses and forecasting',
+          category: 'Knowledge',
+          isRequired: true,
+          nameDutch: 'Geavanceerde Analyse Engine',
+          descriptionDutch: 'Voer complexe financiële analyses en prognoses uit'
+        },
+        {
+          id: 'visualization-tools',
+          name: 'Data Visualization Tools',
+          description: 'Create interactive dashboards and reports',
+          category: 'Reporting',
+          isRequired: false,
+          nameDutch: 'Datavisualisatie Tools',
+          descriptionDutch: 'Maak interactieve dashboards en rapporten'
+        },
+        {
+          id: 'forecasting-module',
+          name: 'Financial Forecasting Module',
+          description: 'Generate business forecasts and scenario analyses',
+          category: 'Knowledge',
+          isRequired: false,
+          nameDutch: 'Financiële Prognosemodule',
+          descriptionDutch: 'Genereer bedrijfsprognoses en scenario-analyses'
+        }
+      ];
+    }
+    
+    // Andere assistenten behouden zoals ze zijn
+    else if (assistantId === 'tax-assistant') {
+      assistantModules = [
+        {
+          id: 'accounting-software-integration',
+          name: 'Accounting Software Integration',
+          description: 'Connect to your accounting software (Exact, Twinfield, etc.) to import financial data',
+          category: 'Integration',
+          isRequired: false,
+          nameDutch: 'Boekhoudpakket Integratie',
+          descriptionDutch: 'Koppeling met je boekhoudpakket (Exact, Twinfield, etc.) om financiële gegevens te importeren'
+        },
+        {
+          id: 'tax-data-import',
+          name: 'Tax Data Import',
+          description: 'Import tax-related documents and data from various sources',
+          category: 'Integration',
+          isRequired: false,
+          nameDutch: 'Belastingdata Import',
+          descriptionDutch: 'Importeer belastinggerelateerde documenten en gegevens uit verschillende bronnen'
+        },
+        {
+          id: 'tax-legislation-database',
+          name: 'Tax Legislation Database',
+          description: 'Access to up-to-date tax legislation and regulations',
+          category: 'Knowledge',
+          isRequired: true,
+          nameDutch: 'Belastingwetgeving Database',
+          descriptionDutch: 'Toegang tot actuele belastingwetgeving en -voorschriften'
+        }
+      ];
+    }
+    
+    // Rest van de assistenten zoals eerder gedefinieerd
+    // ... existing code for other assistants ...
+    
+    return assistantModules;
+  }
+  
   // Render de huidige stap van het intake proces
   const renderStepContent = () => {
     // Basisstappen: 0 (welkom), 1 (doelen), 2 (gebruikers)
@@ -235,20 +535,20 @@ export default function IntakePage({ params }: IntakePageProps) {
           </div>
         </div>
       );
-    } else if (currentStep === 1) { // Doelen
+    } else if (currentStep === 1) { // Assistent-specifieke doelen
+      const goalsPlaceholder = getAssistantSpecificGoalsPlaceholder(id, locale);
+      
       return (
         <div>
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
-            {locale === 'nl' ? 'Wat zijn uw doelen?' : 'What are your goals?'}
+            {steps[currentStep].title}
           </h3>
           <p className="text-gray-600 mb-6">
-            {locale === 'nl' 
-              ? 'Beschrijf in uw eigen woorden wat u wilt bereiken met deze AI-assistent.'
-              : 'Describe in your own words what you want to achieve with this AI assistant.'}
+            {steps[currentStep].description}
           </p>
           <textarea
             className="w-full border border-gray-300 rounded-md p-3 h-40 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder={locale === 'nl' ? 'Bijv. we willen 24/7 klantenservice bieden, administratieve taken automatiseren...' : 'E.g. we want to provide 24/7 customer service, automate administrative tasks...'}
+            placeholder={goalsPlaceholder}
             value={answers.goals}
             onChange={(e) => handleAnswerChange('goals', e.target.value)}
           />
@@ -324,7 +624,7 @@ export default function IntakePage({ params }: IntakePageProps) {
             </Card>
             
             {/* Module-specifieke antwoorden */}
-            {Object.entries(modulesByCategory).map(([category, modules]) => (
+            {Object.entries(enhancedModulesByCategory).map(([category, modules]) => (
               <Card key={category}>
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-2 mb-3">
@@ -377,7 +677,7 @@ export default function IntakePage({ params }: IntakePageProps) {
       // Module-specifieke stappen
       // Bereken welke modulecategorie we nu behandelen
       const moduleStepIndex = currentStep - 3; // Na welkom, doelen en gebruikers
-      const moduleCategories = Object.keys(modulesByCategory);
+      const moduleCategories = Object.keys(enhancedModulesByCategory);
       const currentCategory = moduleCategories[moduleStepIndex];
       
       return (
@@ -398,7 +698,7 @@ export default function IntakePage({ params }: IntakePageProps) {
           </p>
           
           <div className="space-y-8">
-            {modulesByCategory[currentCategory as ModuleCategory].map((module) => {
+            {enhancedModulesByCategory[currentCategory as ModuleCategory].map((module) => {
               const ModuleIcon = getIcon(module.icon);
               const isModuleEnabled = answers.modules[module.id]?.enabled;
               
@@ -542,6 +842,33 @@ export default function IntakePage({ params }: IntakePageProps) {
       );
     }
   };
+  
+  // Hulpfunctie om assistent-specifieke placeholders te genereren
+  function getAssistantSpecificGoalsPlaceholder(assistantId: string, locale: string): string {
+    // Standaard placeholder (fallback)
+    const defaultPlaceholder = locale === 'nl' 
+      ? 'Bijv. we willen 24/7 klantenservice bieden, administratieve taken automatiseren...' 
+      : 'E.g. we want to provide 24/7 customer service, automate administrative tasks...';
+    
+    // Assistent-specifieke placeholders
+    const assistantPlaceholders: Record<string, string> = {
+      // Accountant assistenten - nieuwe
+      'financial-admin': locale === 'nl'
+        ? 'Bijv. we willen boekhouding automatiseren, factuurverwerking versnellen, compliant blijven met wetgeving...'
+        : 'E.g. we want to automate bookkeeping, speed up invoice processing, stay compliant with regulations...',
+      'tax-advisor': locale === 'nl'
+        ? 'Bijv. we willen belastingoptimalisatie voor onze klanten verbeteren, op de hoogte blijven van wetswijzigingen...'
+        : 'E.g. we want to improve tax optimization for our clients, stay updated on regulatory changes...',
+      'financial-analyst': locale === 'nl'
+        ? 'Bijv. we willen betere financiële prognoses maken, trends identificeren, klanten voorzien van inzichten in bedrijfsprestaties...'
+        : 'E.g. we want to create better financial forecasts, identify trends, provide clients with business performance insights...',
+      
+      // Bestaande assistenten behouden
+      // ... existing assistant placeholders ...
+    };
+    
+    return assistantPlaceholders[assistantId] || defaultPlaceholder;
+  }
   
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>

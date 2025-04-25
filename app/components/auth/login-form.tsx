@@ -4,14 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useParams } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { useTranslations } from "next-intl";
 
 export function LoginForm() {
   const router = useRouter();
-  const locale = useLocale();
+  const params = useParams();
+  const locale = params.locale as string;
   const searchParams = useSearchParams();
+  const t = useTranslations("auth.login");
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,9 +24,9 @@ export function LoginForm() {
   // Haal eventuele error parameter uit de URL
   const urlError = searchParams.get("error");
   const errorMessage = urlError === "CredentialsSignin" 
-    ? "Ongeldige inloggegevens. Controleer je e-mailadres en wachtwoord."
+    ? t("errors.invalidCredentials")
     : urlError 
-      ? "Er is een fout opgetreden bij het inloggen. Probeer het opnieuw."
+      ? t("errors.generic")
       : error;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,7 +43,7 @@ export function LoginForm() {
       });
 
       if (result?.error) {
-        setError("Ongeldige inloggegevens. Controleer je e-mailadres en wachtwoord.");
+        setError(t("errors.invalidCredentials"));
         setLoading(false);
       } else {
         // Succesvol ingelogd, stuur naar de juiste pagina op basis van locale
@@ -48,7 +52,7 @@ export function LoginForm() {
       }
     } catch (error) {
       console.error("Login error:", error);
-      setError("Er is een fout opgetreden. Probeer het later opnieuw.");
+      setError(t("errors.generic"));
       setLoading(false);
     }
   };
@@ -56,9 +60,9 @@ export function LoginForm() {
   return (
     <div className="mx-auto max-w-md space-y-6 p-6 bg-white rounded-lg shadow-md">
       <div className="text-center">
-        <h1 className="text-2xl font-bold">Inloggen</h1>
+        <h1 className="text-2xl font-bold">{t("title")}</h1>
         <p className="text-gray-500 mt-2">
-          Log in om toegang te krijgen tot het beheerdersdashboard
+          {t("description")}
         </p>
       </div>
 
@@ -74,7 +78,7 @@ export function LoginForm() {
             htmlFor="email"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            E-mailadres
+            {t("email")}
           </label>
           <input
             id="email"
@@ -93,7 +97,7 @@ export function LoginForm() {
             htmlFor="password"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Wachtwoord
+            {t("password")}
           </label>
           <input
             id="password"
@@ -113,7 +117,7 @@ export function LoginForm() {
             disabled={loading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition"
           >
-            {loading ? "Bezig met inloggen..." : "Inloggen"}
+            {loading ? t("loading") : t("submitButton")}
           </Button>
         </div>
       </form>
@@ -133,16 +137,16 @@ export function LoginForm() {
           >
             <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
           </svg>
-          Inloggen met Google
+          {t("googleLogin")}
         </Button>
       </div>
 
       {/* Link naar registratiepagina */}
       <div className="text-center text-sm mt-6">
         <p className="text-gray-600">
-          Nog geen account?{" "}
+          {t("noAccount")}{" "}
           <Link href={`/${locale}/auth/register`} className="text-blue-600 hover:underline">
-            Registreer hier
+            {t("register")}
           </Link>
         </p>
       </div>

@@ -66,7 +66,7 @@ export function WizardContent({ preselectedAssistant = '', preselectedOrganizati
   
   const handleContinue = () => {
     if (selectedOrganization && selectedAssistant) {
-      router.push(`/${locale}/organization/${selectedOrganization}/assistant/${selectedAssistant}/wizard`);
+      router.push(`/${locale}/organization/${selectedOrganization}/assistant/${selectedAssistant}/intake`);
     }
   };
   

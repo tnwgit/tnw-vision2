@@ -5,11 +5,15 @@ import { signIn } from "@/app/lib/auth/auth";
 import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export function RegisterForm() {
   const router = useRouter();
-  const locale = useLocale();
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations("auth.register");
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +28,7 @@ export function RegisterForm() {
 
     // Validatie
     if (password !== confirmPassword) {
-      setError("Wachtwoorden komen niet overeen");
+      setError(t("errors.passwordMismatch"));
       setLoading(false);
       return;
     }
@@ -58,7 +62,7 @@ export function RegisterForm() {
       if (error instanceof Error) {
         setError(error.message);
       } else {
-        setError("Er is een fout opgetreden. Probeer het later opnieuw.");
+        setError(t("errors.generic"));
       }
       setLoading(false);
     }
@@ -67,9 +71,9 @@ export function RegisterForm() {
   return (
     <div className="mx-auto max-w-md space-y-6 p-6 bg-white rounded-lg shadow-md">
       <div className="text-center">
-        <h1 className="text-2xl font-bold">Account aanmaken</h1>
+        <h1 className="text-2xl font-bold">{t("title")}</h1>
         <p className="text-gray-500 mt-2">
-          Vul je gegevens in om een nieuw account aan te maken
+          {t("description")}
         </p>
       </div>
 
@@ -85,7 +89,7 @@ export function RegisterForm() {
             htmlFor="name"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Naam
+            {t("name")}
           </label>
           <input
             id="name"
@@ -102,7 +106,7 @@ export function RegisterForm() {
             htmlFor="email"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            E-mailadres
+            {t("email")}
           </label>
           <input
             id="email"
@@ -119,7 +123,7 @@ export function RegisterForm() {
             htmlFor="password"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Wachtwoord
+            {t("password")}
           </label>
           <input
             id="password"
@@ -136,7 +140,7 @@ export function RegisterForm() {
             htmlFor="confirmPassword"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Bevestig wachtwoord
+            {t("confirmPassword")}
           </label>
           <input
             id="confirmPassword"
@@ -154,7 +158,7 @@ export function RegisterForm() {
             disabled={loading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition"
           >
-            {loading ? "Bezig met registreren..." : "Registreren"}
+            {loading ? t("loading") : t("submitButton")}
           </Button>
         </div>
       </form>
@@ -172,16 +176,16 @@ export function RegisterForm() {
           >
             <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
           </svg>
-          Registreren met Google
+          {t("googleRegister")}
         </button>
       </div>
 
       {/* Link naar inlogpagina */}
       <div className="text-center text-sm mt-6">
         <p className="text-gray-600">
-          Heb je al een account?{" "}
+          {t("hasAccount")}{" "}
           <Link href={`/${locale}/auth/login`} className="text-blue-600 hover:underline">
-            Log hier in
+            {t("login")}
           </Link>
         </p>
       </div>

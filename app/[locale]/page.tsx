@@ -101,9 +101,15 @@ export default async function Home({ params }: { params: { locale: string } }) {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">{messages.sections.features.items.security.title}</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 mb-3">
                 {messages.sections.features.items.security.description}
               </p>
+              <Link href={`/${locale}/trust-center`} className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                {locale === 'nl' ? 'Bezoek ons Vertrouwenscentrum' : 'Visit our Trust Center'} 
+                <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-200">

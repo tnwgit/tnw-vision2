@@ -7,15 +7,21 @@ export interface OrganizationType {
   description: string;
   icon: string;
   assistants: Assistant[];
+  assistantsAvailable?: number;
+  benefits?: string[];
+  useCases?: string[];
 }
 
 // Assistent
 export interface Assistant {
   id: string;
   name: string;
+  nameNL?: string;
   description: string;
+  descriptionNL?: string;
   image: string;
   benefits: string[];
+  benefitsNL?: string[];
   organizationTypeId: string;
   modules: Module[];
 }

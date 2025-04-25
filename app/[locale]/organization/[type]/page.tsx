@@ -6,7 +6,7 @@ import { organizationTypes } from "@/app/data/mockData";
 import { notFound } from "next/navigation";
 import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
-import { ChevronRight, Lock, ShieldCheck, Clock, ZapIcon } from "lucide-react";
+import { ChevronRight, Lock, ShieldCheck, Clock, ZapIcon, Network } from "lucide-react";
 import Image from "next/image";
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations } from "next-intl/server";
@@ -52,7 +52,7 @@ export default async function OrganizationPage({ params }: OrganizationPageProps
   
   // Helper functie om afbeelding te krijgen, met fallback
   const getHeaderImage = () => {
-    const basePath = `/images/organization/${organization.id}-header.jpg`;
+    const basePath = `/images/headers/${organization.id}.jpg`;
     return basePath;
   };
   
@@ -87,6 +87,65 @@ export default async function OrganizationPage({ params }: OrganizationPageProps
             </div>
           </div>
         </div>
+        
+        {/* Available Assistants Section */}
+        <Section 
+          title={t('availableAssistantsTitle')} 
+          description={`${t('availableAssistantsDesc')} ${organization.name.toLowerCase()}`}
+        >
+          <div className="flex justify-between items-center mb-6">
+            <div></div> {/* Lege div voor spacing */}
+            <Link
+              href={`/${localeParam}/organization/${typeParam}/collaboration`}
+              className="inline-flex items-center text-blue-600 hover:text-blue-800"
+            >
+              <Network className="mr-1 h-4 w-4" />
+              {localeParam === 'nl' ? 'Bekijk Samenwerking' : 'View Collaboration'}
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {organization.assistants?.map((assistant) => (
+              <div key={assistant.id} className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 transition-all duration-200 h-full hover:shadow-md">
+                <div className="h-48 overflow-hidden relative">
+                  <Image 
+                    src={assistant.image || `/images/assistants/${assistant.id}.jpg`}
+                    alt={assistant.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
+                    {localeParam === 'nl' && assistant.nameNL ? assistant.nameNL : assistant.name}
+                  </h3>
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {localeParam === 'nl' && assistant.descriptionNL ? assistant.descriptionNL : assistant.description}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <Link 
+                      href={`/${localeParam}/organization/${organization.id}/assistant/${assistant.id}`}
+                      className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold rounded-md shadow-sm border-2 border-white/20 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                      style={{ letterSpacing: "0.025em", textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
+                    >
+                      {t('viewDetails')}
+                      <ChevronRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {(!organization.assistants || organization.assistants.length === 0) && (
+              <div className="col-span-full text-center p-8 bg-gray-50 rounded-lg border border-gray-200">
+                <p className="text-gray-500">{localeParam === 'nl' ? 
+                  'Er zijn momenteel geen assistenten beschikbaar voor dit organisatietype. Neem contact met ons op voor een aangepaste oplossing.' : 
+                  'No assistants currently available for this organization type. Please contact us for a custom solution.'}
+                </p>
+              </div>
+            )}
+          </div>
+        </Section>
         
         {/* Overview Section */}
         <Section>
@@ -164,7 +223,7 @@ export default async function OrganizationPage({ params }: OrganizationPageProps
             </div>
             
             <div className="lg:col-span-1">
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <div className="bg-blue-50 rounded-lg p-6 border border-blue-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {t('getStarted')}
                 </h3>
@@ -172,18 +231,41 @@ export default async function OrganizationPage({ params }: OrganizationPageProps
                   {t('getStartedDesc')}
                 </p>
                 
-                <Button asChild variant="gradient" size="lg" className="w-full mb-4">
-                  <Link href={`/${localeParam}/wizard`} className="flex items-center justify-center">
-                    {t('exploreWizard')}
+                <div className="flex flex-col space-y-3">
+                  <Link 
+                    href={`/${localeParam}/contact`} 
+                    className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
+                  >
+                    {t('contactUs', { ns: 'organization' })}
+                    <span className="ml-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                      </svg>
+                    </span>
+                  </Link>
+                  
+                  <Link 
+                    href={`/${localeParam}/wizard`} 
+                    className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
+                  >
+                    {t('startConfig', { ns: 'organization' })}
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Link>
-                </Button>
+                </div>
                 
-                <Button asChild variant="outline" size="lg" className="w-full">
-                  <Link href={`/${localeParam}/contact`}>
-                    {t('contactUs')}
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <h4 className="font-medium text-gray-700 mb-2">
+                    {localeParam === 'nl' ? 'Verken opties' : 'Explore options'}
+                  </h4>
+                  <Link 
+                    href={`/${localeParam}/organization`} 
+                    className="text-blue-600 hover:text-blue-800 flex items-center"
+                  >
+                    {localeParam === 'nl' ? 'Bekijk alle organisatietypes' : 'View all organization types'}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><path d="m9 18 6-6-6-6"/></svg>
                   </Link>
-                </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -218,66 +300,36 @@ export default async function OrganizationPage({ params }: OrganizationPageProps
           </div>
         </Section>
         
-        {/* Available Assistants Section */}
-        <Section 
-          title={t('availableAssistantsTitle')} 
-          description={`${t('availableAssistantsDesc')} ${organization.name.toLowerCase()}`}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {organization.assistants.map((assistant) => (
-              <Link 
-                key={assistant.id}
-                href={`/${localeParam}/organization/${organization.id}/assistant/${assistant.id}`}
-                className="group block"
-              >
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 transition-all duration-200 h-full group-hover:shadow-md">
-                  <div className="h-48 overflow-hidden relative">
-                    <Image 
-                      src={assistant.image || `/images/${assistant.id}.jpg`}
-                      alt={assistant.name}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      className="group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {localeParam === 'nl' && assistant.nameNL ? assistant.nameNL : assistant.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3">
-                      {localeParam === 'nl' && assistant.descriptionNL ? assistant.descriptionNL : assistant.description}
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-blue-600">{t('viewDetails')}</span>
-                      <ChevronRight className="h-4 w-4 text-blue-600" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Section>
-        
         {/* CTA Section */}
         <Section tinted>
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg py-10 px-6 sm:px-10 md:py-16 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-              {t('readyTransform')} {organization.name}?
+              {t('readyTransform', { ns: 'organization' })} {organization.name}?
             </h2>
             <p className="text-blue-100 max-w-2xl mx-auto mb-8">
-              {t('contactDesc')}
+              {t('contactDesc', { ns: 'organization' })}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="default" className="bg-white text-blue-600 hover:bg-blue-50">
-                <Link href={`/${localeParam}/contact`}>
-                  {t('contactUs')}
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                <Link href={`/${localeParam}/wizard`}>
-                  {t('startConfig')}
-                </Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link 
+                href={`/${localeParam}/contact`} 
+                className="flex items-center justify-center bg-white text-blue-600 hover:bg-blue-50 font-medium py-2 px-4 rounded-md"
+              >
+                {t('contactUs', { ns: 'organization' })}
+                <span className="ml-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                </span>
+              </Link>
+              
+              <Link 
+                href={`/${localeParam}/wizard`} 
+                className="flex items-center justify-center bg-white text-blue-600 hover:bg-blue-50 font-medium py-2 px-4 rounded-md"
+              >
+                {t('startConfig', { ns: 'organization' })}
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Link>
             </div>
           </div>
         </Section>
@@ -444,6 +496,77 @@ function getUseCasesForType(type: string, locale: string) {
                 "Higher awareness of community initiatives",
                 "Increased attendance at public meetings",
                 "More inclusive civic participation"
+              ]
+        }
+      ];
+    case 'accountant':
+      return [
+        {
+          title: isNL ? "Geautomatiseerde financiële processen" : "Automated financial processes",
+          description: isNL 
+            ? "Stroomlijn financiële administratie en verminder handmatige gegevensinvoer."
+            : "Streamline financial administration and reduce manual data entry.",
+          benefits: isNL
+            ? [
+                "Verminder tijd voor gegevensverwerking met tot 70%",
+                "Verhoogde nauwkeurigheid in financiële gegevens",
+                "Gestroomlijnde reconciliatie van transacties"
+              ]
+            : [
+                "Reduce data processing time by up to 70%",
+                "Increased accuracy in financial data",
+                "Streamlined transaction reconciliation"
+              ]
+        },
+        {
+          title: isNL ? "Belastingoptimalisatie en compliance" : "Tax optimization and compliance",
+          description: isNL
+            ? "Verbeter belastingaangifte en zorg voor naleving van regelgeving."
+            : "Enhance tax filing and ensure regulatory compliance.",
+          benefits: isNL
+            ? [
+                "Real-time monitoring van fiscale regelgeving",
+                "Proactieve identificatie van belastingbesparingen",
+                "Verminderde risico's op fouten en boetes"
+              ]
+            : [
+                "Real-time monitoring of tax regulations",
+                "Proactive identification of tax savings",
+                "Reduced risk of errors and penalties"
+              ]
+        },
+        {
+          title: isNL ? "Strategische advisering" : "Strategic advisory",
+          description: isNL
+            ? "Bied op gegevens gebaseerde financiële inzichten en adviezen aan klanten."
+            : "Provide data-driven financial insights and advice to clients.",
+          benefits: isNL
+            ? [
+                "Datagedreven besluitvorming",
+                "Gepersonaliseerde financiële aanbevelingen",
+                "Prognosemodellen voor bedrijfsplanning"
+              ]
+            : [
+                "Data-driven decision making",
+                "Personalized financial recommendations",
+                "Forecasting models for business planning"
+              ]
+        },
+        {
+          title: isNL ? "Klantenservice verbetering" : "Client service enhancement",
+          description: isNL
+            ? "Verbeter klantinteracties en toegang tot financiële informatie."
+            : "Enhance client interactions and access to financial information.",
+          benefits: isNL
+            ? [
+                "24/7 toegang tot financiële gegevens",
+                "Verbeterde klanttevredenheid",
+                "Efficiëntere samenwerking tussen accountant en cliënt"
+              ]
+            : [
+                "24/7 access to financial data",
+                "Improved client satisfaction",
+                "More efficient accountant-client collaboration"
               ]
         }
       ];

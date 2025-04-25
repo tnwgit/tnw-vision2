@@ -265,6 +265,80 @@ const hotelModules: Module[] = [
   }
 ];
 
+// Verhuurbedrijf-specifieke modules
+const rentalModules: Module[] = [
+  ...commonModules,
+  {
+    id: 'rental-inventory',
+    name: 'Inventory management',
+    description: 'Track and manage your rental inventory',
+    icon: 'package',
+    category: ModuleCategory.Integration,
+    configOptions: [
+      {
+        id: 'inventory-system',
+        name: 'Inventory system provider',
+        description: 'Select your inventory management system',
+        type: ConfigOptionType.Select,
+        required: true,
+        defaultValue: 'rentalworks',
+        options: ['rentalworks', 'current-rms', 'rentman', 'booqable', 'custom']
+      },
+      {
+        id: 'sync-frequency',
+        name: 'Sync frequency',
+        description: 'How often to sync with inventory system',
+        type: ConfigOptionType.Select,
+        required: false,
+        defaultValue: 'real-time',
+        options: ['real-time', 'hourly', 'daily']
+      }
+    ],
+    isRequired: false,
+    defaultEnabled: true
+  },
+  {
+    id: 'maintenance-tracking',
+    name: 'Maintenance tracking',
+    description: 'Track maintenance for rental items',
+    icon: 'tool',
+    category: ModuleCategory.Integration,
+    configOptions: [
+      {
+        id: 'maintenance-reminders',
+        name: 'Maintenance reminder settings',
+        description: 'Configure maintenance reminder rules',
+        type: ConfigOptionType.MultiSelect,
+        required: false,
+        defaultValue: ['usage-based', 'scheduled'],
+        options: ['usage-based', 'scheduled', 'condition-based']
+      }
+    ],
+    isRequired: false,
+    defaultEnabled: true
+  },
+  {
+    id: 'booking-calendar',
+    name: 'Booking calendar',
+    description: 'Manage reservations and availability',
+    icon: 'calendar',
+    category: ModuleCategory.Communication,
+    configOptions: [
+      {
+        id: 'calendar-view',
+        name: 'Calendar view type',
+        description: 'Configure default calendar view',
+        type: ConfigOptionType.Select,
+        required: false,
+        defaultValue: 'month',
+        options: ['day', 'week', 'month', 'timeline']
+      }
+    ],
+    isRequired: false,
+    defaultEnabled: true
+  }
+];
+
 // Gemeente-specifieke modules
 const municipalityModules: Module[] = [
   ...commonModules,
@@ -393,59 +467,220 @@ export const organizationTypes: OrganizationType[] = [
     ]
   },
   {
-    id: 'municipality',
-    name: 'Municipality',
-    description: 'AI solutions for municipalities to improve citizen services and streamline administrative processes.',
-    icon: 'Landmark',
+    id: 'accountant',
+    name: 'Accounting Firm',
+    icon: 'ReceiptText',
+    description: 'AI assistants for accounting firms to streamline financial administration, improve compliance, and optimize client service.',
+    assistantsAvailable: 3,
     assistants: [
       {
-        id: 'citizen-assistant',
-        name: 'Citizen Information Assistant',
-        nameNL: 'Burger Informatie Assistent',
-        description: 'Help citizens navigate municipal services, answer questions, and guide through procedures',
-        descriptionNL: 'Help burgers bij het navigeren door gemeentelijke diensten, beantwoord vragen en begeleid door procedures',
-        image: '/images/citizen-assistant.jpg',
+        id: 'financial-admin',
+        name: 'Financial Administration Assistant',
+        nameNL: 'Financiële Administratie Assistent',
+        description: 'Streamlines financial document processing, bookkeeping, and compliance reporting',
+        descriptionNL: 'Stroomlijnt verwerking van financiële documenten, boekhouding en compliance rapportage',
+        image: '/images/assistants/financial-admin.jpg',
+        organizationTypeId: 'accountant',
         benefits: [
-          'Available 24/7 to answer citizen questions',
-          'Guides citizens through common procedures',
-          'Reduces call center volume by up to 45%',
-          'Supports multiple languages',
-          'Increases citizen satisfaction scores'
+          'Automated document processing and data extraction',
+          'Streamlined bookkeeping and reconciliation',
+          'Enhanced compliance reporting',
+          'Reduced manual errors by up to 95%',
+          'Saves up to 15 hours per week on administrative tasks'
         ],
         benefitsNL: [
-          '24/7 beschikbaar om vragen van burgers te beantwoorden',
-          'Begeleidt burgers door veelvoorkomende procedures',
-          'Vermindert callcentervolume met tot 45%',
-          'Ondersteunt meerdere talen',
-          'Verhoogt tevredenheidsscores van burgers'
+          'Geautomatiseerde documentverwerking en data-extractie',
+          'Gestroomlijnde boekhouding en reconciliatie',
+          'Verbeterde compliance rapportage',
+          'Tot 95% minder handmatige fouten',
+          'Bespaart tot 15 uur per week aan administratieve taken'
         ],
-        organizationTypeId: 'municipality',
-        modules: municipalityModules
+        modules: commonModules
       },
       {
-        id: 'permit-assistant',
-        name: 'Permit Processing Assistant',
-        nameNL: 'Vergunning Verwerkings Assistent',
-        description: 'Guide citizens through permit applications, reducing errors and processing time',
-        descriptionNL: 'Begeleid burgers bij vergunningsaanvragen, verminder fouten en verwerkingstijd',
-        image: '/images/permit-assistant.jpg',
+        id: 'tax-advisor',
+        name: 'Tax Advisory Assistant',
+        nameNL: 'Belastingadvies Assistent',
+        description: 'Provides tax optimization strategies and keeps track of regulatory changes',
+        descriptionNL: 'Biedt strategieën voor belastingoptimalisatie en houdt regulatorische wijzigingen bij',
+        image: '/images/assistants/tax-advisor.jpg',
+        organizationTypeId: 'accountant',
         benefits: [
-          'Streamlines the permit application process',
-          'Reduces application errors by up to 60%',
-          'Shortens processing times',
-          'Provides status updates automatically',
-          'Improves transparency and compliance'
+          'Proactive tax planning and optimization',
+          'Real-time regulatory compliance monitoring',
+          'Custom tax advice for clients',
+          'Up to 30% reduction in tax preparation time',
+          'Enhanced accuracy in tax filings'
         ],
         benefitsNL: [
-          'Stroomlijnt het vergunningsaanvraagproces',
-          'Vermindert aanvraagfouten met tot 60%',
-          'Verkort verwerkingstijden',
-          'Biedt automatisch statusupdates',
-          'Verbetert transparantie en naleving'
+          'Proactieve belastingplanning en optimalisatie',
+          'Real-time monitoring van regelgeving',
+          'Gepersonaliseerd belastingadvies voor klanten',
+          'Tot 30% tijdsbesparing bij belastingaangiftes',
+          'Verbeterde nauwkeurigheid in belastingaangiftes'
         ],
-        organizationTypeId: 'municipality',
-        modules: municipalityModules
+        modules: commonModules
+      },
+      {
+        id: 'financial-analyst',
+        name: 'Financial Analysis Assistant',
+        nameNL: 'Financiële Analyse Assistent',
+        description: 'Analyzes financial data to provide insights and forecasts for client businesses',
+        descriptionNL: 'Analyseert financiële gegevens om inzichten en prognoses te bieden voor klantbedrijven',
+        image: '/images/assistants/financial-analyst.jpg',
+        organizationTypeId: 'accountant',
+        benefits: [
+          'Automated financial reporting and analysis',
+          'Predictive cash flow forecasting',
+          'Business performance benchmarking',
+          'Custom financial health dashboards',
+          'Strategic growth recommendations'
+        ],
+        benefitsNL: [
+          'Geautomatiseerde financiële rapportage en analyse',
+          'Voorspellende cashflow-prognoses',
+          'Benchmarking van bedrijfsprestaties',
+          'Aangepaste dashboards voor financiële gezondheid',
+          'Strategische groei-aanbevelingen'
+        ],
+        modules: commonModules
       }
+    ],
+    benefits: [
+      'Automated accounting processes',
+      'Improved accuracy in reporting',
+      'Time savings on routine tasks',
+      'Proactive client advisory',
+      'Enhanced compliance and risk management'
+    ],
+    benefitsNL: [
+      'Geautomatiseerde boekhoudprocessen',
+      'Verbeterde nauwkeurigheid in rapportages',
+      'Tijdsbesparing op routinetaken',
+      'Proactief klantadvies',
+      'Verhoogde compliance en risicobeheer'
+    ],
+    useCases: [
+      'Automatic processing of financial documents',
+      'Tax filing preparation and verification',
+      'Financial reporting and analysis',
+      'Client advisory based on real-time data',
+      'Compliance monitoring and oversight'
+    ],
+    useCasesNL: [
+      'Automatische verwerking van financiële documenten',
+      'Belastingaangifte voorbereiding en controle',
+      'Financiële rapportage en analyse',
+      'Klantadvies op basis van actuele data',
+      'Compliance monitoring en -bewaking'
+    ]
+  },
+  {
+    id: 'rental',
+    name: 'Rental Company',
+    description: 'AI solutions for rental companies to optimize inventory management, streamline reservations and enhance customer service.',
+    icon: 'Package',
+    assistants: [
+      {
+        id: 'rental-reservation',
+        name: 'Reservation Assistant',
+        nameNL: 'Reservering Assistent',
+        description: 'Manage reservations, check availability, and streamline the booking process',
+        descriptionNL: 'Beheer reserveringen, controleer beschikbaarheid en stroomlijn het boekingsproces',
+        image: '/images/rental-reservation.jpg',
+        benefits: [
+          'Handles online reservations 24/7',
+          'Checks real-time inventory availability',
+          'Manages booking modifications and cancellations',
+          'Sends automated confirmation and reminder notifications',
+          'Increases booking efficiency by up to 35%'
+        ],
+        benefitsNL: [
+          'Verwerkt online reserveringen 24/7',
+          'Controleert real-time inventarisbeschikbaarheid',
+          'Beheert wijzigingen en annuleringen van boekingen',
+          'Verstuurt geautomatiseerde bevestigingen en herinneringen',
+          'Verhoogt boekingsefficiëntie met tot 35%'
+        ],
+        organizationTypeId: 'rental',
+        modules: rentalModules
+      },
+      {
+        id: 'rental-inventory',
+        name: 'Inventory Management Assistant',
+        nameNL: 'Inventarisbeheer Assistent',
+        description: 'Track inventory, manage maintenance schedules, and ensure equipment availability',
+        descriptionNL: 'Volg inventaris, beheer onderhoudsschema\'s en waarborg beschikbaarheid van apparatuur',
+        image: '/images/rental-inventory.jpg',
+        benefits: [
+          'Real-time inventory tracking across locations',
+          'Automated maintenance scheduling based on usage',
+          'Early warning system for stock shortages',
+          'Detailed usage reports and analytics',
+          'Reduces inventory downtime by up to 25%'
+        ],
+        benefitsNL: [
+          'Real-time inventarisatie op verschillende locaties',
+          'Geautomatiseerde onderhoudsplanning op basis van gebruik',
+          'Vroegtijdig waarschuwingssysteem voor voorraadtekorten',
+          'Gedetailleerde gebruiksrapporten en analyses',
+          'Vermindert inventaris uitvaltijd met tot 25%'
+        ],
+        organizationTypeId: 'rental',
+        modules: rentalModules
+      },
+      {
+        id: 'rental-customer',
+        name: 'Customer Service Assistant',
+        nameNL: 'Klantenservice Assistent',
+        description: 'Provide responsive customer support, handle inquiries, and offer usage guidance',
+        descriptionNL: 'Bied responsieve klantenondersteuning, behandel vragen en geef gebruiksinstructies',
+        image: '/images/rental-customer.jpg',
+        benefits: [
+          'Answers common customer questions 24/7',
+          'Provides equipment usage instructions and troubleshooting',
+          'Handles return procedures and extension requests',
+          'Collects customer feedback and satisfaction ratings',
+          'Improves customer satisfaction scores by up to 40%'
+        ],
+        benefitsNL: [
+          'Beantwoordt veelgestelde klantvragen 24/7',
+          'Biedt gebruiksinstructies en probleemoplossing voor apparatuur',
+          'Behandelt retourprocedures en verlengingsverzoeken',
+          'Verzamelt klantfeedback en tevredenheidsbeoordelingen',
+          'Verbetert klanttevredenheidsscores met tot 40%'
+        ],
+        organizationTypeId: 'rental',
+        modules: rentalModules
+      }
+    ],
+    benefits: [
+      'Increased operational efficiency with automated inventory management',
+      'Enhanced customer experience through 24/7 service availability',
+      'Reduced administrative workload for staff',
+      'Improved equipment utilization and maintenance',
+      'Real-time insights into business performance'
+    ],
+    benefitsNL: [
+      'Verhoogde operationele efficiëntie met geautomatiseerd inventarisbeheer',
+      'Verbeterde klantervaring door 24/7 servicebeschikbaarheid',
+      'Verminderde administratieve werklast voor medewerkers',
+      'Verbeterde apparatuurbenutting en -onderhoud',
+      'Real-time inzicht in bedrijfsprestaties'
+    ],
+    useCases: [
+      'Equipment reservation and availability management',
+      'Automated maintenance scheduling and tracking',
+      'Customer support and self-service options',
+      'Inventory optimization and utilization analysis',
+      'Streamlined check-out and return processes'
+    ],
+    useCasesNL: [
+      'Apparatuurreservering en beschikbaarheidsbeheer',
+      'Geautomatiseerde onderhoudsplanning en -tracking',
+      'Klantenondersteuning en self-service opties',
+      'Inventarisoptimalisatie en gebruiksanalyse',
+      'Gestroomlijnde uitgifte- en retourprocessen'
     ]
   },
   {
@@ -597,6 +832,62 @@ export const organizationTypes: OrganizationType[] = [
             configOptions: []
           }
         ]
+      }
+    ]
+  },
+  {
+    id: 'municipality',
+    name: 'Municipality',
+    description: 'AI solutions for municipalities to improve citizen services and streamline administrative processes.',
+    icon: 'Landmark',
+    assistants: [
+      {
+        id: 'citizen-assistant',
+        name: 'Citizen Information Assistant',
+        nameNL: 'Burger Informatie Assistent',
+        description: 'Help citizens navigate municipal services, answer questions, and guide through procedures',
+        descriptionNL: 'Help burgers bij het navigeren door gemeentelijke diensten, beantwoord vragen en begeleid door procedures',
+        image: '/images/citizen-assistant.jpg',
+        benefits: [
+          'Available 24/7 to answer citizen questions',
+          'Guides citizens through common procedures',
+          'Reduces call center volume by up to 45%',
+          'Supports multiple languages',
+          'Increases citizen satisfaction scores'
+        ],
+        benefitsNL: [
+          '24/7 beschikbaar om vragen van burgers te beantwoorden',
+          'Begeleidt burgers door veelvoorkomende procedures',
+          'Vermindert callcentervolume met tot 45%',
+          'Ondersteunt meerdere talen',
+          'Verhoogt tevredenheidsscores van burgers'
+        ],
+        organizationTypeId: 'municipality',
+        modules: municipalityModules
+      },
+      {
+        id: 'permit-assistant',
+        name: 'Permit Processing Assistant',
+        nameNL: 'Vergunning Verwerkings Assistent',
+        description: 'Guide citizens through permit applications, reducing errors and processing time',
+        descriptionNL: 'Begeleid burgers bij vergunningsaanvragen, verminder fouten en verwerkingstijd',
+        image: '/images/permit-assistant.jpg',
+        benefits: [
+          'Streamlines the permit application process',
+          'Reduces application errors by up to 60%',
+          'Shortens processing times',
+          'Provides status updates automatically',
+          'Improves transparency and compliance'
+        ],
+        benefitsNL: [
+          'Stroomlijnt het vergunningsaanvraagproces',
+          'Vermindert aanvraagfouten met tot 60%',
+          'Verkort verwerkingstijden',
+          'Biedt automatisch statusupdates',
+          'Verbetert transparantie en naleving'
+        ],
+        organizationTypeId: 'municipality',
+        modules: municipalityModules
       }
     ]
   }

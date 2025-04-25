@@ -17,7 +17,103 @@
     "tryDemo": "Try demo",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "getStarted": "Get started"
+    "getStarted": "Get started",
+    "trustCenter": "Trust Center"
+  },
+  "trustCenter": {
+    "hero": {
+      "title": "Trust Center",
+      "subtitle": "Our commitment to security, privacy, and compliance as an EU-based AI solutions provider"
+    },
+    "intro": {
+      "title": "Building Trust in AI Solutions",
+      "description": "At The Next Wilson, we understand that trust is the foundation of any successful AI implementation. As an EU-based provider of AI-driven automation solutions, we are committed to upholding the highest standards of data protection, security, and ethical AI use.",
+      "commitment": "Our Trust Center serves as a comprehensive framework for how we approach compliance and security in our products and services, ensuring that all stakeholders can rely on our solutions with complete confidence."
+    },
+    "compliance": {
+      "title": "Our Compliance Framework",
+      "gdpr": {
+        "title": "GDPR Compliance",
+        "description": "We fully comply with the General Data Protection Regulation, ensuring that all personal data is processed lawfully, fairly, and transparently.",
+        "points": {
+          "dataMinimization": "Data minimization principles applied to all processing",
+          "consent": "Clear consent mechanisms and legal basis for all data processing",
+          "rights": "Support for all data subject rights (access, rectification, erasure)",
+          "breach": "Robust data breach notification procedures"
+        }
+      },
+      "security": {
+        "title": "Data Security",
+        "description": "Our multi-layered security approach protects your data at every stage of processing.",
+        "points": {
+          "encryption": "End-to-end encryption for data in transit and at rest",
+          "access": "Role-based access controls and principle of least privilege",
+          "monitoring": "24/7 security monitoring and threat detection",
+          "testing": "Regular penetration testing and security audits"
+        }
+      },
+      "ethics": {
+        "title": "AI Ethics & Governance",
+        "description": "We develop and deploy AI systems that adhere to ethical principles and governance standards.",
+        "points": {
+          "fairness": "Fairness and bias mitigation in AI systems",
+          "transparency": "Explainable AI approaches where appropriate",
+          "humancentric": "Human-centric design with appropriate human oversight",
+          "oversight": "Internal AI ethics committee supervision"
+        }
+      },
+      "aiAct": {
+        "title": "EU AI Act Readiness",
+        "description": "We are prepared for compliance with the upcoming EU AI Act regulations.",
+        "points": {
+          "riskAssessment": "Comprehensive risk assessment methodology",
+          "documentation": "Thorough technical documentation of AI systems",
+          "transparency": "Transparency requirements for high-risk AI systems",
+          "governance": "Strong governance framework for AI development"
+        }
+      },
+      "dataResidency": {
+        "title": "EU Data Residency",
+        "description": "We ensure that your data remains within EU jurisdiction with strong sovereignty protections.",
+        "points": {
+          "euHosting": "All production infrastructure hosted within the EU",
+          "transfers": "No unnecessary third-country data transfers",
+          "sovereignty": "EU data sovereignty guaranteed by design",
+          "locality": "Local processing options available for sensitive workloads"
+        }
+      },
+      "certifications": {
+        "title": "Certifications & Compliance",
+        "description": "We maintain industry-standard certifications to demonstrate our commitment to security and compliance.",
+        "points": {
+          "iso27001": "ISO 27001 certified information security management system",
+          "soc2": "SOC 2 Type II audited controls",
+          "cloudSecurity": "Cloud Security Alliance STAR compliance",
+          "privacy": "EU Cloud Code of Conduct adherence"
+        }
+      }
+    },
+    "commitment": {
+      "title": "Our Ongoing Commitment",
+      "description": "Building trust is an ongoing process. We continuously improve our practices and maintain an open dialogue with our customers about security and compliance.",
+      "transparency": {
+        "title": "Transparency",
+        "description": "We provide clear documentation about how our services work, what data is collected, and how it is used."
+      },
+      "privacy": {
+        "title": "Privacy by Design",
+        "description": "Privacy considerations are integrated into every phase of our development process."
+      },
+      "documentation": {
+        "title": "Comprehensive Documentation",
+        "description": "Detailed compliance documentation is available to customers to support their own compliance needs."
+      }
+    },
+    "contact": {
+      "title": "Contact Our Trust Team",
+      "description": "Have questions about our security practices, compliance, or data handling? Our Trust team is here to help.",
+      "cta": "Contact Trust & Compliance Team"
+    }
   },
   "footer": {
     "about": "Specialized AI assistants for various sectors, built with a human touch.",
@@ -31,7 +127,8 @@
     "allRightsReserved": "All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
-    "cookiePolicy": "Cookie Policy"
+    "cookiePolicy": "Cookie Policy",
+    "trustCenter": "Trust Center"
   },
   "notFound": {
     "title": "404",
@@ -148,6 +245,23 @@
       "name": "General Practice",
       "description": "AI assistants for general practitioners to enhance patient care and optimize administrative workflows.",
       "assistantsAvailable": "assistants available"
+    },
+    "accountant": {
+      "name": "Accounting Firm",
+      "description": "AI assistants for accounting firms to streamline financial administration, improve compliance, and optimize client service.",
+      "assistantsAvailable": "assistants available"
+    },
+    "rental": {
+      "name": "Rental Business",
+      "description": "Rental of equipment, vehicles, or real estate",
+      "assistantsAvailable": "assistants available",
+      "benefits": [
+        "Automate the reservation process and manage availability",
+        "Improve customer satisfaction with 24/7 support",
+        "Optimize maintenance and management planning",
+        "Increase occupancy rates through more efficient allocation",
+        "Reduce operational costs through automated workflows"
+      ]
     }
   },
   "assistants": {
@@ -246,6 +360,109 @@
           "Patient satisfaction surveys"
         ]
       }
+    },
+    "accountant": {
+      "tax-assistant": {
+        "name": "Tax Filing Assistant",
+        "description": "Helps prepare and verify tax filings, identifies optimization opportunities, and ensures compliance",
+        "benefits": [
+          "Automates collection of relevant financial data",
+          "Identifies tax-saving opportunities",
+          "Verifies filings for errors and inconsistencies",
+          "Keeps track of changes in tax legislation",
+          "Reduces preparation time by up to 40%"
+        ]
+      },
+      "bookkeeping-assistant": {
+        "name": "Bookkeeping Assistant",
+        "description": "Streamlines accounting processes, automates data entry and reconciliation, and generates financial reports",
+        "benefits": [
+          "Automates invoice processing and data entry",
+          "Reconciles bank statements and transactions",
+          "Categorizes expenses with high accuracy",
+          "Generates monthly financial statements",
+          "Integrates with popular accounting packages"
+        ]
+      },
+      "client-advisor": {
+        "name": "Client Advisory Assistant",
+        "description": "Provides proactive financial advice to clients based on their current financial situation and business goals",
+        "benefits": [
+          "Analyzes financial data for personalized advice",
+          "Identifies cost-saving opportunities",
+          "Flags cash flow issues before they arise",
+          "Generates scenario analysis for decision making",
+          "Improves client engagement and satisfaction"
+        ]
+      },
+      "financial-admin": {
+        "name": "Financial Administration Assistant",
+        "description": "Streamlines financial document processing, bookkeeping, and compliance reporting",
+        "benefits": [
+          "Automated document processing and data extraction",
+          "Streamlined bookkeeping and reconciliation",
+          "Enhanced compliance reporting",
+          "Reduced manual errors by up to 95%",
+          "Saves up to 15 hours per week on administrative tasks"
+        ]
+      },
+      "tax-advisor": {
+        "name": "Tax Advisory Assistant",
+        "description": "Provides tax optimization strategies and keeps track of regulatory changes",
+        "benefits": [
+          "Proactive tax planning and optimization",
+          "Real-time regulatory compliance monitoring",
+          "Custom tax advice for clients",
+          "Up to 30% reduction in tax preparation time",
+          "Enhanced accuracy in tax filings"
+        ]
+      },
+      "financial-analyst": {
+        "name": "Financial Analysis Assistant",
+        "description": "Analyzes financial data to provide insights and forecasts for client businesses",
+        "benefits": [
+          "Automated financial reporting and analysis",
+          "Predictive cash flow forecasting",
+          "Business performance benchmarking",
+          "Custom financial health dashboards",
+          "Strategic growth recommendations"
+        ]
+      }
+    },
+    "rental": {
+      "reservation-assistant": {
+        "name": "Reservation Assistant",
+        "description": "Automates the reservation process, optimizes availability, and improves customer satisfaction",
+        "benefits": [
+          "24/7 availability for making reservations",
+          "Smart resource allocation for optimal occupancy",
+          "Automatic confirmations and reminders for customers",
+          "Easily handle changes and cancellations",
+          "Seamless integration with your existing booking system"
+        ]
+      },
+      "inventory-assistant": {
+        "name": "Inventory Management Assistant",
+        "description": "Tracks your rental inventory, schedules maintenance, and optimizes asset lifecycle",
+        "benefits": [
+          "Real-time visibility of all rentable items",
+          "Automated maintenance scheduling and alerts",
+          "Optimization of asset usage and lifespan",
+          "Detailed reporting on performance per item",
+          "Predictive analytics for peak periods and purchases"
+        ]
+      },
+      "customer-service-assistant": {
+        "name": "Customer Service Assistant",
+        "description": "Provides 24/7 support for your renters, answers questions, and resolves issues",
+        "benefits": [
+          "Immediate answers to frequently asked questions",
+          "Guidance on using rented equipment",
+          "Issue reporting and escalation when needed",
+          "Multilingual support for diverse customers",
+          "Personalization based on customer history and preferences"
+        ]
+      }
     }
   },
   "intakeProcess": {
@@ -327,13 +544,66 @@
     "keyBenefits": "Key benefits:",
     "moreBenefits": "more benefits",
     "learnMore": "Learn more",
-    "customize": "Customize"
+    "customize": "Customize",
+    "help": "Help and support"
   },
   "chat": {
     "welcome": "Hello, I'm Wilson, your AI assistant. How can I help you today?",
     "typingIndicator": "Wilson is typing...",
     "chatWithWilson": "Chat with Wilson",
     "askQuestion": "Ask your question directly"
+  },
+  "header": {
+    "home": "Home",
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "organizations": "Organizations",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "description": "Log in to access the dashboard",
+      "email": "Email",
+      "password": "Password",
+      "submitButton": "Login",
+      "loading": "Logging in...",
+      "googleLogin": "Login with Google",
+      "noAccount": "Don't have an account?",
+      "register": "Register here",
+      "errors": {
+        "invalidCredentials": "Invalid credentials. Please check your email and password.",
+        "generic": "An error occurred. Please try again later."
+      }
+    },
+    "register": {
+      "title": "Create Account",
+      "description": "Fill in your details to create a new account",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submitButton": "Register",
+      "loading": "Registering...",
+      "googleRegister": "Register with Google",
+      "hasAccount": "Already have an account?",
+      "login": "Log in here",
+      "errors": {
+        "passwordMismatch": "Passwords do not match",
+        "generic": "An error occurred. Please try again later."
+      }
+    },
+    "unauthorized": {
+      "title": "Access Denied",
+      "message": "You do not have access to this page.",
+      "backHome": "Back to home page"
+    },
+    "verifyRequest": {
+      "title": "Check your email",
+      "message": "A verification link has been sent to your email address. Click the link in the email to verify your account.",
+      "backLogin": "Back to login"
+    }
   },
   "organization": {
     "overview": "Overview",
@@ -358,6 +628,11 @@
     "readyTransform": "Ready to transform your organization with AI?",
     "contactDesc": "Contact us today for a personalized demo or go through our configuration wizard to build your own AI assistant.",
     "contactUs": "Contact us",
-    "startConfig": "Start configuration"
+    "startConfig": "Start configuration",
+    "help": "Help and support"
+  },
+  "organizationCard": {
+    "chooseType": "Choose this type",
+    "viewAssistants": "View assistants"
   }
 } 

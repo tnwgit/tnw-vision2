@@ -17,10 +17,106 @@
     "tryDemo": "Demo proberen",
     "openMenu": "Menu openen",
     "closeMenu": "Menu sluiten",
-    "getStarted": "Aan de slag"
+    "getStarted": "Aan de slag",
+    "trustCenter": "Vertrouwenscentrum"
+  },
+  "trustCenter": {
+    "hero": {
+      "title": "Vertrouwenscentrum",
+      "subtitle": "Onze toewijding aan beveiliging, privacy en compliance als EU-gebaseerde AI-oplossingsprovider"
+    },
+    "intro": {
+      "title": "Vertrouwen opbouwen in AI-oplossingen",
+      "description": "Bij The Next Wilson begrijpen we dat vertrouwen de basis is van elke succesvolle AI-implementatie. Als EU-gebaseerde aanbieder van AI-gestuurde automatiseringsoplossingen, zetten wij ons in voor het handhaven van de hoogste normen op het gebied van gegevensbescherming, beveiliging en ethisch AI-gebruik.",
+      "commitment": "Ons Vertrouwenscentrum dient als een uitgebreid kader voor onze aanpak van compliance en beveiliging in onze producten en diensten, zodat alle belanghebbenden volledig kunnen vertrouwen op onze oplossingen."
+    },
+    "compliance": {
+      "title": "Ons Compliance Raamwerk",
+      "gdpr": {
+        "title": "AVG Compliance",
+        "description": "Wij voldoen volledig aan de Algemene Verordening Gegevensbescherming, zodat alle persoonsgegevens rechtmatig, eerlijk en transparant worden verwerkt.",
+        "points": {
+          "dataMinimization": "Dataminimalisatieprincipes toegepast op alle verwerkingen",
+          "consent": "Duidelijke toestemmingsmechanismen en rechtsgrond voor alle gegevensverwerking",
+          "rights": "Ondersteuning voor alle rechten van betrokkenen (inzage, rectificatie, wissen)",
+          "breach": "Robuuste procedures voor melding van datalekken"
+        }
+      },
+      "security": {
+        "title": "Databeveiliging",
+        "description": "Onze meerlaagse beveiligingsaanpak beschermt uw gegevens in elke fase van de verwerking.",
+        "points": {
+          "encryption": "End-to-end encryptie voor gegevens in transit en in rust",
+          "access": "Rolgebaseerde toegangscontroles en principe van minimale rechten",
+          "monitoring": "24/7 beveiligingsmonitoring en detectie van bedreigingen",
+          "testing": "Regelmatige penetratietests en beveiligingsaudits"
+        }
+      },
+      "ethics": {
+        "title": "AI-ethiek & Governance",
+        "description": "Wij ontwikkelen en implementeren AI-systemen die voldoen aan ethische principes en governance-standaarden.",
+        "points": {
+          "fairness": "Eerlijkheid en beperking van vooroordelen in AI-systemen",
+          "transparency": "Uitlegbare AI-benaderingen waar passend",
+          "humancentric": "Mensgerichte ontwerpen met passend menselijk toezicht",
+          "oversight": "Toezicht door interne AI-ethiekcommissie"
+        }
+      },
+      "aiAct": {
+        "title": "EU AI-verordening Gereedheid",
+        "description": "Wij zijn voorbereid op naleving van de aankomende EU AI-verordening.",
+        "points": {
+          "riskAssessment": "Uitgebreide risicobeoordelingsmethodologie",
+          "documentation": "Grondige technische documentatie van AI-systemen",
+          "transparency": "Transparantievereisten voor AI-systemen met hoog risico",
+          "governance": "Sterk governance-kader voor AI-ontwikkeling"
+        }
+      },
+      "dataResidency": {
+        "title": "EU Dataresidentie",
+        "description": "Wij zorgen ervoor dat uw gegevens binnen de EU-jurisdictie blijven met sterke soevereiniteitsbescherming.",
+        "points": {
+          "euHosting": "Alle productie-infrastructuur gehost binnen de EU",
+          "transfers": "Geen onnodige gegevensoverdracht naar derde landen",
+          "sovereignty": "EU-datasoevereiniteit gegarandeerd door ontwerp",
+          "locality": "Lokale verwerkingsopties beschikbaar voor gevoelige workloads"
+        }
+      },
+      "certifications": {
+        "title": "Certificeringen & Compliance",
+        "description": "Wij handhaven certificeringen volgens industriestandaarden om onze toewijding aan beveiliging en compliance aan te tonen.",
+        "points": {
+          "iso27001": "ISO 27001 gecertificeerd informatiebeveiligingsmanagementsysteem",
+          "soc2": "SOC 2 Type II geauditeerde controles",
+          "cloudSecurity": "Cloud Security Alliance STAR compliance",
+          "privacy": "Naleving van de EU Cloud Code of Conduct"
+        }
+      }
+    },
+    "commitment": {
+      "title": "Onze Voortdurende Toewijding",
+      "description": "Vertrouwen opbouwen is een doorlopend proces. Wij verbeteren onze praktijken voortdurend en onderhouden een open dialoog met onze klanten over beveiliging en compliance.",
+      "transparency": {
+        "title": "Transparantie",
+        "description": "Wij bieden duidelijke documentatie over hoe onze diensten werken, welke gegevens worden verzameld en hoe deze worden gebruikt."
+      },
+      "privacy": {
+        "title": "Privacy by Design",
+        "description": "Privacyoverwegingen zijn geïntegreerd in elke fase van ons ontwikkelingsproces."
+      },
+      "documentation": {
+        "title": "Uitgebreide Documentatie",
+        "description": "Gedetailleerde compliance-documentatie is beschikbaar voor klanten om hun eigen compliance-behoeften te ondersteunen."
+      }
+    },
+    "contact": {
+      "title": "Contact met Ons Vertrouwensteam",
+      "description": "Heeft u vragen over onze beveiligingspraktijken, compliance of gegevensverwerking? Ons Vertrouwensteam staat voor u klaar.",
+      "cta": "Contact Vertrouwens- & Compliance Team"
+    }
   },
   "footer": {
-    "about": "Gespecialiseerde AI-assistenten voor verschillende sectoren, gebouwd met een menselijke touch.",
+    "about": "Over ons",
     "quickLinks": "Snelle Links",
     "services": "Diensten",
     "configWizard": "Configuratiewizard",
@@ -28,10 +124,11 @@
     "education": "Onderwijs",
     "government": "Overheid",
     "contactInfo": "Contact Informatie",
-    "allRightsReserved": "Alle rechten voorbehouden.",
+    "allRightsReserved": "© 2023 TNW-vision. Alle rechten voorbehouden.",
     "privacyPolicy": "Privacybeleid",
     "termsOfService": "Gebruiksvoorwaarden",
-    "cookiePolicy": "Cookiebeleid"
+    "cookiePolicy": "Cookiebeleid",
+    "trustCenter": "Vertrouwenscentrum"
   },
   "notFound": {
     "title": "404",
@@ -148,6 +245,23 @@
       "name": "Huisartsenpraktijk",
       "description": "AI-assistenten voor huisartsen om patiëntenzorg te verbeteren en administratieve werkzaamheden te optimaliseren.",
       "assistantsAvailable": "assistenten beschikbaar"
+    },
+    "accountant": {
+      "name": "Accountantskantoor",
+      "description": "AI-assistenten voor accountants om financiële administratie te stroomlijnen, compliance te verbeteren en klantenservice te optimaliseren.",
+      "assistantsAvailable": "assistenten beschikbaar"
+    },
+    "rental": {
+      "name": "Verhuurbedrijf",
+      "description": "Verhuur van apparatuur, voertuigen, of vastgoed",
+      "assistantsAvailable": "assistenten beschikbaar",
+      "benefits": [
+        "Automatiseer het reserveringsproces en beheer de beschikbaarheid",
+        "Verbeter de klanttevredenheid met 24/7 ondersteuning",
+        "Optimaliseer onderhoud en beheersplanning",
+        "Verhoog de bezettingsgraad door efficiëntere toewijzing",
+        "Verlaag operationele kosten door geautomatiseerde workflows"
+      ]
     }
   },
   "assistants": {
@@ -244,6 +358,76 @@
           "Monitoring van medicatietrouw",
           "Follow-up na ontslag",
           "Patiënttevredenheidsonderzoeken"
+        ]
+      }
+    },
+    "accountant": {
+      "tax-assistant": {
+        "name": "Belastingaangifte Assistent",
+        "description": "Helpt bij het voorbereiden en controleren van belastingaangiftes, identificeert optimalisatiemogelijkheden en zorgt voor compliance",
+        "benefits": [
+          "Automatiseert verzameling van relevante financiële gegevens",
+          "Identificeert belastingbesparende mogelijkheden",
+          "Controleert aangiftes op fouten en inconsistenties",
+          "Houdt wijzigingen in belastingwetgeving bij",
+          "Reduceert voorbereidingstijd met tot 40%"
+        ]
+      },
+      "bookkeeping-assistant": {
+        "name": "Boekhouding Assistent",
+        "description": "Stroomlijnt boekhoudprocessen, automatiseert gegevensinvoer en reconciliatie, en genereert financiële rapportages",
+        "benefits": [
+          "Automatiseert factuurverwerking en gegevensinvoer",
+          "Reconcilieert bankafschriften en transacties",
+          "Categoriseert uitgaven met hoge nauwkeurigheid",
+          "Genereert maandelijkse financiële overzichten",
+          "Integreert met populaire boekhoudpakketten"
+        ]
+      },
+      "client-advisor": {
+        "name": "Klantadvies Assistent",
+        "description": "Biedt proactief financieel advies aan klanten op basis van hun actuele financiële situatie en bedrijfsdoelen",
+        "benefits": [
+          "Analyseert financiële gegevens voor gepersonaliseerd advies",
+          "Identificeert kostenbesparende mogelijkheden",
+          "Signaleert cashflow-problemen voordat ze ontstaan",
+          "Genereert scenario-analyses voor besluitvorming",
+          "Verbetert klantbetrokkenheid en -tevredenheid"
+        ]
+      }
+    },
+    "rental": {
+      "reservation-assistant": {
+        "name": "Reserveringsassistent",
+        "description": "Automatiseert het reserveringsproces, optimaliseert beschikbaarheid en verbetert de klanttevredenheid",
+        "benefits": [
+          "24/7 beschikbaarheid voor het maken van reserveringen",
+          "Slimme toewijzing van middelen voor optimale bezetting",
+          "Automatische bevestigingen en herinneringen voor klanten",
+          "Eenvoudige wijzigingen en annuleringen afhandelen",
+          "Naadloze integratie met uw bestaande boekingssysteem"
+        ]
+      },
+      "inventory-assistant": {
+        "name": "Voorraadbeheersassistent",
+        "description": "Houdt uw verhuurinventaris bij, plant onderhoud en optimaliseert de levenscyclus van assets",
+        "benefits": [
+          "Real-time zichtbaarheid van alle verhuurbare items",
+          "Geautomatiseerde onderhoudsplanning en waarschuwingen",
+          "Optimalisatie van asset-gebruik en levensduur",
+          "Gedetailleerde rapportage over prestaties per item",
+          "Voorspellende analyses voor piekperiodes en aankopen"
+        ]
+      },
+      "customer-service-assistant": {
+        "name": "Klantenserviceassistent",
+        "description": "Biedt 24/7 ondersteuning voor uw huurders, beantwoordt vragen en lost problemen op",
+        "benefits": [
+          "Onmiddellijke antwoorden op veelgestelde vragen",
+          "Begeleiding bij het gebruik van gehuurde apparatuur",
+          "Probleemmelding en escalatie wanneer nodig",
+          "Meertalige ondersteuning voor diverse klanten",
+          "Personalisatie op basis van klantgeschiedenis en voorkeuren"
         ]
       }
     }
@@ -359,5 +543,70 @@
     "contactDesc": "Neem vandaag nog contact met ons op voor een gepersonaliseerde demo of doorloop onze configuratiewizard om uw eigen AI-assistent samen te stellen.",
     "contactUs": "Neem contact op",
     "startConfig": "Start de configuratie"
+  },
+  "header": {
+    "home": "Home",
+    "profile": "Profiel",
+    "dashboard": "Dashboard",
+    "organizations": "Organisaties",
+    "login": "Inloggen",
+    "logout": "Uitloggen"
+  },
+  "auth": {
+    "login": {
+      "title": "Inloggen",
+      "description": "Log in om toegang te krijgen tot het dashboard",
+      "email": "E-mailadres",
+      "password": "Wachtwoord",
+      "submitButton": "Inloggen",
+      "loading": "Bezig met inloggen...",
+      "googleLogin": "Inloggen met Google",
+      "noAccount": "Nog geen account?",
+      "register": "Registreer hier",
+      "errors": {
+        "invalidCredentials": "Ongeldige inloggegevens. Controleer je e-mailadres en wachtwoord.",
+        "generic": "Er is een fout opgetreden. Probeer het later opnieuw."
+      }
+    },
+    "register": {
+      "title": "Account aanmaken",
+      "description": "Vul je gegevens in om een nieuw account aan te maken",
+      "name": "Naam",
+      "email": "E-mailadres",
+      "password": "Wachtwoord",
+      "confirmPassword": "Bevestig wachtwoord",
+      "submitButton": "Registreren",
+      "loading": "Bezig met registreren...",
+      "googleRegister": "Registreren met Google",
+      "hasAccount": "Heb je al een account?",
+      "login": "Log hier in",
+      "errors": {
+        "passwordMismatch": "Wachtwoorden komen niet overeen",
+        "generic": "Er is een fout opgetreden. Probeer het later opnieuw."
+      }
+    },
+    "unauthorized": {
+      "title": "Geen toegang",
+      "message": "Je hebt geen toegang tot deze pagina.",
+      "backHome": "Terug naar de homepagina"
+    },
+    "verifyRequest": {
+      "title": "Controleer je e-mail",
+      "message": "Er is een verificatielink naar je e-mailadres gestuurd. Klik op de link in de e-mail om je account te verifiëren.",
+      "backLogin": "Terug naar inloggen"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welkom",
+    "welcomeMessage": "Dit is je persoonlijke dashboard. Hier kun je je gegevens beheren en de status van je projecten bekijken.",
+    "quickActions": "Snelle acties",
+    "editProfile": "Profiel bewerken",
+    "newProject": "Nieuw project starten",
+    "help": "Hulp en ondersteuning"
+  },
+  "organizationCard": {
+    "chooseType": "Kies dit type",
+    "viewAssistants": "Bekijk assistenten"
   }
 } 

@@ -1,0 +1,31 @@
+{
+  "title": "AI-assistenten visualisatie",
+  "description": "Ontdek hoe AI-assistenten jouw organisatie kunnen versterken",
+  "organization": {
+    "title": "Jouw organisatie",
+    "elements": {
+      "identity": "Identiteit",
+      "people": "Mensen",
+      "processes": "Processen",
+      "data": "Data"
+    }
+  },
+  "steps": {
+    "1": "De organisatie staat centraal",
+    "2": "Unieke kenmerken maken jullie organisatie bijzonder",
+    "3": "AI-assistenten geven superkrachten",
+    "4": "Assistenten leren van jullie organisatie",
+    "5": "Assistenten werken samen voor optimaal resultaat"
+  },
+  "controls": {
+    "play": "Afspelen",
+    "pause": "Pauzeren",
+    "restart": "Opnieuw"
+  },
+  "orgTypes": {
+    "healthcare": "Zorginstelling",
+    "education": "Onderwijsinstelling",
+    "municipality": "Gemeente",
+    "hotel": "Hotel"
+  }
+} 

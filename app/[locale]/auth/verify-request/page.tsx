@@ -1,41 +1,49 @@
+"use client";
+
 import Link from "next/link";
 import { MainLayout } from "@/app/components/layout/main-layout";
 import { Section } from "@/app/components/ui/section";
-import { Button } from "@/app/components/ui/button";
-import { Mail, ArrowLeft } from "lucide-react";
-import { useLocale } from "next-intl";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function VerifyRequestPage() {
-  const locale = useLocale();
-  
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations("auth.verifyRequest");
+
   return (
     <MainLayout>
-      <Section className="py-12">
-        <div className="max-w-md mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <div className="bg-blue-100 p-3 rounded-full">
-              <Mail className="h-12 w-12 text-blue-600" />
-            </div>
+      <Section className="py-16 md:py-24">
+        <div className="mx-auto max-w-md space-y-6 p-6 bg-white rounded-lg shadow-md text-center">
+          <h1 className="text-2xl font-bold">{t("title")}</h1>
+          
+          <div className="my-8">
+            <svg
+              className="w-16 h-16 mx-auto text-blue-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
           </div>
           
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
-            Controleer je e-mail
-          </h1>
-          
-          <p className="text-lg text-gray-600 mb-4">
-            Er is een verificatielink verzonden naar je e-mailadres. Klik op de link in de e-mail om je account te activeren.
+          <p className="text-gray-600 mb-8">
+            {t("message")}
           </p>
           
-          <p className="text-md text-gray-500 mb-8">
-            De e-mail kan enkele minuten onderweg zijn. Controleer ook je spam of ongewenste e-mail als je de e-mail niet kunt vinden.
-          </p>
-          
-          <div className="flex justify-center">
-            <Link href={`/${locale}/auth/login`} passHref>
-              <Button className="flex items-center">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Terug naar inloggen
-              </Button>
+          <div>
+            <Link
+              href={`/${locale}/auth/login`}
+              className="text-blue-600 hover:underline block mt-4"
+            >
+              {t("backLogin")}
             </Link>
           </div>
         </div>

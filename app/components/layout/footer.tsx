@@ -74,6 +74,11 @@ export function Footer() {
                   {t('navigation.contact')}
                 </Link>
               </li>
+              <li>
+                <Link href={`/${locale}/trust-center`} className="text-gray-400 hover:text-white transition-colors">
+                  {t('navigation.trustCenter')}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -148,6 +153,9 @@ export function Footer() {
             </Link>
             <Link href={`/${locale}/cookies`} className="text-gray-500 hover:text-white text-sm transition-colors">
               {t('footer.cookiePolicy')}
+            </Link>
+            <Link href={`/${locale}/trust-center`} className="text-gray-500 hover:text-white text-sm transition-colors">
+              {t('footer.trustCenter')}
             </Link>
           </div>
         </div>

@@ -1,0 +1,55 @@
+{
+  "title": "AI Assistant Visualization",
+  "description": "Discover how AI assistants can strengthen your organization",
+  "organization": {
+    "title": "Your organization",
+    "elements": {
+      "identity": "Identity",
+      "people": "People",
+      "processes": "Processes",
+      "data": "Data"
+    }
+  },
+  "steps": {
+    "1": "The organization is central",
+    "2": "Unique characteristics make your organization special",
+    "3": "AI assistants provide superpowers",
+    "4": "Assistants learn from your organization",
+    "5": "Assistants work together for optimal results"
+  },
+  "controls": {
+    "play": "Play",
+    "pause": "Pause",
+    "restart": "Restart"
+  },
+  "orgTypes": {
+    "healthcare": "Healthcare Institution",
+    "education": "Educational Institution",
+    "municipality": "Municipality",
+    "hotel": "Hotel"
+  },
+  "stages": {
+    "organization": "Your organization is unique",
+    "growth": "You want to grow, but are held back",
+    "assistants": "Imagine getting help",
+    "knowledge": "Know exactly how you work",
+    "communication": "They work together",
+    "all": "Dream big, start small",
+    "growth_success": "Start today, win tomorrow"
+  },
+  "barriers": {
+    "growth": "Growth blocked"
+  },
+  "success": {
+    "growth": "Successful growth thanks to AI assistants!"
+  },
+  "voiceover": {
+    "organisation": "This is your organization. With your own people, your own structure, your own processes and your own unique history and identity.",
+    "growth_blocked": "Things are going well... But you're hitting limits, while you want or perhaps even need to grow in quality, revenue, customers or employees.",
+    "assistants": "Imagine... Getting help from smart, digital AI assistants, available 24/7, that keep getting smarter and can do more and more.",
+    "knowledge": "Assistants that work with your people, data and workflows. Completely customized for your organization.",
+    "communication": "They coordinate with you and each other, share knowledge and work together seamlessly.",
+    "all": "Start with one and expand to multiple assistants — tailored to your needs and pace.",
+    "growth_success": "This gives your team superpowers. And allows your organization to grow further and faster — towards your ambitions. Winning tomorrow means starting today!"
+  }
+} 

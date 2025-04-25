@@ -1,44 +1,49 @@
 "use client";
 
+import Link from "next/link";
 import { MainLayout } from "@/app/components/layout/main-layout";
 import { Section } from "@/app/components/ui/section";
-import { Button } from "@/app/components/ui/button";
-import { useLocale } from "next-intl";
-import Link from "next/link";
-import { ShieldAlert } from "lucide-react";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function UnauthorizedPage() {
-  const locale = useLocale();
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations("auth.unauthorized");
 
   return (
     <MainLayout>
       <Section className="py-16 md:py-24">
-        <div className="max-w-md mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <div className="h-20 w-20 rounded-full bg-red-100 flex items-center justify-center">
-              <ShieldAlert className="h-10 w-10 text-red-600" />
-            </div>
+        <div className="mx-auto max-w-md space-y-6 p-6 bg-white rounded-lg shadow-md text-center">
+          <h1 className="text-2xl font-bold">{t("title")}</h1>
+          
+          <div className="my-8">
+            <svg
+              className="w-16 h-16 mx-auto text-red-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
           </div>
           
-          <h1 className="text-2xl font-bold text-gray-900 mb-3">
-            Geen toegang
-          </h1>
-          
           <p className="text-gray-600 mb-8">
-            Je hebt niet de juiste rechten om deze pagina te bekijken. Neem contact op met een beheerder als je denkt dat dit een fout is.
+            {t("message")}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href={`/${locale}`}>
-              <Button variant="outline">
-                Terug naar home
-              </Button>
-            </Link>
-            
-            <Link href={`/${locale}/profile`}>
-              <Button>
-                Naar mijn profiel
-              </Button>
+          <div>
+            <Link
+              href={`/${locale}`}
+              className="text-blue-600 hover:underline block mt-4"
+            >
+              {t("backHome")}
             </Link>
           </div>
         </div>

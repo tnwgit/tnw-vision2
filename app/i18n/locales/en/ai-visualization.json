@@ -1,0 +1,31 @@
+{
+  "title": "AI assistants visualization",
+  "description": "Discover how AI assistants can strengthen your organization",
+  "organization": {
+    "title": "Your organization",
+    "elements": {
+      "identity": "Identity",
+      "people": "People",
+      "processes": "Processes",
+      "data": "Data"
+    }
+  },
+  "steps": {
+    "1": "The organization is central",
+    "2": "Unique characteristics make your organization special",
+    "3": "AI assistants provide superpowers",
+    "4": "Assistants learn from your organization",
+    "5": "Assistants collaborate for optimal results"
+  },
+  "controls": {
+    "play": "Play",
+    "pause": "Pause",
+    "restart": "Restart"
+  },
+  "orgTypes": {
+    "healthcare": "Healthcare institution",
+    "education": "Educational institution",
+    "municipality": "Municipality",
+    "hotel": "Hotel"
+  }
+} 
